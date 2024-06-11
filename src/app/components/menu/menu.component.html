@@ -1,0 +1,127 @@
+<!--------------------------------------------------------->
+<!-- Navigation Bar -->
+<!--------------------------------------------------------->
+<nav (window:resize)="onResize($event)">
+    <ul>
+        <li class="small-display-menu" [style.backgroundColor]="!menuClosed ? '#111' : 'inherit'" (click)="onMenuClick([home, news, about, contact, login])">
+            <a style="display: flex; align-items: center; width: 100%; font-size: larger;">
+                <div class="menu-icon-container">
+                    <div class="menu-icon"></div>
+                    <div class="menu-icon"></div>
+                    <div class="menu-icon"></div>
+                </div>
+                <span class="menu-icon-menu" style="float: left; position: relative; margin: auto; left: -35px">Menu</span>
+            </a>
+
+        </li>
+        
+        <!-- <li><a href="#">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li onclick="document.getElementById('login-modal').style.display='block'"><a href="#">Login</a></li> -->
+
+        <li #home [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a routerLink="">Home</a></li>
+        <li #news [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a>News</a></li>
+        <li #about [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a>About</a></li>
+        <li #contact [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a>Contact</a></li>
+        <!-- <li #login [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'" onclick="document.getElementById('login-modal').style.display='block'"><a>Login</a></li> -->
+        <li #login [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'" (click)="loginPageShow()">
+          <a *ngIf="authService.isLoggedIn() === false">Login</a>
+          <a *ngIf="authService.isLoggedIn() === true"> {{ authService.getCurrentUser()?.userInfo?.firstname }} {{ authService.getCurrentUser()?.userInfo?.lastname }} </a>
+        </li>
+        
+        
+
+    </ul>
+</nav>
+<!--------------------------------------------------------->
+<!-- Navigation Bar - END -->
+<!--------------------------------------------------------->
+
+
+    <!--------------------------------------------------------->
+    <!-- Login Page -->
+    <!--------------------------------------------------------->
+    <div class="login-container">
+        
+        <div id="login-modal" class="modal" #modalView [style.display]="displayLoginPage ? 'block' : 'none'">
+          
+          <form class="login-modal-content animate" [formGroup]="loginForm">
+            <div class="login-image-container">
+              <span (click)="loginPageShow()" class="login-modal-close-button" title="Close Modal">&times;</span>
+              <img [src]="userLoginProfileImage" alt="Avatar" class="login-image">
+            </div>
+        
+            <div class="login-modal-container">
+              
+              <div class="input-container">
+                <div class="email-container">
+                  <label for="email" class="login-email-label"><b>E-mail</b></label>
+                  <input type="text" formControlName="email" [ngStyle]="{'border-bottom-right-radius': (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) ? '0px' : '4px', 'border-bottom-left-radius': (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) ? '0px' : '4px' }" placeholder="Enter e-mail" name="email" required>
+                  <div class="alert" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+                    <span *ngIf="loginForm.get('email')?.getError('required')">
+                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                      <span class="alert-description">Please insert your email!</span>                            
+                    </span>
+                    <span *ngIf="loginForm.get('email')?.getError('pattern')">
+                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                      <span class="alert-description">Wrong e-mail format!</span>
+                    </span>
+                    <span *ngIf="loginForm.get('email')?.getError('emailNotFound')">
+                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                      <span class="alert-description">E-mail is not related to any Account.</span>
+                    </span>
+                  </div>
+                </div>
+  
+                
+  
+                <div class="password-container">
+                  <label for="password" class="login-password-label"><b>Password</b></label>
+                  <input type="password" formControlName="password" [ngStyle]="{'border-bottom-right-radius': (loginForm.get('password')?.touched && loginForm.get('password')?.invalid) ? '0px' : '4px', 'border-bottom-left-radius': (loginForm.get('password')?.touched && loginForm.get('password')?.invalid) ? '0px' : '4px' }" placeholder="Enter Password" name="password" required>
+                  <div class="alert alert-password" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+                    <span *ngIf="loginForm.get('password')?.getError('required')">
+                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                      <span class="alert-description">Password is required!</span>
+                    </span>
+                    <span *ngIf="loginForm.get('password')?.getError('pattern')">
+                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                      <span class="alert-description">Password format is not correct!</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="alert" style="border-radius: 4px;" *ngIf="loginForm.getError('authentification')">
+                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                  <span class="alert-description">Wrong E-mail or Password!</span>
+                </div>
+
+              </div>
+                
+
+              <div class="login-register">
+                Don't have account? <a class="link" (click)="onRegister()">register</a>
+              </div>
+
+              <button type="submit" (click)="onLogin()" [disabled]="loginForm.invalid">Login</button>
+              <label class="login-remember-me-check-box">
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+
+            </div>
+        
+            <div class="login-modal-container" style="background-color:#f1f1f1">
+              <button type="button" (click)="loginPageShow()" class="cancel-button">Cancel</button>
+              <span class="psw">Forgot <a href="">password?</a></span>
+            </div>
+          </form>
+        </div>
+
+    </div>
+    <!--------------------------------------------------------->
+    <!-- Login Page - END -->
+    <!--------------------------------------------------------->
+
+
+    

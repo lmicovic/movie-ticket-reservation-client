@@ -1,0 +1,26 @@
+<!--------------------------------------------------------->
+<!-- Main Banner -->
+<!--------------------------------------------------------->
+<div class="main-banner-container">
+    <div class="main-banner">
+        
+        <img *ngFor="let banner of bannerImages; index as i" [src]="banner" [alt]="'banner image' + (i+1)" [id]="'img' + (i+1)" />
+        
+        
+        
+        <!-- <img [src]="bannerImages[0]" alt="banner image 1" id="img1" />
+        <img [src]="bannerImages[1]" alt="banner image 2" id="img2" /> -->
+    </div>
+    <i class="arrow banner-left" (click)="changeSlidePrevious()"></i>
+    <i class="arrow banner-right" (click)="changeSlideNext()"></i>
+    <div class="main-banner-navigation-button-container">
+        
+        <span *ngFor="let banner of bannerImages; index as i" class="main-banner-navigation-button main-banner-navigation-button-dot" [class.main-banner-navigation-button-active]="i ===0" (click)="changeSlide(i, false, false, true)"></span>
+
+        <!-- <span class="main-banner-navigation-button main-banner-navigation-button-active main-banner-navigation-button-dot" onclick="changeSlide(0)"></span>
+        <span class="main-banner-navigation-button main-banner-navigation-button-dot" onclick="changeSlide(1)"></span> -->
+    </div>
+</div>
+<!--------------------------------------------------------->
+<!-- Main Banbner - END -->
+<!--------------------------------------------------------->

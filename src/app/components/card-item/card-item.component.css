@@ -1,0 +1,25 @@
+.card-container {
+    border: 1px solid #DDD;
+    border-radius: 16px;
+    background-color: #F2F2F2;
+    padding: 29px 40px 40px 40px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 12px 0 24px 0;
+}
+
+.card-title {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 800px) {
+
+    .card-container {
+        padding: 40px;
+    }
+
+}

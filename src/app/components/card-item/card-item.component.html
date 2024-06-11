@@ -1,0 +1,16 @@
+
+
+<div class="card-container" [ngStyle]="{'border-radius': borderRadius, 'border-bottom-left-radius': borderRadiusBottomLeft, 'border-bottom-right-radius': borderRadiusBottomRight, 'border-top-left-radius': borderRadiusTopLeft, 'border-top-right-radius': borderRadiusTopRight, 'margin-top': marginTop, 'margin-bottom': marginBottom}">
+
+    <span *ngIf="title !== null && title !== ''">
+        <h3 class="card-title" [style.fontWeight]="boldTitle" [style.fontSize]="titleSize"> {{ title }} </h3>
+        <hr>
+    </span>
+    <div class="card-content">
+
+       <ng-content selector=".card-content"></ng-content>
+
+    </div>
+
+</div>
+

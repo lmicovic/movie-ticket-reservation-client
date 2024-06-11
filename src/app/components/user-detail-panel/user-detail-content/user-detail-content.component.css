@@ -1,0 +1,49 @@
+
+.user-detail-information-panel-item-container {
+    background-color: white;
+}
+
+.user-detail-information-panel-item-header {
+    /* background-color: red; */
+    height: 40px;
+}
+
+.user-detail-information-panel-item-header:hover {
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: #4a4a4a;
+    color: white;
+}
+
+.user-detail-information-panel-item-header:hover .title-arrow-up {
+    fill: white;
+}
+
+.user-detail-information-panel-item-header:hover .title-arrow-down {
+    fill: white;
+}
+
+.title-arrow-up {
+    fill: black;
+    margin-left: 5px;
+}
+
+.title-arrow-down {
+    fill: black;
+}
+
+.user-detail-information-panel-item-header-text {
+    font-size: 18px;
+    vertical-align: middle;
+    line-height: 2.2;
+    margin-left: 15px;
+    
+}
+
+.user-detail-information-panel-item-content {
+    /* background-color: green; */
+}
+
+.user-detail-information-panel-item-content {
+    padding: 0 20px;
+}

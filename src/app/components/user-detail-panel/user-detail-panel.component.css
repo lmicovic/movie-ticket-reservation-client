@@ -1,0 +1,71 @@
+.user-detail-information-container {
+    width: 100%;
+    border: 1px solid #DDD;
+    border-radius: 16px;
+    background-color: #F2F2F2;
+    padding: 29px 40px 30px 40px;
+}
+
+.user-detail-information-panel-item-content-container {
+    padding-bottom: 40px;
+}
+
+table {
+    width: 98%;
+    margin: 30px auto 0px auto;
+    border-collapse: collapse;
+    border-radius: 12px;
+    border-style: hidden; /* hide standard table (collapsed) border */
+    box-shadow: 0 0 0 1px #777; /* this draws the table border  */ 
+    background-color: white;
+    overflow-x: scroll;
+    
+}
+
+table tr {
+    height: 50px;
+}
+
+th, td {
+    padding-left: 20px;
+}
+
+tr:hover {
+    background-color: white !important;
+}
+
+th {
+    background-color: #CCC;
+}
+
+th:first-child {
+    border-top-left-radius: 12px;
+}
+
+th:last-child {
+    border-top-right-radius: 12px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+tr:hover {
+    background-color: #777;
+    cursor: pointer;
+}
+
+.empty-table {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 16px;color: rgb(252, 186, 3);
+}
+
+.star-icon {
+    color: rgb(252, 186, 3);
+}

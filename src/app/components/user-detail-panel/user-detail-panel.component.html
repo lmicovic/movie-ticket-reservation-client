@@ -1,0 +1,178 @@
+<div class="user-detail-information-container">
+
+    <!-- Panel -->
+    <div class="user-detail-information-panel">
+
+        <!-- Panel Item -->
+        <user-detail-content [user]="user" [title]="'Watched Movies'" [borderTopLeft]="'16px'" [borderTopRight]="'16px'">
+
+            <div class="user-detail-information-panel-item-content-container" >
+                
+                <table class="user-detail-information-panel-table" *ngIf="user?.reservations !== undefined && user?.watchedMovies!.length > 0">
+
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Year</th>
+                            <th>Authors</th>
+                            <th>Actors</th>
+                            <th>Genre</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+
+                    <tbody *ngFor="let movie of user?.watchedMovies">
+
+                        <tr>
+                            <td> {{ movie.title }} </td>
+                            <td> {{ movie.year }} </td>
+                            <td> {{ movie.authors | stringList }} </td>
+                            <td> {{ movie.actors | stringList }} </td>
+                            <td> {{ movie.genre }} </td>
+                            <td> test </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <div class="empty-table" *ngIf="user?.watchedMovies?.length === 0">
+                    User has no watched movies!
+                </div>
+
+            </div>
+
+        </user-detail-content>
+        <!-- Panel Item - END -->
+
+        <!-- Panel Item -->
+        <user-detail-content [user]="user" [title]="'Bookmarks'">
+
+            <div class="user-detail-information-panel-item-content-container" >
+                
+                <table class="user-detail-information-panel-table" *ngIf="user?.bookmarks !== undefined && user?.bookmarks!.length > 0">
+
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Year</th>
+                            <th>Authors</th>
+                            <th>Actors</th>
+                            <th>Genre</th>
+                        </tr>
+                    </thead>
+
+                    <tbody *ngFor="let movie of user?.bookmarks">
+
+                        <tr>
+                            <td> {{ movie.title }} </td>
+                            <td> {{ movie.year }} </td>
+                            <td> {{ movie.authors | stringList }} </td>
+                            <td> {{ movie.actors | stringList }} </td>
+                            <td> {{ movie.genre }} </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+                
+                <div class="empty-table" *ngIf="user?.bookmarks?.length === 0">
+                    User has no bookmarks!
+                </div>
+
+            </div>
+
+        </user-detail-content>
+        <!-- Panel Item - END -->
+
+        <!-- Panel Item -->
+        <user-detail-content [user]="user"[title]="'Reservations'">
+
+            <div class="user-detail-information-panel-item-content-container" >
+                
+                <table class="user-detail-information-panel-table" *ngIf="user?.reservations !== undefined && user?.reservations!.length > 0">
+
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Time</th>
+                            <th>Room</th>
+                            <th>Reserved Seats</th>
+                            <th>Reservation Date</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+
+                    <tbody *ngFor="let reservation of user?.reservations">
+
+                        <tr>
+                            <td> {{ reservation.projection.movie.title }} </td>
+                            <td> {{ reservation.projection.projectionDate.day }}, {{ reservation.projection.projectionDate.hours }}:{{ reservation.projection.projectionDate.minutes }} </td>
+                            <td> {{ reservation.projection.room.name }} </td>
+                            <td> {{ reservation.reservedSeats | stringList }} </td>
+                            <td> {{ reservation.reservationDate | date: "HH:mm dd.MM.yyyy" }} </td>
+                            <td> {{ reservation.totalPrice | currency }} </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <div class="empty-table" *ngIf="user?.reservations?.length === 0">
+                    User has no reservations!
+                </div>
+
+            </div>
+
+        </user-detail-content>
+        <!-- Panel Item - END -->
+
+        <!-- Panel Item -->
+        <user-detail-content [user]="user" [title]="'Comments'" [borderBottomLeft]="'16px'" [borderBottomRight]="'16px'" [lastPanelItem]="true">
+
+            <div class="user-detail-information-panel-item-content-container">
+                
+                <table class="user-detail-information-panel-table" *ngIf="userComments.length > 0">
+
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Time</th>
+                            <th>Comment</th>
+                            <th>Rating</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody *ngFor="let userComment of userComments">
+
+                        <tr>
+                            <td> {{ userComment.movie.title }} </td>
+                            <td> {{ userComment.date | date: "HH:mm dd.MM.yyyy" }} </td>
+                            <td> {{ userComment.commentText }} </td>
+                            <td> 
+                                <span *ngFor="let star of [].constructor(userComment.rating)" [title]="userComment.rating">
+                                    <!-- {{ userComment.rating }}  -->
+                                    <fa-icon [icon]="faStar" class="star-icon"></fa-icon>
+                                </span>
+                                
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <div class="empty-table" *ngIf="userComments.length === 0">
+                    User has no comments!
+                </div>
+
+            </div>
+            
+        </user-detail-content>
+        <!-- Panel Item - END -->
+        
+
+    </div>
+
+</div>

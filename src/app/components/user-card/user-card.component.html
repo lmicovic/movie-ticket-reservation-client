@@ -1,0 +1,33 @@
+
+<div class="user-card-container">
+
+    <div class="user-preview-card-container" [ngStyle]="{'border-bottom-left-radius': loggedUser === true ? '0px' : '16px', 'border-bottom-right-radius': loggedUser === true ? '0px' : '16px'}">
+
+        <div class="user-image-container">
+            <img class="user-image" [src]="user?.image === undefined ? '../../../assets/images/user-profil-image-empty.png' : user?.image" alt="'user profile image'">
+        </div>
+        
+        
+
+        <div class="user-information-container">
+    
+            <div class="user-name-container">
+                <span> {{ user?.userInfo?.firstname }} {{ user?.userInfo?.lastname }} </span>
+            </div>
+            
+        </div>
+        
+    
+    </div>
+
+    <div class="user-edit-profile-container" *ngIf="isLoggedUser() === true">
+        <button class="user-edit-profile-button" (click)="edit($event)">Edit</button>
+        <button class="user-logout-profile-button" (click)="logout($event)">Logout</button>
+    </div>
+
+
+</div>
+
+
+
+

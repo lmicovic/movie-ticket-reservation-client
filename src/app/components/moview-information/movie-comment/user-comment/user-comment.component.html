@@ -1,0 +1,28 @@
+<div class="user-comment-container">
+
+    <a href=""><img [src]="userComment.user.image"  alt="" /></a>
+    <div class="user-info-container">
+        <span class="user-information"><a (click)="onUserCommentClick(userComment.user.id)"> {{ userComment.user.userInfo.firstname }} {{ userComment.user.userInfo.lastname }} </a></span> <span class="comment-date"> - posted {{ userComment.date | date: "dd.MM.yyyy" }} </span>
+        <span class="user-rating" [title]="userComment.rating">
+            
+            <ng-container *ngFor="let i of [1,2,3,4,5]">
+                <ng-container *ngIf="i <= userComment.rating">
+                    <fa-icon [icon]="faStar" class="star-icon-2"></fa-icon>
+                </ng-container>
+                <ng-container *ngIf="i > userComment.rating">
+                    <fa-icon [icon]="faStar" class="star-icon-empty"></fa-icon>
+                </ng-container>
+            </ng-container>
+        </span>
+
+    </div>
+    
+    <div class="user-comment-content">
+        {{ userComment.commentText }}
+    </div>
+
+        
+
+    
+
+</div>

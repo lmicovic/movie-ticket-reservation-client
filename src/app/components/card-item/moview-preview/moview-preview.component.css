@@ -1,0 +1,151 @@
+.recommended-moview-preview {
+    position: relative;
+    /* width: 100%; - */
+}
+
+.recomended-movies-preview-image {
+    width: 100%;
+    height: auto;
+}
+
+.recomended-movies-preview-image:hover {
+    cursor: pointer;
+}
+
+.recomended-movies-preview-image {
+    width: 100%;
+}
+
+.recomended-movies-image-rating-container {
+
+    
+    position: absolute;
+    top: 0;
+
+    
+    padding: 5px 10px 5px 10px;
+
+    width: auto;
+
+    border-bottom-right-radius: 10px;
+
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    transition: opacity 0.5s linear;
+
+}
+
+.movie-rating-desctiption {
+    display: inline-block;
+}
+
+.recomended-movies-image-rating-container-not-visible {
+    opacity: 0;
+}
+
+.recomended-movies-image-rating-container-visible {
+    opacity: 1;
+}
+
+.movie-rating-value {
+    color: #f5cf14;
+}
+
+.bookmark-container {
+
+    position: absolute;
+    top: 14px;
+    right: 25px;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 100%;
+
+    transition: opacity 0.5s linear;
+
+}
+
+.bookmark-container:hover {
+    cursor: pointer;
+}
+
+.bookmark-container:active {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bookmark-container-bookmarked {
+
+    position: absolute;
+    top: 14px;
+    right: 25px;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 100%;
+
+    transition: opacity 0.5s linear;
+
+
+}
+
+.bookmark-container-bookmarked:hover {
+    cursor: pointer;
+}
+
+.bookmark-container-bookmarked:active {
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+
+.bookmark-icon {
+    position: absolute;
+    left: 4.8px;
+    top: 4px;
+}
+
+
+
+.bookmark-not-visible {
+    opacity: 0;
+}
+
+.bookmark-visible {
+    opacity: 1;
+}
+
+.moview-preview-description {
+
+    position: absolute;
+    bottom: 0px;
+
+    width: 100%;
+    padding: 15px;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #DDD;
+}
+
+.moview-preview-description:hover {
+    cursor: pointer;
+}
+
+
+
+
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.05);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

@@ -1,0 +1,109 @@
+<h3 class="movie-comments-header">Comments <span class="movie-comments-header-comment-count">({{movieComments.length}})</span></h3>
+<hr>
+<div class="movie-comment-container">
+
+    <div class="add-comment-container">
+        <button class="add-comment-button" (click)="onAddCommentButton()">
+            <svg id="Layer_1" style="enable-background:new 0 0 512 512;"  version="1.1" fill="" viewBox="0 0 512 512" width="24px" height="24px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M417.4,224H288V94.6c0-16.9-14.3-30.6-32-30.6c-17.7,0-32,13.7-32,30.6V224H94.6C77.7,224,64,238.3,64,256  c0,17.7,13.7,32,30.6,32H224v129.4c0,16.9,14.3,30.6,32,30.6c17.7,0,32-13.7,32-30.6V288h129.4c16.9,0,30.6-14.3,30.6-32  C448,238.3,434.3,224,417.4,224z"/></svg>
+            <span class="add-comment-button-text">Add Comment</span>
+        </button>
+    </div>
+
+    <hr>
+    <div class="add-comment-menu-container" *ngIf="addCommentMenu">
+        
+        <div class="add-comment-menu-login" *ngIf="authService.isLoggedIn() === false">
+            <div>Please, login to add comment.</div>
+            <button class="comment-login-button" [routerLink]="['/login']" [queryParams]="{returnUrl: '/movie/' + this.movie.id}">Login</button>
+        </div>
+
+        <div class="add-comment-menu" *ngIf="authService.isLoggedIn() === true">
+
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                <div class="add-comment-menu-name-item">
+                    <label for="name" class="add-comment-menu-name-label">Name:</label>
+                    <input type="text" class="add-comment-menu-name-input-text" name="name" id="name" [value]="user.userInfo.firstname + ' ' + user.userInfo.lastname" disabled/>
+                </div>
+
+                <div class="add-comment-menu-rating-item">
+                    <label for="name" class="add-comment-menu-name-label">Rating:</label>
+                    <span class="star-icon-container">
+                        <fa-icon class="star-icon" id="star1" (mouseenter)="onStarHover($event)" (mouseleave)="onStarBlur($event)" (click)="onStarClick($event)" [icon]="faStar" [styles]="{'width': '24px', 'height': '24px', 'color': 'gray'}"></fa-icon>
+                        <fa-icon class="star-icon" id="star2" (mouseenter)="onStarHover($event)" (mouseleave)="onStarBlur($event)" (click)="onStarClick($event)" [icon]="faStar" [styles]="{'width': '24px', 'height': '24px', 'color': 'gray'}"></fa-icon>
+                        <fa-icon class="star-icon" id="star3" (mouseenter)="onStarHover($event)" (mouseleave)="onStarBlur($event)" (click)="onStarClick($event)" [icon]="faStar" [styles]="{'width': '24px', 'height': '24px', 'color': 'gray'}"></fa-icon>
+                        <fa-icon class="star-icon" id="star4" (mouseenter)="onStarHover($event)" (mouseleave)="onStarBlur($event)" (click)="onStarClick($event)" [icon]="faStar" [styles]="{'width': '24px', 'height': '24px', 'color': 'gray'}"></fa-icon>
+                        <fa-icon class="star-icon" id="star5" (mouseenter)="onStarHover($event)" (mouseleave)="onStarBlur($event)" (click)="onStarClick($event)" [icon]="faStar" [styles]="{'width': '24px', 'height': '24px', 'color': 'gray'}"></fa-icon>
+                    </span>
+                </div>
+                
+
+                <div class="add-comment-menu-comment-item">
+                    <textarea class="add-comment-text" formControlName="commentText" name="add-comment-text" id="add-comment-text" placeholder="Add your comment here..." cols="30" rows="10"></textarea>
+                </div>
+
+                <!-- Validation Error -->
+                <div class="alert" *ngIf="form.controls['rating'].hasError('ratingInsert') || form.controls['commentText'].hasError('required')">
+                    <div class="alert-container" *ngIf="form.controls['rating'].hasError('ratingInsert')">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                        <span class="alert-description">Movie rating is required!</span>  
+                    </div>
+                    <div class="alert-container" *ngIf="form.controls['commentText'].hasError('required')">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                        <span class="alert-description">Comment text is required!</span>  
+                    </div>
+                </div>
+                
+                <!-- Validation Error - END -->
+
+                
+
+                <button class="post-comment-button">Post</button>
+
+            </form>
+
+        </div>
+
+    </div>
+    <hr *ngIf="addCommentMenu">
+
+    <div class="user-comments-container">
+        
+        <ng-container *ngIf="movieComments.length === 0">
+            No comments for this movie.
+        </ng-container>
+
+        <ng-container *ngIf="movieComments.length > 0">
+            <ng-container *ngFor="let comment of movieComments">
+                <user-comment [comment]="comment"></user-comment>
+            </ng-container>
+        </ng-container>
+        
+        
+
+
+
+        <div class="pagination" *ngIf="movieComments.length > 0">
+            <a href="#">&laquo;</a>
+            <a href="#" class="pagination-link-active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <span>...</span>
+            <span>
+                <select name="page-number" id="page-number">
+                    <option value=""></option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+            </span>
+            <a href="#">&raquo;</a>
+        </div>
+
+
+    </div>
+    
+
+</div>

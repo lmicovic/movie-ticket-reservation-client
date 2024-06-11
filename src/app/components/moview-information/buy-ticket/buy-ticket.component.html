@@ -1,0 +1,199 @@
+
+
+<div class="main-container">
+
+    <aside class="left-container">
+
+        <div class="card-item">
+            <card-item [cardTitle]="movie.title" [titleSize]="'20px'" [boldTitle]="600">
+            
+                <div class="card-content">
+                    <moview-preview [movie]="movie" [componentFontSize]="18" [bookmarkEffect]="true"></moview-preview>
+                </div>
+                <hr>
+    
+                <div class="movie-information-container">
+                    
+                    <table>
+                        <tr>
+                            <th><span class="movie-information-header">Title:</span></th>
+                            <td><span class="movie-information-value"> {{ movie.title }} </span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="movie-information-header">Year:</span></th>
+                            <td><span class="movie-information-value">{{ movie.year }}</span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="movie-information-header">Authors:</span></th>
+                            <td><span class="movie-information-value"> {{ movie.authors }} </span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="movie-information-header">Actors:</span></th>
+                            <td><span class="movie-information-value"> {{ movie.actors }} </span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="movie-information-header">Country:</span></th>
+                            <td><span class="movie-information-value"> {{ movie.country }} </span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="movie-information-header">Duration:</span></th>
+                            <td><span class="movie-information-value"> {{ movie.duration }}min </span></td>
+                        </tr>
+    
+                    </table>
+                </div>
+                
+            </card-item>
+        </div>
+    </aside>
+
+    <main class="middle-container">
+
+        <div class="reservation-container">
+            <card-item [cardTitle]="'Reservation'" [titleSize]="'22px'">
+                <div class="form-container">
+                    <form class="reservation-form-container">
+                        
+                        <table class="reservation-form-table">
+    
+                            <tr class="reservation-form-table-row">
+                                <th class="reservation-form-table-header"><label for="movie-title">Title:</label></th>
+                                <td class="reservation-form-table-data"><input type="text" name="movie-title" id="movie-title" [value]="movie.title" disabled="true" />    </td>
+                            </tr>
+    
+                            <tr class="reservation-form-table-row">
+                                <th class="reservation-form-table-header"><label for="movie-room">Room:</label></th>
+                                <td class="reservation-form-table-data"><input type="text" name="movie-room" id="movie-room" [value]="movieProjection === undefined ? '' : movieProjection.room.name" disabled="true" /></td>
+                            </tr>
+    
+                            <tr class="reservation-form-table-row">
+                                <th class="reservation-form-table-header"><label for="movie-date1">Date:</label></th>
+                                <td class="reservation-form-table-data"><input type="text" name="movie-date1" id="movie-date" placeholder="Select Date from Table" [value]="movieProjection === undefined ? '' : movieProjection.projectionDate.day + ', ' + (movieProjection.time | date: 'HH:mm') + 'h'"  disabled="true" /></td>
+                                <!-- <th class="reservation-form-table-header" *ngIf="selectedDate === false"><label for="movie-date2">Date:</label></th>
+                                <td class="reservation-form-table-data" *ngIf="selectedDate === false"><input type="text" name="movie-date2" id="movie-date2" value="Select Date from Table" disabled="true" /></td> -->
+                            </tr>
+    
+                            <tr class="reservation-form-table-row">
+                                <th class="reservation-form-table-header"><label for="movie-ticket-number">Tickets:</label></th>
+                                <td>
+                                    <button class="ticket-button ticket-button-minus" (click)="ticketDecrement(ticketCount)">-</button>
+                                    <input #ticketCount type="text" class="movie-ticket-number" name="movie-ticket-number" id="movie-ticket-number" value="1" disabled="true" />
+                                    <button class="ticket-button ticket-button-plus" (click)="ticketIncrement(ticketCount)">+</button>
+                                </td>
+                            </tr>
+    
+                            <tr class="reservation-form-table-row">
+                                <th class="reservation-form-table-header"><label for="movie-price">Price:</label></th>
+                                <td class="reservation-form-table-data"><input type="text" name="movie-price" id="movie-price" [value]="movieProjection === undefined ? '' : totalPrice + '$'" disabled="true" /></td>
+                            </tr>
+    
+                        </table>
+                        
+                        <div class="alert" *ngIf="selectedDateError">
+                            <span *ngIf="selectedDateError">
+                                <svg class="alert-image" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                                <span class="alert-description">Select date!</span>  
+                            </span>
+                        </div>        
+                        
+                        <div class="alert" *ngIf="selectedSeatsError">
+                            <span *ngIf="selectedSeatsError">
+                                <svg class="alert-image" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                                <span class="alert-description">Select seats!</span>  
+                            </span>
+                        </div>      
+
+                        <button class="reserve-button" (click)="reserveTicket()">Reserve</button>
+    
+                    </form>
+                </div>
+            </card-item>
+        </div>
+
+        
+        <div class="movie-schedule-container" *ngIf="selectedDate === false">
+            <hr>
+            <card-item [cardTitle]="'Movie Schedule'">
+                <div class="movie-schedule-panel-container">
+                    <ul class="movie-panel-list">
+                        <li class="movie-panel-item" id="monday" (click)="onClick($event)">Monday</li>
+                        <li class="movie-panel-item" id="thuesday" (click)="onClick($event)">Thuesday</li>
+                        <li class="movie-panel-item" id="wednesday" (click)="onClick($event)">Wednesday</li>
+                        <li class="movie-panel-item" id="thursday" (click)="onClick($event)">Thursday</li>
+                        <li class="movie-panel-item" id="friday" (click)="onClick($event)">Friday</li>
+                        <li class="movie-panel-item" id="saturday" (click)="onClick($event)">Saturday</li>
+                        <li class="movie-panel-item" id="sunday" (click)="onClick($event)">Sunday</li>
+                    </ul>
+                </div>
+    
+                <div class="movie-schedule-content-container">
+                    <movie-schedule-table [movie]="movie" [reservationPanel]="true" [selectedDay]="selectedDay" (projectionReservation)="injectMovieProjectionValues($event)"></movie-schedule-table>
+                </div>
+    
+            </card-item>
+        </div>
+        <hr>
+
+
+        <div class="seat-selection-container">
+            <card-item [cardTitle]="'Select Seats'">
+                
+                <div class="seat-selection-panel">
+                    
+                    <table class="seat-selection-table">
+
+                        <tbody class="seat-selection-table-body">
+                            <!-- HTML Code is injected here from buy-ticket.component.ts - initSeatSelection()  -->
+                            <!-- ... -->
+                        </tbody>
+
+                        <tfoot>
+                            <th [colSpan]="numberOfRColumns" *ngIf="selectedDate" style="padding-top: 10px; text-align: center;">
+                                Projection Screen
+                            </th>
+                        </tfoot>
+
+                        <tfoot>
+                            <th [colSpan]="numberOfRColumns" *ngIf="selectedDate" style="padding-top: 20px; text-align: center;">
+                                <svg version="1.1" id="projection-screen-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 83.06" style="fill: gray; width: 120px" xml:space="preserve"><g><path d="M2.08,0H120.8h2.08v2.08v69.2v2.08h-2.08H77.57v4.55h16.61v5.15H28.55v-5.15h16.61v-4.55H2.08H0v-2.08V2.08V0H2.08L2.08,0z M118.73,4.15H4.15v65.05h114.57V4.15L118.73,4.15z"/></g></svg>
+                            </th>
+                        </tfoot>
+                        
+                    </table>
+                    
+                </div>
+
+                <div class="information-seat">
+                    
+                    <div class="seat-information-container-item">
+                        <div id="seat-free" class="seat-information-container">
+                        
+                        </div>
+                        <span>Free Seats</span>
+                    </div>
+                    
+                    
+                    <div class="seat-information-container-item">
+                        <div id="seat-selected" class="seat-information-container">
+
+                        </div>
+                        <span>Selected Seats</span>
+                    </div>
+
+                    <div class="seat-information-container-item">
+                        <div id="seat-reserved" class="seat-information-container">
+
+                        </div>
+                        <span>Reserved Seats</span>
+                    </div>
+                </div>
+
+            </card-item>
+        </div>
+
+
+    </main>
+
+</div>
+
+

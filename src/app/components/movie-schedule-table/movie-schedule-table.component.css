@@ -1,0 +1,62 @@
+/* Remove */
+.movie-schedule-content-container {
+    background-color: inherit;
+    margin: 30px 2% 30px 0;
+}
+
+table {
+    width: 98%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-radius: 12px;
+    border-style: hidden; /* hide standard table (collapsed) border */
+    box-shadow: 0 0 0 1px #777; /* this draws the table border  */ 
+    background-color: white;
+}
+
+table tr {
+    height: 50px;
+}
+
+th, td {
+    padding-left: 20px;
+}
+
+th {
+    background-color: #CCC;
+}
+
+th:first-child {
+    border-top-left-radius: 12px;
+}
+
+th:last-child {
+    border-top-right-radius: 12px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
+}
+
+tr:hover {
+    background-color: #777;
+    cursor: pointer;
+}
+
+.noScheduleDay-row:hover {
+    cursor: default;
+    background-color: white;
+}
+
+.noScheduleDay-content {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+
+
+

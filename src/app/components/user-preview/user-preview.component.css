@@ -1,0 +1,128 @@
+.main-container {
+    margin: 60px 0 0 0;   
+}
+
+.main-movie-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main-column-left, .main-column-middle {
+    float: left;
+}
+
+.main-column-left {
+    width: 15%;
+    margin: 0 0px 0 30px;
+}
+
+.main-column-middle {
+    width: 67%;
+    margin: 0 0 0 40px;
+}
+
+.alert {
+
+    position: relative;
+    width: 206px;
+
+    padding: 10px 10px 10px 10px;
+    
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 0.8px solid rgba(173, 216, 230, 0.8);
+
+    font-size: 14px;
+    color: #555;
+
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+}
+
+.alert-description {
+    
+    position: relative;
+    top: 0px;
+    margin-left: 2px;
+    color: rgb(47, 128, 154);
+
+}
+
+.edit-user-form-item {
+    display: block;
+}
+
+.edit-user-form-item > label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.edit-user-form-item > input {
+    padding: 0px 4px;
+}
+
+.show-password-button {
+    margin: 0px 5px;
+    border: none;
+}
+
+.save-button {
+    margin: 24px 0px 0px 0px;
+    width: 80px;
+    height: 29px;
+    border: none;
+    background-color: #04AA6D;
+    border-radius: 6px;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: rgba(4,170,109, 0.8);
+}
+
+@media screen and (max-width: 800px) {
+    
+    .main-column-left, .main-column-middle {
+        float: none;
+        width: 100%;
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    .main-column-middle  {
+        margin: 20px 0;
+    }
+
+}
+
+/* .user-detail-information-container {
+    width: 100%;
+    border: 1px solid #DDD;
+    border-radius: 16px;
+    background-color: #F2F2F2;
+    padding: 29px 40px 30px 40px;
+}
+
+.user-detail-information-panel {
+    
+    padding: 10px;
+    border-radius: 16px;
+    border: 1px solid #DDD;
+    background-color: white;
+    
+}
+
+.user-detail-information-panel-item-header {
+
+} */

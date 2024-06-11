@@ -1,0 +1,321 @@
+
+
+
+<div class="movie-schedule-content-container" *ngIf="reservationPanel === false">
+
+    <table class="movie-schedule-content-table">
+        <tr class="movie-schedule-content-table-header-container" *ngIf="!emptySchedule">
+            <th class="movie-schedule-content-table-header" (click)="sortTable('time')">Time</th>
+            <th class="movie-schedule-content-table-header" (click)="sortTable('title')">Title</th>
+            <th class="movie-schedule-content-table-header" (click)="sortTable('room')">Room</th>
+            <th class="movie-schedule-content-table-header" (click)="sortTable('duration')">Duration</th> 
+            <th class="movie-schedule-content-table-header" (click)="sortTable('price')">Price</th>
+        </tr>
+
+        <!-- Monday -->
+        <ng-container *ngIf="selectedDay === 1">
+            <ng-container *ngIf="movieScheduleFilteredByDays.monday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.monday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.monday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Monday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Monday - END -->
+
+        <!-- Tuesday -->
+        <ng-container *ngIf="selectedDay === 2">
+            <ng-container *ngIf="movieScheduleFilteredByDays.tuesday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.tuesday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.tuesday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Tuesday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Tuesday - END -->
+        
+        <!-- Wednesday -->
+        <ng-container *ngIf="selectedDay === 3">
+            <ng-container *ngIf="movieScheduleFilteredByDays.wednesday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.wednesday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.wednesday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Wednesday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Wednesday - END -->
+
+        <!-- Thursday -->
+        <ng-container *ngIf="selectedDay === 4">
+            <ng-container *ngIf="movieScheduleFilteredByDays.thursday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.thursday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.thursday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Thursday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Thursday - END -->
+        
+        <!-- Friday -->
+        <ng-container *ngIf="selectedDay === 5">
+            <ng-container *ngIf="movieScheduleFilteredByDays.friday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.friday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.friday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Friday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Friday - END -->
+
+        <!-- Saturday -->
+        <ng-container *ngIf="selectedDay === 6">
+            <ng-container *ngIf="movieScheduleFilteredByDays.satruday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.satruday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.satruday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Saturday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Saturday - END -->
+
+        <!-- Sunday -->
+        <ng-container *ngIf="selectedDay === 0">
+            <ng-container *ngIf="movieScheduleFilteredByDays.sunday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.sunday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.sunday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Saturday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Sunday - END -->
+
+
+    </table>
+
+
+</div>
+
+<div class="movie-schedule-content-container" *ngIf="reservationPanel === true">
+    
+    <table class="movie-schedule-content-table">
+        <tr class="movie-schedule-content-table-header-container" *ngIf="!emptySchedule">
+            <th class="movie-schedule-content-table-header" (click)="sortTable('time')">Time</th>
+            <th class="movie-schedule-content-table-header" (click)="sortTable('title')">Title</th>
+            <th class="movie-schedule-content-table-header" (click)="sortTable('room')">Room</th>
+            <th class="movie-schedule-content-table-header" (click)="sortTable('duration')">Duration</th> 
+            <th class="movie-schedule-content-table-header" (click)="sortTable('price')">Price</th>
+        </tr>
+
+        <!-- Monday -->
+        <ng-container *ngIf="selectedDay === 1">
+            <ng-container *ngIf="movieScheduleFilteredByDays.monday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.monday" (click)="injectProjectionReservationFields(schedule)">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.monday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Monday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Monday - END -->
+
+        <!-- Tuesday -->
+        <ng-container *ngIf="selectedDay === 2">
+            <ng-container *ngIf="movieScheduleFilteredByDays.tuesday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.tuesday" (click)="injectProjectionReservationFields(schedule)">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.tuesday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Tuesday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Tuesday - END -->
+        
+        <!-- Wednesday -->
+        <ng-container *ngIf="selectedDay === 3">
+            <ng-container *ngIf="movieScheduleFilteredByDays.wednesday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.wednesday" (click)="injectProjectionReservationFields(schedule)">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.wednesday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Wednesday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Wednesday - END -->
+
+        <!-- Thursday -->
+        <ng-container *ngIf="selectedDay === 4">
+            <ng-container *ngIf="movieScheduleFilteredByDays.thursday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.thursday" (click)="injectProjectionReservationFields(schedule)">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.thursday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Thursday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Thursday - END -->
+        
+        <!-- Friday -->
+        <ng-container *ngIf="selectedDay === 5">
+            <ng-container *ngIf="movieScheduleFilteredByDays.friday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.friday" (click)="injectProjectionReservationFields(schedule)">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.friday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Friday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Friday - END -->
+
+        <!-- Saturday -->
+        <ng-container *ngIf="selectedDay === 6">
+            <ng-container *ngIf="movieScheduleFilteredByDays.satruday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.satruday" (click)="injectProjectionReservationFields(schedule)">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.satruday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Saturday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Saturday - END -->
+
+        <!-- Sunday -->
+        <ng-container *ngIf="selectedDay === 0">
+            <ng-container *ngIf="movieScheduleFilteredByDays.sunday.length > 0">
+                <tr class="movie-schedule-content-table-row-container"  *ngFor="let schedule of movieScheduleFilteredByDays.sunday" (click)="injectProjectionReservationFields(schedule)">
+                    <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
+                    <td class="movie-schedule-content-table-row"> {{ movie.duration }}min </td>
+                    <td class="movie-schedule-content-table-row"> {{ schedule.price | currency }} </td>
+                </tr>    
+            </ng-container>
+
+            <ng-container *ngIf="movieScheduleFilteredByDays.sunday.length <= 0">
+                <tr class="noScheduleDay-row">
+                    <td class="noScheduleDay-content">No scheduled projections in Saturday.</td>
+                </tr>
+            </ng-container>
+        </ng-container>
+        <!-- Sunday - END -->
+
+
+    </table>
+
+
+</div>
+
+
+
+
+

@@ -1,0 +1,62 @@
+.user-comment-container {
+    
+    background-color: white;
+    margin: 10px 0;
+
+    padding: 15px 20px 15px 15px;
+
+    border-radius: 16px;
+
+    
+}
+
+img {
+    width: 40px;
+    border: 1px solid gray;
+    border-radius: 100%;
+}
+
+.user-info-container {
+    display: inline; 
+    position: relative; 
+    bottom: 7px; 
+    margin-left: 7px;
+}
+
+
+
+.user-information {
+    color: #3480eb;
+}
+
+.user-information a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.user-information a, .user-information a:link, .user-information a:visited, .user-information a:hover, .user-information a:active {
+    color: #3480eb;
+    text-decoration: none ;
+}
+  
+.comment-date {
+    color: gray;
+    margin-right: 5px;
+}
+
+.star-icon-2 {
+    color: rgb(252, 186, 3);
+}
+
+.star-icon-empty {
+    color: gray;
+}
+
+.user-comment-content {
+    
+    position: relative; 
+    bottom: 10px; 
+    margin-left: 60px;
+}
+
+

@@ -1,0 +1,76 @@
+<banner></banner>
+
+<div class="main-container">
+
+    <aside class="main-column-left">
+
+            <!-- Recommended Movie Banner -->
+            <card-item [titleSize]="'24px'" cardTitle="Recommended Movie" class="card-item">
+                <div class="card-content">
+                    <moview-preview [movie]="recommendedMovie" [bookmarkEffect]="true"></moview-preview>    
+                </div>
+            </card-item>
+            <!-- Recommended Movie Banner - END -->
+
+    </aside>
+
+
+
+    <section class="main-column-middle">
+        
+        <!-- Cinema Description -->
+        <section class="cinema-description">
+            <h2 class="cinema-description-title">The Cinema</h2>    
+            <p class="cinema-description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+        </section>
+        <!-- Cinema Description - END -->
+        
+        
+        <!-- Movie Previews - Container -->
+        <main class="main-movie-container">
+            
+            <!-- Movies Previews -->
+            <h2 class="main-movie-container-title">Playing in the Cinema</h2>
+            <div class="main-moview-item-container">
+
+                <div class="main-moview-item" *ngFor="let movie of movies">
+                    <moview-preview [movie]="movie" [zoomEffect]="true" [ratingEffect]="true" [bookmarkEffect]="true" [componentFontSize]="16"></moview-preview>
+                </div>
+
+            </div>
+            <!-- Movies Previews - END -->
+
+
+            <!-- Movie Pagination -->
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#" class="pagination-link-active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <span>...</span>
+                <span>
+                    <select name="page-number" id="page-number">
+                        <option value=""></option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </span>
+                <a href="#">&raquo;</a>
+            </div>
+            <!-- Movie Pagination - END -->
+
+        </main>
+        <!-- Movie Previews Container - END -->
+
+    </section>
+
+</div>
+
+
+
+
+
+

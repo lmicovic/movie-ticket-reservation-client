@@ -1,0 +1,122 @@
+
+
+
+<div class="main-container">
+
+    <aside class="main-column-left">
+
+        <div class="card-item">
+            <card-item [cardTitle]="movie.title" [titleSize]="'20px'" [boldTitle]="600" [borderRadiusBottomRight]="0" [borderRadiusBottomLeft]="0">
+            
+                <div class="card-content">
+                    <moview-preview [movie]="movie" [componentFontSize]="18" [bookmarkEffect]="true"></moview-preview>
+                </div>
+                <hr>
+    
+                <div class="movie-information-container">
+                    
+                    <table>
+                        <tr>
+                            <th><span class="movie-information-header">Title:</span></th>
+                            <td><span class="movie-information-value"> {{ movie.title }} </span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="movie-information-header">Year:</span></th>
+                            <td><span class="movie-information-value">{{ movie.year }}</span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="movie-information-header">Genre:</span></th>
+                            <td><span class="movie-information-value">{{ movie.genre }}</span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="movie-information-header">Authors:</span></th>
+                            <td><span class="movie-information-value"> {{ movie.authors | stringList }} </span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="movie-information-header">Actors:</span></th>
+                            <td><span class="movie-information-value"> {{ movie.actors | stringList }} </span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="movie-information-header">Country:</span></th>
+                            <td><span class="movie-information-value"> {{ movie.country }} </span></td>
+                        </tr>
+                        <tr>
+                            <th><span class="movie-information-header">Duration:</span></th>
+                            <td><span class="movie-information-value"> {{ movie.duration }}min </span></td>
+                        </tr>
+    
+                    </table>
+                </div>
+                
+            </card-item>
+        
+        
+            <div>
+                <button class="movie-information-button" id="trailer-button" (click)="getTrailer()">Trailer</button>
+                <a [routerLink]="['/resrvation/buy-ticket', movie.id]"><button class="movie-information-button" id="buy-ticket-button">Buy Ticket</button></a>
+            </div>
+        </div>
+    </aside>
+
+
+
+
+    <main class="main-column-middle">
+
+        <article class="movie-description-container">
+            <card-item [cardTitle]="'Description:'" [boldTitle]="600">
+                <div class="movie-description-content">
+                     <!-- Movie.description is injected here from movie-information.component.ts - ngOnInit() -->
+                     {{ movie.description }}
+                </div>
+            </card-item>
+            
+        </article>    
+
+        <section class="movie-schedule-container">
+
+            <card-item>
+                <h4 class="movie-schedule-title">Movie Schedule</h4>
+                <hr>
+                <div class="movie-schedule-panel-container">
+
+                    <ul class="movie-panel-list">
+                        <li class="movie-panel-item" id="monday" (click)="onClick($event)">Monday</li>
+                        <li class="movie-panel-item" id="thuesday" (click)="onClick($event)">Thuesday</li>
+                        <li class="movie-panel-item" id="wednesday" (click)="onClick($event)">Wednesday</li>
+                        <li class="movie-panel-item" id="thursday" (click)="onClick($event)">Thursday</li>
+                        <li class="movie-panel-item" id="friday" (click)="onClick($event)">Friday</li>
+                        <li class="movie-panel-item" id="saturday" (click)="onClick($event)">Saturday</li>
+                        <li class="movie-panel-item" id="sunday" (click)="onClick($event)">Sunday</li>
+                    </ul>
+
+                    
+
+                </div>
+
+                <div class="movie-schedule-content-container">
+                    <movie-schedule-table [movie]="movie" [selectedDay]="selectedDay"></movie-schedule-table>
+                </div>
+
+            </card-item>
+
+        </section>
+
+        <hr style="margin: 30px 0;">
+
+        <section>
+
+            <card-item>
+                    
+                    <movie-comment [movie]="movie" (movieChange)="onMovieChange($event)"></movie-comment>
+
+            </card-item>
+
+        </section>
+
+
+
+
+    </main>
+
+</div>
