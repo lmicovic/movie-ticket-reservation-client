@@ -1,7 +1,6 @@
 # Movie-Ticket-Reservation - frontend
 
 Movie ticket reservation is client application built using [Angular 17](https://angular.io/docs "Angular 17"). This application is client application used for movie preview and ticket reservations.
-
 This project represents client application for [movie-ticket-reservation-backend](https://github.com/lmicovic/movie-ticket-reservation-backend "movie-ticket-reservation-backend") application.
 
 ## Features
