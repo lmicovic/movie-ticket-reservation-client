@@ -1,27 +1,29 @@
-# Project
+# Movie-Ticket-Reservation - frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+Movie ticket reservation is client application built using [Angular 17](https://angular.io/docs "Angular 17"). This application is client application used for movie preview and ticket reservations.
 
-## Development server
+This project represents client application for [movie-ticket-reservation-backend](https://github.com/lmicovic/movie-ticket-reservation-backend "movie-ticket-reservation-backend") application.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
+- **Movie preview:** enables preview of movies information.
+- **Ticket Reservation:** allows ticket reservation for certain movie.
+- **Search movie:** got section for searching movie based on preferred filter.
+- **GUI Design:** simple GUI design that allows easy navigation through the application and user interaction.
+- **User Accounts:** enables creation of user account, storing user’s information and history (watched movies, bookmarks, reservations, movie comments).
+- **Security:** only authenticated user can interact with certain functions of the application (Ticket Reservation, Movie Comments, User Settings). But there are some features of application that are permitted to all unauthenticated visitors. (Movie Preview).
 
-## Code scaffolding
+## Technical features
+- The client application is built entirely using [Angular 17](https://angular.io/docs "Angular 17") framework.
+- GUI components are coded using plain HTML and CSS without any additional libraries.
+- This project is frontend application that communicates with [movie-ticket-reservation-backend](https://github.com/lmicovic/movie-ticket-reservation-backend "movie-ticket-reservation-backend") application, which is responsible for deploying data.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Application Setup
+1. Clone this application from current repository.
+2.  Import project in to preffered code editor.
+3. Install Angular [node_modules](https://blog.stackademic.com/understanding-node-modules-folder-in-angular-3ff6870c4227 "node_modules") – in this folder are stored all dependencies packets that are required to run Angular application.
+4. To install node_modules point terminal in to Angular project root directory and type: ```npm install```
+5.  Then run ```ng serve``` to start Angular application, client will be hosted at url: [http://localhost:4200/](http://localhost:4200/ "http://localhost:4200/")
 
-## Build
+**Note**: for application to work it is necessary to run [movie-ticket-reservation-backend](https://github.com/lmicovic/movie-ticket-reservation-backend "movie-ticket-reservation-backend") application.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
