@@ -25,4 +25,20 @@ This project represents client application for [movie-ticket-reservation-backend
 
 **Note**: for application to work it is necessary to run [movie-ticket-reservation-backend](https://github.com/lmicovic/movie-ticket-reservation-backend "movie-ticket-reservation-backend") application.
 
+## Screenshots
+![Screenshot_17-6-2024_13242_localhost](https://github.com/lmicovic/movie-ticket-reservation-client/assets/172028832/618c389d-47fb-4ecb-a998-2c33b1a35d1d)
+
+![Screenshot_17-6-2024_1341_localhost](https://github.com/lmicovic/movie-ticket-reservation-client/assets/172028832/3be4aafe-6174-4699-93f5-ff2c4fc837f7)
+
+![Screenshot_17-6-2024_13455_localhost](https://github.com/lmicovic/movie-ticket-reservation-client/assets/172028832/8bf0f716-3362-4433-96f7-3c59a92a74ef)
+
+![Screenshot_17-6-2024_1361_localhost](https://github.com/lmicovic/movie-ticket-reservation-client/assets/172028832/bcfc3543-e1ef-4f44-affc-a4c89090a208)
+
+![Screenshot_17-6-2024_13622_localhost](https://github.com/lmicovic/movie-ticket-reservation-client/assets/172028832/b63360b6-4aaf-46c8-9d02-1cde486b003e)
+
+![Screenshot_17-6-2024_13659_localhost](https://github.com/lmicovic/movie-ticket-reservation-client/assets/172028832/52ac3962-85c4-4c85-81b6-4f1eee746167)
+
+
+
+
 
