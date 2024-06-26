@@ -5,12 +5,16 @@ import { Day, MovieGenre } from '../../other/enums';
 import { MovieService } from '../../services/movie/movie.service';
 import { ToastrService } from 'ngx-toastr';
 import { MovieDTO } from '../../other/models/movie/movieDTO.interface';
+import { slideDown, slideRight } from '../../other/animations/slide.animation';
 
 
 @Component({
   selector: 'app-moview-information',
   templateUrl: './moview-information.component.html',
-  styleUrl: './moview-information.component.css'
+  styleUrl: './moview-information.component.css',
+  animations: [
+    slideRight, slideDown
+  ]
 })
 export class MoviewInformationComponent implements OnInit {
 

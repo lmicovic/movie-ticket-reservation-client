@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TimeoutInfo, delay } from 'rxjs';
 import { fade, fadeIn } from '../../other/animations/fade.animation';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { slideDown } from '../../other/animations/slide.animation';
+import { slideDownAnimation } from '../../other/animations/slide.animation';
+
 
 @Component({
   selector: 'banner',
@@ -25,7 +26,7 @@ import { slideDown } from '../../other/animations/slide.animation';
     trigger("slideDown", [
 
       transition(":enter", [
-        useAnimation(slideDown)
+        useAnimation(slideDownAnimation)
       ], {
         params: {
           duration: "1s",

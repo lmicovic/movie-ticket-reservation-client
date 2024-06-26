@@ -5,7 +5,7 @@
 
     <aside class="main-column-left">
 
-        <div class="card-item">
+        <div class="card-item" @slideRight>
             <card-item [cardTitle]="movie.title" [titleSize]="'20px'" [boldTitle]="600" [borderRadiusBottomRight]="0" [borderRadiusBottomLeft]="0">
             
                 <div class="card-content">
@@ -63,7 +63,7 @@
 
     <main class="main-column-middle">
 
-        <article class="movie-description-container">
+        <article class="movie-description-container" @slideDown>
             <card-item [cardTitle]="'Description:'" [boldTitle]="600">
                 <div class="movie-description-content">
                      <!-- Movie.description is injected here from movie-information.component.ts - ngOnInit() -->

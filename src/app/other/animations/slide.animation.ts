@@ -1,10 +1,10 @@
-import { animate, animation, style, transition, trigger } from "@angular/animations";
+import { animate, animation, style, transition, trigger, useAnimation } from "@angular/animations";
 import { delay } from "rxjs";
 
 //--------------------------------------------------------------
 // SlideDown - Animation
 //--------------------------------------------------------------
-export let slideDown = animation([
+export let slideDownAnimation = animation([
 
     style({ transform: "translateY(-100%)" }),
     animate("{{ duration }} {{ delay }} {{ easing }}")
@@ -22,7 +22,7 @@ export let slideDown = animation([
 //--------------------------------------------------------------
 // SlideRight - Animation
 //--------------------------------------------------------------
-export let slideRight = animation([
+export let slideRightAnimation = animation([
 
     style({ transform: "translateX(-100%)" }),
     animate("{{ duration }} {{ delay }} {{ easing }}", style( { transform: "*" } ))
@@ -35,4 +35,29 @@ export let slideRight = animation([
         easing: "ease-out"
     }
 });
+//--------------------------------------------------------------
+
+
+//--------------------------------------------------------------
+// SlideDown - Animation Trigger
+//--------------------------------------------------------------
+export let slideDown = trigger("slideDown", [
+
+    transition(":enter", [
+        useAnimation(slideDownAnimation)
+    ])
+
+]);
+//--------------------------------------------------------------
+
+//--------------------------------------------------------------
+// SlideRight - Animation Trigger
+//--------------------------------------------------------------
+export let slideRight = trigger("slideRight", [
+
+    transition(":enter", [
+        useAnimation(slideRightAnimation)
+    ])
+
+]);
 //--------------------------------------------------------------

@@ -6,7 +6,8 @@ import { MovieGenre } from '../../other/enums';
 import { MovieDTO } from '../../other/models/movie/movieDTO.interface';
 import { fade, fadeIn } from '../../other/animations/fade.animation';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { slideDown, slideRight } from '../../other/animations/slide.animation';
+import { slideRightAnimation } from '../../other/animations/slide.animation';
+
 
 
 @Component({
@@ -18,7 +19,7 @@ import { slideDown, slideRight } from '../../other/animations/slide.animation';
     trigger("slideRight", [
 
       transition(":enter", [
-        useAnimation(slideRight)
+        useAnimation(slideRightAnimation)
       ], {
         params: {
           duration: "2s",
