@@ -1,7 +1,7 @@
 <!--------------------------------------------------------->
 <!-- Main Banner -->
 <!--------------------------------------------------------->
-<div class="main-banner-container">
+<div class="main-banner-container" @bannerFade @slideDown>
     <div class="main-banner">
         
         <img *ngFor="let banner of bannerImages; index as i" [src]="banner" [alt]="'banner image' + (i+1)" [id]="'img' + (i+1)" />

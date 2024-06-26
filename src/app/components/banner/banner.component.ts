@@ -1,10 +1,44 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TimeoutInfo } from 'rxjs';
+import { TimeoutInfo, delay } from 'rxjs';
+import { fade, fadeIn } from '../../other/animations/fade.animation';
+import { transition, trigger, useAnimation } from '@angular/animations';
+import { slideDown } from '../../other/animations/slide.animation';
 
 @Component({
   selector: 'banner',
   templateUrl: './banner.component.html',
-  styleUrl: './banner.component.css'
+  styleUrl: './banner.component.css',
+  animations: [
+    trigger("bannerFade", [
+
+      transition(":enter", [
+        useAnimation(fadeIn)
+      ], {
+        params: {
+          duration: "1.5s",
+          delay: "0s"
+        }
+      })
+
+    ]),
+
+    trigger("slideDown", [
+
+      transition(":enter", [
+        useAnimation(slideDown)
+      ], {
+        params: {
+          duration: "1s",
+          easing: "ease-out"
+        }
+      })
+
+    ])
+
+  ]
+
+  
+
 })
 export class BannerComponent implements OnInit, OnDestroy {
 

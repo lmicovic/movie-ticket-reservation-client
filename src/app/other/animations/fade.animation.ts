@@ -6,12 +6,13 @@ import { animate, animation, state, style, transition, trigger, useAnimation } f
 export let fadeIn = animation([
     
     style({ opacity: 0 }),
-    animate("{{ duration }} {{ easing }}"),
+    animate("{{ duration }} {{ delay }} {{ easing }}"),
 
 ], {
     // Default FadeIn Parameters
     params: {
         duration: "2s",
+        delay: "0s",
         easing: "ease-out"
     }
 });
@@ -23,13 +24,14 @@ export let fadeIn = animation([
 export let fadeOut = animation([
     
     style({ opacity: 0 }),
-    animate("{{ duration }} {{ easing }}")
+    animate("{{ duration }} {{ delay }} {{ easing }}")
 
 
 ], {
     // Default FadeOut Parameter
     params: {
         duration: "2s",
+        delay: "0s",
         easing: "ease-in"
     }
 });
