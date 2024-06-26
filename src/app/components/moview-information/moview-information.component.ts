@@ -6,6 +6,7 @@ import { MovieService } from '../../services/movie/movie.service';
 import { ToastrService } from 'ngx-toastr';
 import { MovieDTO } from '../../other/models/movie/movieDTO.interface';
 import { slideDown, slideRight } from '../../other/animations/slide.animation';
+import { fade } from '../../other/animations/fade.animation';
 
 
 @Component({

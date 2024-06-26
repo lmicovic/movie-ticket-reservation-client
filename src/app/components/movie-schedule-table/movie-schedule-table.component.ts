@@ -7,6 +7,8 @@ import { Projection } from '../../other/models/projection/projection.class';
 import { Util } from '../../other/util.class';
 import { MovieDTO } from '../../other/models/movie/movieDTO.interface';
 import { ProjectionDTO } from '../../other/models/projection/projectionDTO.interface';
+import { fade, fadeIn } from '../../other/animations/fade.animation';
+import { transition, trigger, useAnimation } from '@angular/animations';
 
 
 
@@ -14,7 +16,21 @@ import { ProjectionDTO } from '../../other/models/projection/projectionDTO.inter
 @Component({
   selector: 'movie-schedule-table',
   templateUrl: './movie-schedule-table.component.html',
-  styleUrl: './movie-schedule-table.component.css'
+  styleUrl: './movie-schedule-table.component.css',
+  animations: [
+
+    trigger("fade", [
+
+      transition(":enter", [
+        useAnimation(fadeIn)
+      ], {
+        params: {
+          duration: "200ms"
+        }
+      })
+
+    ])
+  ]
 })
 export class MovieScheduleTableComponent implements OnInit, OnChanges {
   
