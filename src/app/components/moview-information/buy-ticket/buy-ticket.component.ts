@@ -18,6 +18,8 @@ import { MovieDTO } from '../../../other/models/movie/movieDTO.interface';
 import { ProjectionDTO } from '../../../other/models/projection/projectionDTO.interface';
 import { UserDTO } from '../../../other/models/user/userDTO.interface';
 import { slideDown, slideRight, slideTop } from '../../../other/animations/slide.animation';
+import { fade, fadeIn } from '../../../other/animations/fade.animation';
+import { transition, trigger, useAnimation } from '@angular/animations';
 
 
 
@@ -26,7 +28,17 @@ import { slideDown, slideRight, slideTop } from '../../../other/animations/slide
   templateUrl: './buy-ticket.component.html',
   styleUrl: './buy-ticket.component.css',
   animations: [
-    slideRight, slideDown, slideTop
+    slideRight, slideDown, slideTop, trigger("fade", [
+
+      transition(":enter", [
+        useAnimation(fadeIn)
+      ], {
+        params: {
+          duration: "0.08s"
+        }
+      })
+
+    ])
   ]
 })
 export class BuyTicketComponent implements OnInit, OnChanges{
@@ -614,6 +626,9 @@ export class BuyTicketComponent implements OnInit, OnChanges{
 
   }
 
-
+  scrollTop(): void {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
 
 }
