@@ -261,4 +261,12 @@ export class MoviewInformationComponent implements OnInit {
     
   }
 
+  resetScrollToTop(): void {
+    
+      let mainDiv = document.getElementsByClassName("main-container")[0];
+      mainDiv.scrollTop = 0;
+
+  }
+
+
 }

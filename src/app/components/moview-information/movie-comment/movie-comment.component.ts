@@ -15,11 +15,17 @@ import { MovieDTO } from '../../../other/models/movie/movieDTO.interface';
 import { UserDTO } from '../../../other/models/user/userDTO.interface';
 import { MovieCommentDTO } from '../../../other/models/movie-comment/movieCommentDTO.interface';
 import { AuthService } from '../../../services/auth-service/auth-service.service';
+import { fade } from '../../../other/animations/fade.animation';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { expandCollapse } from '../../../other/animations/expandCollapse.animation';
 
 @Component({
   selector: 'movie-comment',
   templateUrl: './movie-comment.component.html',
-  styleUrl: './movie-comment.component.css'
+  styleUrl: './movie-comment.component.css',
+  animations: [
+    expandCollapse
+  ]
 })
 export class MovieCommentComponent implements OnChanges {
 
@@ -41,12 +47,6 @@ export class MovieCommentComponent implements OnChanges {
 //------------------------------------------------------------------------------------------------
 
   user: UserDTO = new User(-1, "", new UserInfo(-1, "", "", "", "", ""), [], [], []);
-
-  // user = {
-  //   id: 1,
-  //   firstname: "Pera",
-  //   lastname: "Peric"
-  // }
 
   // Star Icon
   faStar = faStar;

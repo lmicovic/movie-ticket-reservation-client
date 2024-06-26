@@ -22,7 +22,7 @@ import { slideRightAnimation } from '../../other/animations/slide.animation';
         useAnimation(slideRightAnimation)
       ], {
         params: {
-          duration: "2s",
+          duration: "0.5s",
           delay: "0s",
           easing: "ease-out"
         }

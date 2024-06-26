@@ -172,6 +172,8 @@ export class MoviewPreviewComponent implements OnInit {
 
     this.bookmarked = !this.bookmarked;
 
-  }  
+  } 
+
+  
 
 }

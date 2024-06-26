@@ -10,7 +10,7 @@
     </div>
 
     <hr>
-    <div class="add-comment-menu-container" *ngIf="addCommentMenu">
+    <div class="add-comment-menu-container" [@expandCollapse]="addCommentMenu === true ? 'expand' : 'collapse' ">
         
         <div class="add-comment-menu-login" *ngIf="authService.isLoggedIn() === false">
             <div>Please, login to add comment.</div>
@@ -65,7 +65,7 @@
         </div>
 
     </div>
-    <hr *ngIf="addCommentMenu">
+    <hr>
 
     <div class="user-comments-container">
         

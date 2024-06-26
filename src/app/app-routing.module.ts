@@ -24,7 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],      // scrollPositionRestoration: 'top' - when routerLink() is used to navigate page every page will be restored with Scroll Position looking at Top.
   exports: [RouterModule]
 })
 export class AppRoutingModule {

@@ -12,7 +12,7 @@ export let slideDownAnimation = animation([
 ], {
     // Default SlideDown Parameters
     params: {
-        duration: "2s",
+        duration: "1s",
         delay: "0s",
         easing: "ease-out"
     }
@@ -30,7 +30,7 @@ export let slideRightAnimation = animation([
 ], {
     // Default SlideRight Parameters
     params: {
-        duration: "2s",
+        duration: "1s",
         delay: "0s",
         easing: "ease-out"
     }
