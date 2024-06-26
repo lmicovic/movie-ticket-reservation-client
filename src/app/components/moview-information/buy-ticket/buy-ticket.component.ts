@@ -17,13 +17,17 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { MovieDTO } from '../../../other/models/movie/movieDTO.interface';
 import { ProjectionDTO } from '../../../other/models/projection/projectionDTO.interface';
 import { UserDTO } from '../../../other/models/user/userDTO.interface';
+import { slideDown, slideRight, slideTop } from '../../../other/animations/slide.animation';
 
 
 
 @Component({
   selector: 'app-buy-ticket',
   templateUrl: './buy-ticket.component.html',
-  styleUrl: './buy-ticket.component.css'
+  styleUrl: './buy-ticket.component.css',
+  animations: [
+    slideRight, slideDown, slideTop
+  ]
 })
 export class BuyTicketComponent implements OnInit, OnChanges{
 

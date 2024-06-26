@@ -37,6 +37,9 @@ export class CardItemComponent {
   @Input("marginBottom")
   marginBottom: string = "0px";
 
+  @Input("slidDownAnimation")
+  slidDownAnimation: boolean = false;
+
   constructor(private ref: ElementRef, private renderer: Renderer2) {
 
   }

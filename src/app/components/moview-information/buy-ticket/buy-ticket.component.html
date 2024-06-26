@@ -4,7 +4,7 @@
 
     <aside class="left-container">
 
-        <div class="card-item">
+        <div class="card-item" @slideRight>
             <card-item [cardTitle]="movie.title" [titleSize]="'20px'" [boldTitle]="600">
             
                 <div class="card-content">
@@ -49,8 +49,8 @@
 
     <main class="middle-container">
 
-        <div class="reservation-container">
-            <card-item [cardTitle]="'Reservation'" [titleSize]="'22px'">
+        <div class="reservation-container" @slideDown>
+            <card-item [cardTitle]="'Reservation'" [slidDownAnimation]="true" [titleSize]="'22px'">
                 <div class="form-container">
                     <form class="reservation-form-container">
                         

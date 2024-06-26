@@ -20,6 +20,24 @@ export let slideDownAnimation = animation([
 //--------------------------------------------------------------
 
 //--------------------------------------------------------------
+// SlideTop - Animation
+//--------------------------------------------------------------
+export let slideTopAnimation = animation([
+
+    style({ transform: "translateY(100%)" }),
+    animate("{{ duration }} {{ delay }} {{ easing }}")
+
+], {
+    // Default SlideDown Parameters
+    params: {
+        duration: "1s",
+        delay: "0s",
+        easing: "ease-out"
+    }
+});
+//--------------------------------------------------------------
+
+//--------------------------------------------------------------
 // SlideRight - Animation
 //--------------------------------------------------------------
 export let slideRightAnimation = animation([
@@ -38,6 +56,7 @@ export let slideRightAnimation = animation([
 //--------------------------------------------------------------
 
 
+
 //--------------------------------------------------------------
 // SlideDown - Animation Trigger
 //--------------------------------------------------------------
@@ -45,6 +64,18 @@ export let slideDown = trigger("slideDown", [
 
     transition(":enter", [
         useAnimation(slideDownAnimation)
+    ])
+
+]);
+//--------------------------------------------------------------
+
+//--------------------------------------------------------------
+// SlideTop - Animation Trigger
+//--------------------------------------------------------------
+export let slideTop = trigger("slideTop", [
+
+    transition(":enter", [
+        useAnimation(slideTopAnimation)
     ])
 
 ]);
