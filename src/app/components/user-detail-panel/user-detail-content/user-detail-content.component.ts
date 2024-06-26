@@ -1,11 +1,20 @@
+
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { User } from '../../../other/models/user/user.class';
 import { UserDTO } from '../../../other/models/user/userDTO.interface';
+import { expandCollapse } from '../../../other/animations/expandCollapse.animation';
+import { fade } from '../../../other/animations/fade.animation';
 
 @Component({
   selector: 'user-detail-content',
   templateUrl: './user-detail-content.component.html',
-  styleUrl: './user-detail-content.component.css'
+  styleUrl: './user-detail-content.component.css',
+  animations: [
+
+    expandCollapse
+
+  ]
+  
 })
 export class UserDetailContentComponent implements OnInit, OnChanges {
 
