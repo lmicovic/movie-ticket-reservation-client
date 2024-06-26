@@ -2,15 +2,19 @@
 
 <div class="main-container">
 
-    <aside class="main-column-left">
+    <aside class="main-column-left" >
 
-            <!-- Recommended Movie Banner -->
-            <card-item [titleSize]="'24px'" cardTitle="Recommended Movie" class="card-item">
-                <div class="card-content">
-                    <moview-preview [movie]="recommendedMovie" [bookmarkEffect]="true"></moview-preview>    
-                </div>
-            </card-item>
-            <!-- Recommended Movie Banner - END -->
+            <div class="recommended-movie-contatiner" @slideRight>
+                <!-- Recommended Movie Banner -->
+                <card-item [titleSize]="'24px'" cardTitle="Recommended Movie" class="card-item">
+                    <div class="card-content">
+                        <moview-preview [movie]="recommendedMovie" [bookmarkEffect]="true"></moview-preview>    
+                    </div>
+                </card-item>
+                <!-- Recommended Movie Banner - END -->
+            </div>
+
+
 
     </aside>
 

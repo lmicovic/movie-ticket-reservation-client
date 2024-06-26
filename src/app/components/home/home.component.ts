@@ -4,12 +4,32 @@ import { MovieService } from '../../services/movie/movie.service';
 import { combineLatest, switchMap } from 'rxjs';
 import { MovieGenre } from '../../other/enums';
 import { MovieDTO } from '../../other/models/movie/movieDTO.interface';
+import { fade, fadeIn } from '../../other/animations/fade.animation';
+import { transition, trigger, useAnimation } from '@angular/animations';
+import { slideDown, slideRight } from '../../other/animations/slide.animation';
 
 
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
+  animations: [ 
+
+    trigger("slideRight", [
+
+      transition(":enter", [
+        useAnimation(slideRight)
+      ], {
+        params: {
+          duration: "2s",
+          delay: "0s",
+          easing: "ease-out"
+        }
+      })
+
+    ])
+
+  ]
 })
 export class HomeComponent implements OnInit {
 
