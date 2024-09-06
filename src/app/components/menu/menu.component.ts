@@ -122,17 +122,36 @@ export class MenuComponent {
         
         // Save Current User to Local Storage
         let savedCurrentUser: UserDTO = this.authService.saveCurrentUser(currentUser);
-        console.log("Logged In");
-        console.log("Current User:");
-        console.log(savedCurrentUser);
-        
-        
-        this.displayLoginPage = false;
-        this.window.location.reload();
-
-        // let savedCurrentUser: UserDTO = this.saveCurrentUser(currentUser);
+        // console.log("Logged In");
+        // console.log("Current User:");
         // console.log(savedCurrentUser);
         
+        // If savedCurrentUser has inactive profile - userInfo.active === false
+        if(savedCurrentUser.userInfo.active === false) {
+
+            // Reject Login process
+            this.authService.removeCurrentUser();
+            this.authService.removeJwtToken();
+
+            this.loginForm.setErrors({ "userNotActive": true });
+            return;
+            
+
+        }
+
+        // If savedCurrentser has active profile - userInfo.active === true
+        else if(savedCurrentUser.userInfo.active === true) {
+
+          // Proceed with Login Process
+
+          this.displayLoginPage = false;
+          this.window.location.reload();
+  
+          // let savedCurrentUser: UserDTO = this.saveCurrentUser(currentUser);
+          // console.log(savedCurrentUser);
+
+        }
+
       }, (error: Response) => {
         console.error(error);
         this.loginForm.setErrors({"authentification": true});

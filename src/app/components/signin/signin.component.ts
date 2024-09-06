@@ -88,10 +88,12 @@ export class SigninComponent {
       //--------------------------------------------------------------------------------
       let userEmail: string = this.authService.decodeJwtToken(jwtToken).sub;
       
+
       this.userService.getUserByEmail(userEmail).subscribe((currentUser: UserDTO) => {
         
         // Save Current User to Local Storage
         let savedCurrentUser: UserDTO = this.authService.saveCurrentUser(currentUser);
+        this.authService.saveJwtToken(jwtToken);
         // console.log("Logged In");
         // console.log("Current User:");
         // console.log(savedCurrentUser);
@@ -99,8 +101,8 @@ export class SigninComponent {
         
         // If savedCurrentUser has Active Profile - user.info.active === true
         if(savedCurrentUser.userInfo.active === true) {
+          
           let returnUrl = this.route.snapshot.queryParamMap.get("returnUrl");
-          // console.log(returnUrl);
           this.router.navigate([returnUrl || ""]);
         }
         // If savedCurrentUser has Inactive Profile - userInfo.active === false
@@ -108,7 +110,8 @@ export class SigninComponent {
           // Report Error in Form that User has Inactive Profile
 
           //...
-
+          this.authService.removeCurrentUser();
+          this.authService.removeJwtToken();
           console.error("User has Inactive Profile.")
           console.log(this.loginForm.setErrors({"userNotActive": true}));
           
