@@ -11,6 +11,4 @@ export interface UserDTO {
     bookmarks: MovieDTO[],
     reservations: ReservationDTO[],
 
-    
-
 }

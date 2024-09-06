@@ -46,7 +46,7 @@ export class MovieCommentComponent implements OnChanges {
   movieChange: EventEmitter<MovieDTO> = new EventEmitter<MovieDTO>();
 //------------------------------------------------------------------------------------------------
 
-  user: UserDTO = new User(-1, "", new UserInfo(-1, "", "", "", "", ""), [], [], []);
+  user: UserDTO = new User(-1, "", new UserInfo(-1, "", "", "", "", "", false), [], [], []);
 
   // Star Icon
   faStar = faStar;

@@ -77,11 +77,12 @@ export class SigninComponent {
   //--------------------------------------------------------------------------------------------------------------------
   private login(authRequest: AuthRequestDTO) {
 
+    
+    
+    
     this.authService.getJwtTokenFromServer(authRequest).subscribe((jwtToken: JwtTokenDTO) => {
 
       // Save jwt Token
-      this.authService.saveJwtToken(jwtToken);
-
       //--------------------------------------------------------------------------------
       // Load Current User from Server - by User E-mail
       //--------------------------------------------------------------------------------
@@ -91,19 +92,31 @@ export class SigninComponent {
         
         // Save Current User to Local Storage
         let savedCurrentUser: UserDTO = this.authService.saveCurrentUser(currentUser);
-        console.log("Logged In");
-        console.log("Current User:");
-        console.log(savedCurrentUser);
+        // console.log("Logged In");
+        // console.log("Current User:");
+        // console.log(savedCurrentUser);
         
-        let returnUrl = this.route.snapshot.queryParamMap.get("returnUrl");
         
-        console.log(returnUrl);
-        
+        // If savedCurrentUser has Active Profile - user.info.active === true
+        if(savedCurrentUser.userInfo.active === true) {
+          let returnUrl = this.route.snapshot.queryParamMap.get("returnUrl");
+          // console.log(returnUrl);
+          this.router.navigate([returnUrl || ""]);
+        }
+        // If savedCurrentUser has Inactive Profile - userInfo.active === false
+        else if(savedCurrentUser.userInfo.active === false) {
+          // Report Error in Form that User has Inactive Profile
 
-        this.router.navigate([returnUrl || ""]);
-        
-        
-        
+          //...
+
+          console.error("User has Inactive Profile.")
+          console.log(this.loginForm.setErrors({"userNotActive": true}));
+          
+          console.log(this.loginForm.getError("userNotActive"));
+
+          //...
+
+        }
 
         // let savedCurrentUser: UserDTO = this.saveCurrentUser(currentUser);
         // console.log(savedCurrentUser);

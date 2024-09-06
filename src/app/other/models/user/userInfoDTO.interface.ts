@@ -4,6 +4,7 @@ export interface UserInfoDTO {
     firstname: string,
     lastname: string,
     email: string,
-    password: string
+    password: string,
+    active: Boolean
 
 }

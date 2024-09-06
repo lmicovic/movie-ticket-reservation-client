@@ -135,7 +135,7 @@ export class UserPreviewComponent {
 
     
 
-    let userInfo = new UserInfo(this.user.id, (firstname as string), (lastname as string), (email as string), (password as string), "ROLE_USER");
+    let userInfo = new UserInfo(this.user.id, (firstname as string), (lastname as string), (email as string), (password as string), "ROLE_USER", this.user.userInfo.active);
     let user: UserDTO = new User(this.user.id, (image === undefined) ? this.user.image : undefined, userInfo, (this.user as User).watchedMovies, (this.user as User).bookmarks, (this.user as User).reservations);
 
 

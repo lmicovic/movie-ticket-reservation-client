@@ -66,7 +66,7 @@ export class TestUserComponent implements OnInit{
 
   getUserById() {
 
-    let userInfo: UserInfoDTO = new UserInfo(-1, "", "", "", "", "");
+    let userInfo: UserInfoDTO = new UserInfo(-1, "", "", "", "", "", false);
     let user: UserDTO = new User(-1, "", userInfo, [], [], []);
     
 
@@ -90,7 +90,7 @@ export class TestUserComponent implements OnInit{
 
   saveUser() {
 
-    let userInfo: UserInfoDTO = new UserInfo(-1, "Test", "Test", "test@gmail.com", "test123", "ROLE_USER");
+    let userInfo: UserInfoDTO = new UserInfo(-1, "Test", "Test", "test@gmail.com", "test123", "ROLE_USER", false);
     let user: UserDTO = new User(-1, undefined, userInfo, [], [], []);
 
     this.userService.save(user).subscribe((savedUser: UserDTO) => {

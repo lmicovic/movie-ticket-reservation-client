@@ -2,7 +2,7 @@ import { UserInfoDTO } from "./userInfoDTO.interface";
 
 export class UserInfo implements UserInfoDTO {
     
-    constructor(public id: number, public firstname: string, public lastname: string, public email: string, public password: string, public roles: string) {
+    constructor(public id: number, public firstname: string, public lastname: string, public email: string, public password: string, public roles: string, public active: Boolean) {
 
     }
 

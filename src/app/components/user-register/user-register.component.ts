@@ -53,7 +53,7 @@ export class UserRegisterComponent {
 
     // console.log(form.value);
 
-    let userInfo: UserInfoDTO = new UserInfo(-1, form.value["firstname"], form.value["lastname"], form.value["email"], form.value["password"], "ROLE_USER");
+    let userInfo: UserInfoDTO = new UserInfo(-1, form.value["firstname"], form.value["lastname"], form.value["email"], form.value["password"], "ROLE_USER", false);
     let user: UserDTO = new User(-1, undefined, userInfo, [], [], []);
     
     // console.log(user);
