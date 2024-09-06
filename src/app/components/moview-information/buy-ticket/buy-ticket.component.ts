@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth-service/auth-service.service';
 import { UserService } from './../../../services/user/user.service';
 import { Component, OnInit, ElementRef, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -63,7 +64,7 @@ export class BuyTicketComponent implements OnInit, OnChanges{
 
   user: UserDTO | undefined = undefined;
 
-  constructor(private movieService: MovieService, private projectionService: ProjectionService, private userService: UserService, private reservationService: ReservationService, private ref: ElementRef, private renderer: Renderer2, private router: ActivatedRoute, private toastr: ToastrService) {
+  constructor(private authService: AuthService, private movieService: MovieService, private projectionService: ProjectionService, private userService: UserService, private reservationService: ReservationService, private ref: ElementRef, private renderer: Renderer2, private router: ActivatedRoute, private toastr: ToastrService) {
 
   }
 
@@ -352,6 +353,9 @@ export class BuyTicketComponent implements OnInit, OnChanges{
 
   reserveTicket() {
 
+    console.log(this.user);
+
+    
     
     
     //-------------------------------------------------
@@ -413,7 +417,10 @@ export class BuyTicketComponent implements OnInit, OnChanges{
     // Reserve Ticket
     //-------------------------------------------------
     
-    this.userService.getById(1).subscribe((response) => {
+    
+    
+
+    this.userService.getById(this.authService.getCurrentUser()!.id).subscribe((response) => {
 
       this.user = response;
       
