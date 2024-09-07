@@ -10,6 +10,9 @@ export class User implements UserDTO{
     
     constructor(public id: number, public image: string | undefined, public userInfo: UserInfoDTO, public watchedMovies: MovieDTO[], public bookmarks: MovieDTO[], public reservations: ReservationDTO[]) {
 
+        
+        
+
     }
 
     // public static transform(user: User): UserDTO {

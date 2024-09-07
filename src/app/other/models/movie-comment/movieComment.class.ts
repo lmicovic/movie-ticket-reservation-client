@@ -7,7 +7,7 @@ import { MovieCommentDTO } from "./movieCommentDTO.interface";
 export class MovieComment implements MovieCommentDTO {
     
     constructor(public id: number | undefined, public user: UserDTO, public movie: MovieDTO, public date: Date, public rating: number, public commentText: string) {
-
+        
     }
 
     // public static transform(movieComment: MovieComment): MovieCommentDTO {
