@@ -15,7 +15,7 @@
         <!-- Monday -->
         <ng-container *ngIf="selectedDay === 1">
             <ng-container *ngIf="movieScheduleFilteredByDays.monday.length > 0">
-                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.monday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.monday" [routerLink]="['/application/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
                     <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
                     <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
                     <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
@@ -35,7 +35,7 @@
         <!-- Tuesday -->
         <ng-container *ngIf="selectedDay === 2">
             <ng-container *ngIf="movieScheduleFilteredByDays.tuesday.length > 0">
-                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.tuesday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.tuesday" [routerLink]="['/application/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
                     <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
                     <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
                     <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
@@ -55,7 +55,7 @@
         <!-- Wednesday -->
         <ng-container *ngIf="selectedDay === 3">
             <ng-container *ngIf="movieScheduleFilteredByDays.wednesday.length > 0">
-                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.wednesday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.wednesday" [routerLink]="['/application/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
                     <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
                     <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
                     <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
@@ -75,7 +75,7 @@
         <!-- Thursday -->
         <ng-container *ngIf="selectedDay === 4">
             <ng-container *ngIf="movieScheduleFilteredByDays.thursday.length > 0">
-                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.thursday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.thursday" [routerLink]="['/application/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
                     <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
                     <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
                     <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
@@ -95,7 +95,7 @@
         <!-- Friday -->
         <ng-container *ngIf="selectedDay === 5">
             <ng-container *ngIf="movieScheduleFilteredByDays.friday.length > 0">
-                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.friday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.friday" [routerLink]="['/application/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
                     <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
                     <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
                     <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
@@ -115,7 +115,7 @@
         <!-- Saturday -->
         <ng-container *ngIf="selectedDay === 6">
             <ng-container *ngIf="movieScheduleFilteredByDays.satruday.length > 0">
-                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.satruday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.satruday" [routerLink]="['/application/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
                     <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
                     <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
                     <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>
@@ -135,7 +135,7 @@
         <!-- Sunday -->
         <ng-container *ngIf="selectedDay === 0">
             <ng-container *ngIf="movieScheduleFilteredByDays.sunday.length > 0">
-                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.sunday" [routerLink]="['/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
+                <tr class="movie-schedule-content-table-row-container" @fade *ngFor="let schedule of movieScheduleFilteredByDays.sunday" [routerLink]="['/application/resrvation/buy-ticket', movie.id]" [queryParams]="{reservationId: schedule.id}">
                     <td class="movie-schedule-content-table-row"> {{ schedule.time | date: "HH:mm" }}h </td>
                     <td class="movie-schedule-content-table-row"> {{ movie.title }} </td>
                     <td class="movie-schedule-content-table-row"> {{ schedule.room.name }} </td>

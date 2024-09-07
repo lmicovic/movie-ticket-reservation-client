@@ -11,11 +11,15 @@ import { UserDTO } from '../../../other/models/user/userDTO.interface';
 import { MovieDTO } from '../../../other/models/movie/movieDTO.interface';
 import { MovieCommentDTO } from '../../../other/models/movie-comment/movieCommentDTO.interface';
 import { ReservationDTO } from '../../../other/models/reservation/reservationDTO.interface';
+import { slideTop } from '../../../other/animations/slide.animation';
 
 @Component({
   selector: 'user-detail-panel',
   templateUrl: './user-detail-panel.component.html',
-  styleUrl: './user-detail-panel.component.css'
+  styleUrl: './user-detail-panel.component.css',
+  animations: [
+    slideTop
+  ]
 })
 export class UserDetailPanelComponent implements OnChanges {
 

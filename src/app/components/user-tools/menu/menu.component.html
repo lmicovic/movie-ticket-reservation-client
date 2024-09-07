@@ -21,7 +21,7 @@
         <li><a href="#">Contact</a></li>
         <li onclick="document.getElementById('login-modal').style.display='block'"><a href="#">Login</a></li> -->
 
-        <li #home [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a routerLink="">Home</a></li>
+        <li #home [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a routerLink="home">Home</a></li>
         <li #news [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a>News</a></li>
         <li #about [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a>About</a></li>
         <li #contact [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a>Contact</a></li>

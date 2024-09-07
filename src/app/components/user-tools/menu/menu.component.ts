@@ -182,7 +182,7 @@ export class MenuComponent {
     
     if(this.authService.isLoggedIn() === true) {
       // Redirect to User Profile Page
-      this.router.navigate(["/user/preview/" + this.authService.getCurrentUser()?.id]);
+      this.router.navigate(["application/user/preview/" + this.authService.getCurrentUser()?.id]);
     }
     else if(this.authService.isLoggedIn() === false) {
       this.displayLoginPage = !this.displayLoginPage;

@@ -9,6 +9,7 @@ import { BuyTicketComponent } from './components/user-tools/moview-information/b
 import { UserPreviewComponent } from './components/user-tools/user-preview/user-preview.component';
 import { AuthGuardService } from './services/auth-guard-service/auth-guard.service';
 import { LogoutComponent } from './components/user-tools/logout/logout.component';
+import { UserToolsComponent } from './components/user-tools/user-tools/user-tools.component';
 
 
 
@@ -16,14 +17,21 @@ import { LogoutComponent } from './components/user-tools/logout/logout.component
 
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "register", component: UserRegisterComponent },
-  { path: "login", component: SigninComponent },
-  { path: "logout", component: LogoutComponent, canActivate: [AuthGuardService] },
-  { path: "movie/:movieId", component: MoviewInformationComponent}, 
-  { path: "resrvation/buy-ticket/:movieId", component: BuyTicketComponent, canActivate: [AuthGuardService]},
-  { path: "register", component: UserPreviewComponent },
-  { path: "user/preview/:userId", component: UserPreviewComponent, canActivate: [AuthGuardService] },
+
+  { path: "application", component: UserToolsComponent, children: [
+
+      { path: "home", component: HomeComponent },
+      { path: "register", component: UserRegisterComponent },
+      { path: "login", component: SigninComponent },
+      { path: "logout", component: LogoutComponent, canActivate: [AuthGuardService] },
+      { path: "movie/:movieId", component: MoviewInformationComponent}, 
+      { path: "resrvation/buy-ticket/:movieId", component: BuyTicketComponent, canActivate: [AuthGuardService]},
+      { path: "register", component: UserPreviewComponent },
+      { path: "user/preview/:userId", component: UserPreviewComponent, canActivate: [AuthGuardService] },
+
+  ]}
+
+  
   
 ];
 

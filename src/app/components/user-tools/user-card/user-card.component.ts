@@ -4,11 +4,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../services/user/user.service';
 import { UserDTO } from '../../../other/models/user/userDTO.interface';
 import { AuthService } from '../../../services/auth-service/auth-service.service';
+import { fade } from '../../../other/animations/fade.animation';
+import { slideDown } from '../../../other/animations/slide.animation';
 
 @Component({
   selector: 'user-card',
   templateUrl: './user-card.component.html',
-  styleUrl: './user-card.component.css'
+  styleUrl: './user-card.component.css',
+  animations: [
+    slideDown, fade
+  ]
 })
 export class UserCardComponent implements OnInit, OnChanges{
 
@@ -122,7 +127,7 @@ export class UserCardComponent implements OnInit, OnChanges{
     $event.stopPropagation();
     
     this.authService.logout();
-    this.router.navigate([""]);
+    this.router.navigate(["application/home"]);
   }
 
 }

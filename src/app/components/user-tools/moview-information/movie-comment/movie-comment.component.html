@@ -14,7 +14,7 @@
         
         <div class="add-comment-menu-login" *ngIf="authService.isLoggedIn() === false">
             <div>Please, login to add comment.</div>
-            <button class="comment-login-button" [routerLink]="['/login']" [queryParams]="{returnUrl: '/movie/' + this.movie.id}">Login</button>
+            <button class="comment-login-button" [routerLink]="['/application/login']" [queryParams]="{returnUrl: '/application/movie/' + this.movie.id}">Login</button>
         </div>
 
         <div class="add-comment-menu" *ngIf="authService.isLoggedIn() === true">

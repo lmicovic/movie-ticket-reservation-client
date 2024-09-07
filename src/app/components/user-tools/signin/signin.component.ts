@@ -103,7 +103,9 @@ export class SigninComponent {
         if(savedCurrentUser.userInfo.active === true) {
           
           let returnUrl = this.route.snapshot.queryParamMap.get("returnUrl");
-          this.router.navigate([returnUrl || ""]);
+          
+          
+          this.router.navigate([returnUrl || "/application/home"]);
         }
         // If savedCurrentUser has Inactive Profile - userInfo.active === false
         else if(savedCurrentUser.userInfo.active === false) {

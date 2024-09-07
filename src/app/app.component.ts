@@ -4,10 +4,7 @@ import { fade } from '././other/animations/fade.animation';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  animations: [
-    fade
-  ]
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'project';

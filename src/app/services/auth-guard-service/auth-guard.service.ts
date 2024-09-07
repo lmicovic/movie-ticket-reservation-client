@@ -21,8 +21,11 @@ export class AuthGuardService {
       return true;
     }
     
+    console.log("aaaaaaaaaaaaaaaaaaaaaa");
+    
+
     // If User is not Logged in redirect to Login Page
-    this.router.navigate(["/login"], {queryParams: { returnUrl: state.url }});
+    this.router.navigate(["/application/login"], {queryParams: { returnUrl: state.url }});
     return false;
 
   }

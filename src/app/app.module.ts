@@ -43,6 +43,8 @@ import { TestAuthComponent } from './other/tests/test-auth/test-auth.component';
 import { AuthGuardService } from './services/auth-guard-service/auth-guard.service';
 import { LogoutComponent } from './components/user-tools/logout/logout.component';
 import { FooterComponent } from './components/user-tools/footer/footer.component';
+import { UserToolsComponent } from './components/user-tools/user-tools/user-tools.component';
+
 
 
 
@@ -51,6 +53,7 @@ import { FooterComponent } from './components/user-tools/footer/footer.component
 
     // Component
     AppComponent,
+    UserToolsComponent,
     MenuComponent,
     BannerComponent,
     HomeComponent,
@@ -81,6 +84,8 @@ import { FooterComponent } from './components/user-tools/footer/footer.component
     TestAuthComponent,
     LogoutComponent,
     FooterComponent,
+    
+    
 
     
                   

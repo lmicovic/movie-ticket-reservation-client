@@ -3,7 +3,7 @@
 
 <div class="recommended-moview-preview" [class.zoom] = "zoomEffect" (mouseenter)="onImageHover(rating, bookmark, true)" (mouseleave)="onImageHover(rating, bookmark, false)"  >
     
-    <a [routerLink]="['/movie', movie.id]">
+    <a [routerLink]="['/application/movie', movie.id]">
         <img [src]="movie.image" alt="" class="recomended-movies-preview-image" />
     </a>
     
