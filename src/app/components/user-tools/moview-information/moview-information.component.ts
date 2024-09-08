@@ -268,5 +268,10 @@ export class MoviewInformationComponent implements OnInit {
 
   }
 
+  onBuyTicket() {
+
+    
+
+  }
 
 }

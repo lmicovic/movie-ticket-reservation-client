@@ -10,6 +10,7 @@ import { UserPreviewComponent } from './components/user-tools/user-preview/user-
 import { AuthGuardService } from './services/auth-guard-service/auth-guard.service';
 import { LogoutComponent } from './components/user-tools/logout/logout.component';
 import { UserToolsComponent } from './components/user-tools/user-tools/user-tools.component';
+import { AdministratorComponent } from './components/administrative-tools/administrator/administrator.component';
 
 
 
@@ -29,7 +30,8 @@ const routes: Routes = [
       { path: "register", component: UserPreviewComponent },
       { path: "user/preview/:userId", component: UserPreviewComponent, canActivate: [AuthGuardService] },
 
-  ]}
+  ]},
+  { path: "admin", component: AdministratorComponent }
 
   
   

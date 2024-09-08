@@ -53,7 +53,7 @@
         
             <div>
                 <button class="movie-information-button" id="trailer-button" (click)="getTrailer()">Trailer</button>
-                <a [routerLink]="['/resrvation/buy-ticket', movie.id]"><button class="movie-information-button" id="buy-ticket-button">Buy Ticket</button></a>
+                <a (click)="onBuyTicket()"><button class="movie-information-button" id="buy-ticket-button">Buy Ticket</button></a>
             </div>
         </div>
     </aside>

@@ -1,0 +1,48 @@
+.main-container {
+    
+    /* background-color: red; */
+    
+    height: 65px;
+
+    /* Delete */
+    margin-bottom: 1000px;
+    /* --------------------------------- */
+
+    /* box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15); */
+
+    box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
+
+}
+
+
+
+.topbar-title-container {
+    display: inline-block;
+    position: relative;
+    top: 15px;
+}
+
+.topbar-title {
+    font-size: 28px;
+    margin: 0px 40px;
+    color: #333333;
+}
+
+.burger-button-container{
+    display: inline-block;
+    position: relative;
+    top: 15px;
+}
+
+.burger-button-item {
+    font-size: 24px; 
+    color: gray;
+    padding: 8px 12px;
+}
+
+.burger-button-item:hover {
+    cursor: pointer;
+    border: 2px solid rgb(138, 188, 207);
+    background-color: #eee;
+    border-radius: 100%;
+}

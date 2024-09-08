@@ -44,6 +44,9 @@ import { AuthGuardService } from './services/auth-guard-service/auth-guard.servi
 import { LogoutComponent } from './components/user-tools/logout/logout.component';
 import { FooterComponent } from './components/user-tools/footer/footer.component';
 import { UserToolsComponent } from './components/user-tools/user-tools/user-tools.component';
+import { AdministratorComponent } from './components/administrative-tools/administrator/administrator.component';
+import { TopbarComponent } from './components/administrative-tools/topbar/topbar.component';
+import { SidebarComponent } from './components/administrative-tools/sidebar/sidebar.component';
 
 
 
@@ -70,11 +73,6 @@ import { UserToolsComponent } from './components/user-tools/user-tools/user-tool
     UserPreviewComponent,
     UserDetailPanelComponent,
     UserDetailContentComponent,
-
-
-    // Pipe
-    MovieDescriptionFormatPipe,
-    StringListPipe,
     TestsComponent,
     TestUserComponent,
     TestMovieComponent,
@@ -84,6 +82,14 @@ import { UserToolsComponent } from './components/user-tools/user-tools/user-tool
     TestAuthComponent,
     LogoutComponent,
     FooterComponent,
+    AdministratorComponent,
+
+    // Pipe
+    MovieDescriptionFormatPipe,
+    StringListPipe,
+    TopbarComponent,
+    SidebarComponent,
+    
     
     
 
