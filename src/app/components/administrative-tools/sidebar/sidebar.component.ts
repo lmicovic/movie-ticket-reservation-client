@@ -1,6 +1,6 @@
 import { style } from '@angular/animations';
 import { AfterViewInit, Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { faHome, faVideo, faFilm, faBoxArchive, faTicket, faUsers } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faVideo, faFilm, faBoxArchive, faTicket, faUsers, faGear } from '@fortawesome/free-solid-svg-icons'
 import { sideBarAnimation } from '../../../other/animations/sidebar.animation';
 import { Router } from '@angular/router';
 
@@ -24,6 +24,7 @@ export class SidebarComponent implements AfterViewInit{
   reservationIcon = faTicket;
   roomIcon = faBoxArchive;
   usersIcon = faUsers;
+  settingsIcon = faGear;
 
   //------------------------------
   // Get HTML Element Reference
