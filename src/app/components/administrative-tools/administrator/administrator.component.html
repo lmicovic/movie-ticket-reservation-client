@@ -1,2 +1,21 @@
-<app-topbar></app-topbar>
-<p style="background-color: blue;">administrator works!</p>
+
+<app-topbar (sidePanelToggleEvent)="onSidePanelToggled($event)"></app-topbar>
+
+<div class="main-container clearfix">
+
+    <div class="left-panel">
+        <app-sidebar [onExpandSidePanel]="isSidePanelToggled"></app-sidebar>
+    </div>
+
+    <div class="middle-panel" #middlePanel [@sideBarToggleAdminPageAnimation] = "(isSidePanelToggled === true || isSidePanelToggled === undefined) ? 'reduce' : 'enlarge'">
+        <div>
+            <p>administrator works!</p>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+

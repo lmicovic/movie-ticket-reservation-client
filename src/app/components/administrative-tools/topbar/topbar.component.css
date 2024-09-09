@@ -1,15 +1,6 @@
 .main-container {
     
-    /* background-color: red; */
-    
     height: 65px;
-
-    /* Delete */
-    margin-bottom: 1000px;
-    /* --------------------------------- */
-
-    /* box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.15); */
-
     box-shadow: 0px 8px 24px rgba(149, 157, 165, 0.2);
 
 }
@@ -42,7 +33,7 @@
 
 .burger-button-item:hover {
     cursor: pointer;
-    border: 2px solid rgb(138, 188, 207);
+    /* border: 2px solid rgb(138, 188, 207); */
     background-color: #eee;
     border-radius: 100%;
 }
