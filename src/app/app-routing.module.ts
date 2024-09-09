@@ -11,6 +11,12 @@ import { AuthGuardService } from './services/auth-guard-service/auth-guard.servi
 import { LogoutComponent } from './components/user-tools/logout/logout.component';
 import { UserToolsComponent } from './components/user-tools/user-tools/user-tools.component';
 import { AdministratorComponent } from './components/administrative-tools/administrator/administrator.component';
+import { AdministratorMoviesComponent } from './components/administrative-tools/administrator-movies/administrator-movies.component';
+import { AdministratorProjectionsComponent } from './components/administrative-tools/administrator-projections/administrator-projections.component';
+import { AdministratorReservationsComponent } from './components/administrative-tools/administrator-reservations/administrator-reservations.component';
+import { AdministratorRoomsComponent } from './components/administrative-tools/administrator-rooms/administrator-rooms.component';
+import { AdministratorUsersComponent } from './components/administrative-tools/administrator-users/administrator-users.component';
+import { AdministratorSettingsComponent } from './components/administrative-tools/administrator-settings/administrator-settings.component';
 
 
 
@@ -31,7 +37,17 @@ const routes: Routes = [
       { path: "user/preview/:userId", component: UserPreviewComponent, canActivate: [AuthGuardService] },
 
   ]},
-  { path: "admin", component: AdministratorComponent }
+  { path: "admin", component: AdministratorComponent, children: [
+    
+    { path: "movies", component: AdministratorMoviesComponent },
+    { path: "projections", component: AdministratorProjectionsComponent },
+    { path: "reservations", component: AdministratorReservationsComponent },
+    { path: "rooms", component: AdministratorRoomsComponent },
+    { path: "users", component: AdministratorUsersComponent },
+    { path: "settings", component: AdministratorSettingsComponent },
+    
+
+  ] }
 
   
   

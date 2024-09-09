@@ -47,6 +47,13 @@ import { UserToolsComponent } from './components/user-tools/user-tools/user-tool
 import { AdministratorComponent } from './components/administrative-tools/administrator/administrator.component';
 import { TopbarComponent } from './components/administrative-tools/topbar/topbar.component';
 import { SidebarComponent } from './components/administrative-tools/sidebar/sidebar.component';
+import { AdministratorMoviesComponent } from './components/administrative-tools/administrator-movies/administrator-movies.component';
+import { AdministartorDashboardComponent } from './components/administrative-tools/administartor-dashboard/administartor-dashboard.component';
+import { AdministratorProjectionsComponent } from './components/administrative-tools/administrator-projections/administrator-projections.component';
+import { AdministratorReservationsComponent } from './components/administrative-tools/administrator-reservations/administrator-reservations.component';
+import { AdministratorRoomsComponent } from './components/administrative-tools/administrator-rooms/administrator-rooms.component';
+import { AdministratorUsersComponent } from './components/administrative-tools/administrator-users/administrator-users.component';
+import { AdministratorSettingsComponent } from './components/administrative-tools/administrator-settings/administrator-settings.component';
 
 
 
@@ -89,6 +96,13 @@ import { SidebarComponent } from './components/administrative-tools/sidebar/side
     StringListPipe,
     TopbarComponent,
     SidebarComponent,
+    AdministratorMoviesComponent,
+    AdministartorDashboardComponent,
+    AdministratorProjectionsComponent,
+    AdministratorReservationsComponent,
+    AdministratorRoomsComponent,
+    AdministratorUsersComponent,
+    AdministratorSettingsComponent,
     
     
     

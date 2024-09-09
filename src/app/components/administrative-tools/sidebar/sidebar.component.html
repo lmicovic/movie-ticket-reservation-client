@@ -4,14 +4,14 @@
     <div class="sidebar-container">
 
         <ul class="sidebar-list">
-            <li class="sidebar-list-item" #dashboardItem> <span><fa-icon class="icon home-icon" [icon]="homeIcon" ></fa-icon></span>Dashboard</li>
-            <li class="sidebar-list-item"> <span><fa-icon class="icon movie-icon" [icon]="movieIcon" ></fa-icon></span>Movies</li>
-            <li class="sidebar-list-item"> <span><fa-icon class="icon projectionIcon" [icon]="projectionIcon" ></fa-icon></span>Projections</li>
-            <li class="sidebar-list-item"> <span><fa-icon class="icon projectionIcon" [icon]="reservationIcon" ></fa-icon></span>Reservations</li>
-            <li class="sidebar-list-item"> <span><fa-icon class="icon roomIcon" [icon]="roomIcon" ></fa-icon></span>Rooms</li>
-            <li class="sidebar-list-item"> <span><fa-icon class="icon usersIcon" [icon]="usersIcon" ></fa-icon></span>Users</li>
+            <a routerLink="/admin"> <li class="sidebar-list-item" #dashboardItem><span><fa-icon class="icon home-icon" [icon]="homeIcon"></fa-icon></span>Dashboard</li> </a>
+            <a routerLink="/admin/movies"> <li class="sidebar-list-item" #moviesItem><span><fa-icon class="icon movie-icon" [icon]="movieIcon" ></fa-icon></span>Movies </li> </a>
+            <a routerLink="/admin/projections"> <li class="sidebar-list-item" #projectionsItem> <span><fa-icon class="icon projectionIcon" [icon]="projectionIcon" ></fa-icon></span>Projections</li> </a>
+            <a routerLink="/admin/reservations"> <li class="sidebar-list-item" #reservationsItem> <span><fa-icon class="icon projectionIcon" [icon]="reservationIcon" ></fa-icon></span>Reservations</li> </a>
+            <a routerLink="/admin/rooms"> <li class="sidebar-list-item" #roomsItem> <span><fa-icon class="icon roomIcon" [icon]="roomIcon" ></fa-icon></span>Rooms</li> </a>
+            <a routerLink="/admin/users"> <li class="sidebar-list-item" #usersItem> <span><fa-icon class="icon usersIcon" [icon]="usersIcon" ></fa-icon></span>Users</li> </a>
             <hr style="color: gray;">
-            <li class="sidebar-list-item"> <span><fa-icon class="icon settingsIcon" [icon]="settingsIcon" ></fa-icon></span>Settings</li>
+            <a routerLink="/admin/settings"> <li class="sidebar-list-item" #settingsItem> <span><fa-icon class="icon settingsIcon" [icon]="settingsIcon" ></fa-icon></span>Settings</li> </a>
         </ul>
 
     </div>

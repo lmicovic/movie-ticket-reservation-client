@@ -9,7 +9,16 @@
 
     <div class="middle-panel" #middlePanel [@sideBarToggleAdminPageAnimation] = "(isSidePanelToggled === true || isSidePanelToggled === undefined) ? 'reduce' : 'enlarge'">
         <div>
-            <p>administrator works!</p>
+            <!-- Custom Router -->
+            <app-administartor-dashboard *ngIf="router.url === '/admin'"></app-administartor-dashboard>
+            <app-administrator-movies *ngIf="router.url === '/admin/movies'"></app-administrator-movies>
+            <app-administrator-projections *ngIf="router.url === '/admin/projections'"></app-administrator-projections>
+            <app-administrator-reservations *ngIf="router.url === '/admin/reservations'"></app-administrator-reservations>
+            <app-administrator-rooms *ngIf="router.url === '/admin/rooms'"></app-administrator-rooms>
+            <app-administrator-users *ngIf="router.url === '/admin/users'"></app-administrator-users>
+            <app-administrator-settings *ngIf="router.url === '/admin/settings'"></app-administrator-settings>
+            <!-- Custom Router - END -->
+
         </div>
     </div>
 

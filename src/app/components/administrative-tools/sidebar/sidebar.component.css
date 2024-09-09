@@ -38,6 +38,12 @@
     margin-right: 10px;
 }
 
+/* Reset All link stylings */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 @media (max-width: 800px) {
 
     .main-container {

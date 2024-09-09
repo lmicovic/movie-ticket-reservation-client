@@ -1,20 +1,18 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { mainContentAnimation } from '../../../other/animations/sidebar.animation';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'administrator',
-  templateUrl: './administrator.component.html',
-  styleUrl: './administrator.component.css',
+  selector: 'app-administrator-settings',
+  templateUrl: './administrator-settings.component.html',
+  styleUrl: './administrator-settings.component.css',
   animations: [
     mainContentAnimation
   ]
 })
-export class AdministratorComponent {
+export class AdministratorSettingsComponent {
 
-  constructor(public router: Router) {
-    
+  constructor() {
+
   }
 
   //----------------------------------------------------------------------------------------------------
@@ -26,6 +24,5 @@ export class AdministratorComponent {
     return value;
   }
   //----------------------------------------------------------------------------------------------------
-  
 
 }

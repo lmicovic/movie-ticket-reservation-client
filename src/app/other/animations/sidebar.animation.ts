@@ -16,3 +16,18 @@ export let sideBarAnimation = trigger("sideBarAnimation", [
     ])
 
 ]);
+
+export let mainContentAnimation = trigger("sideBarToggleAdminPageAnimation", [
+
+    state("reduce", style( { transform: "translateX(0)" } )),
+    state("enlarge", style( { transform: "translateX(0)" })),
+
+    transition("reduce => enlarge", [
+      animate("300ms ease-out")
+    ]),
+
+    transition("enlarge => reduce", [
+        animate("300ms ease-in")
+    ])
+
+  ]);

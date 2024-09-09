@@ -12,11 +12,10 @@
 
 .middle-panel {
     
-    
     height: auto;
     margin: 30px 30px 10px 10px;
     padding: 0px 10px 10px 10px;
-    background-color: blue;
+    /* background-color: blue; */
 
     flex: 50%;
 }
