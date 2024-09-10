@@ -1,0 +1,25 @@
+<div class="short-statistic-main-container">
+
+    <div class="short-statistic-container-item">
+
+        <div class="short-statistic-container-item-left">
+            <div class="short-statistic-item-title">
+                {{ tittle }}
+            </div>
+
+            <div class="short-statistic-item-value">
+                {{ value }}
+            </div>
+
+            <div class="short-statistic-item-description">
+                <span class="short-statistic-item-description-value" [ngStyle]="{'color': lastWeekValue.charAt(0) === '-' ? '#ff474c' : ''}"> {{ lastWeekValue }} new</span> {{ lastWeekValueDesctription }}
+            </div>
+        </div>
+
+        <div class="short-statistic-item-icon">
+            <fa-icon class="icon usersIcon" [icon]="icon" [ngStyle]="{'color': iconColor === '' ? '' : iconColor, 'backgroundColor': iconBackgroundColor === '' ? '' : iconBackgroundColor}"></fa-icon>
+        </div>
+
+    </div>
+
+</div>

@@ -1,3 +1,23 @@
 <div class="main-container">
-    <p>administartor-dashboard works!</p>
+    
+    <div class="statistic-card-container">
+
+        <div class="statistic-card-item">
+            <app-statistic-card [tittle]="viewsCardValues.tittle" [value]="viewsCardValues.value" [lastWeekValue]="viewsCardValues.lastWeekValue" [lastWeekValueDesctription]="viewsCardValues.lastWeekValueDescription" [icon]="viewsCardValues.icon" [iconColor]="viewsCardValues.iconColor" [iconBackgroundColor]="viewsCardValues.iconBackgroundColor"></app-statistic-card>
+        </div>
+        
+        <div class="statistic-card-item">
+            <app-statistic-card [tittle]="revenueCardValues.tittle" [value]="revenueCardValues.value" [lastWeekValue]="revenueCardValues.lastWeekValue" [lastWeekValueDesctription]="revenueCardValues.lastWeekValueDescription" [icon]="revenueCardValues.icon" [iconColor]="revenueCardValues.iconColor" [iconBackgroundColor]="revenueCardValues.iconBackgroundColor"></app-statistic-card>
+        </div>
+
+        <div class="statistic-card-item">
+            <app-statistic-card [tittle]="customersCardValues.tittle" [value]="customersCardValues.value" [lastWeekValue]="customersCardValues.lastWeekValue" [lastWeekValueDesctription]="customersCardValues.lastWeekValueDescription" [icon]="customersCardValues.icon" [iconColor]="customersCardValues.iconColor" [iconBackgroundColor]="customersCardValues.iconBackgroundColor"></app-statistic-card>
+        </div>
+        
+        <div class="statistic-card-item">
+            <app-statistic-card [tittle]="moviesCardValues.tittle" [value]="moviesCardValues.value" [lastWeekValue]="moviesCardValues.lastWeekValue" [lastWeekValueDesctription]="moviesCardValues.lastWeekValueDescription" [icon]="moviesCardValues.icon" [iconColor]="moviesCardValues.iconColor" [iconBackgroundColor]="moviesCardValues.iconBackgroundColor"></app-statistic-card>
+        </div>
+
+    </div>
+
 </div>

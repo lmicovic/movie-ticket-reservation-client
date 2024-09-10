@@ -54,6 +54,7 @@ import { AdministratorReservationsComponent } from './components/administrative-
 import { AdministratorRoomsComponent } from './components/administrative-tools/administrator-rooms/administrator-rooms.component';
 import { AdministratorUsersComponent } from './components/administrative-tools/administrator-users/administrator-users.component';
 import { AdministratorSettingsComponent } from './components/administrative-tools/administrator-settings/administrator-settings.component';
+import { StatisticCardComponent } from './components/administrative-tools/administartor-dashboard/statistic-card/statistic-card.component';
 
 
 
@@ -103,6 +104,7 @@ import { AdministratorSettingsComponent } from './components/administrative-tool
     AdministratorRoomsComponent,
     AdministratorUsersComponent,
     AdministratorSettingsComponent,
+    StatisticCardComponent,
     
     
     
