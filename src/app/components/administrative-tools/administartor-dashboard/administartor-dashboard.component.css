@@ -1,3 +1,6 @@
+/* --------------------------------------- */
+/* Main - Container             */
+/* --------------------------------------- */
 .clearfix::after {
     content: "";
     clear: both;
@@ -9,7 +12,13 @@
     padding: 0px;
     margin: 0px;
 }
+/* --------------------------------------- */
 
+
+
+/* --------------------------------------- */
+/* Statistic Cards - Container             */
+/* --------------------------------------- */
 .statistic-card-container {
     display: flex;
     flex-direction: row;
@@ -19,6 +28,22 @@
 .statistic-card-item {
     width: 25%;
 }
+/* --------------------------------------- */
+
+
+
+/* --------------------------------------- */
+/* Statistic Cards - Container             */
+/* --------------------------------------- */
+.main-statistic-cards-container {
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;    */
+    /* background-color: red; */
+}
+/* --------------------------------------- */
+
+
 
 @media (max-width: 1620px) {
 
@@ -30,16 +55,17 @@
 
 @media (max-width: 1000px) {
 
+    .main-container {
+        background-color: red;
+    }
+
+    .statistic-card-container{
+        /* background-color: red; */
+    }
+
     .statistic-card-item {
         width: 100%;
     }    
 
 }
 
-@media (max-width: 1000px) {
-    
-    .statistic-card-item {
-        width: 100%;
-    }    
-
-}

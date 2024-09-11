@@ -23,7 +23,7 @@ import { ProjectionService } from './services/projection/projection.service';
 import { CommentService } from './services/comment/comment.service';
 import { UserService } from './services/user/user.service';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StringListPipe } from './pipes/movie-description-format/string-list.pipe';
 import { ReservationService } from './services/reservation/reservation.service';
 import { UserCardComponent } from './components/user-tools/user-card/user-card.component';
@@ -55,6 +55,7 @@ import { AdministratorRoomsComponent } from './components/administrative-tools/a
 import { AdministratorUsersComponent } from './components/administrative-tools/administrator-users/administrator-users.component';
 import { AdministratorSettingsComponent } from './components/administrative-tools/administrator-settings/administrator-settings.component';
 import { StatisticCardComponent } from './components/administrative-tools/administartor-dashboard/statistic-card/statistic-card.component';
+import { RecentReservationsComponent } from './components/administrative-tools/administartor-dashboard/recent-reservations/recent-reservations.component';
 
 
 
@@ -105,6 +106,7 @@ import { StatisticCardComponent } from './components/administrative-tools/admini
     AdministratorUsersComponent,
     AdministratorSettingsComponent,
     StatisticCardComponent,
+    RecentReservationsComponent,
     
     
     

@@ -1,5 +1,8 @@
 <div class="main-container">
     
+    <!--------------------------------------------------------------------------->
+    <!-- Statistic Cards - Container -->
+    <!--------------------------------------------------------------------------->
     <div class="statistic-card-container">
 
         <div class="statistic-card-item">
@@ -18,6 +21,27 @@
             <app-statistic-card [tittle]="moviesCardValues.tittle" [value]="moviesCardValues.value" [lastWeekValue]="moviesCardValues.lastWeekValue" [lastWeekValueDesctription]="moviesCardValues.lastWeekValueDescription" [icon]="moviesCardValues.icon" [iconColor]="moviesCardValues.iconColor" [iconBackgroundColor]="moviesCardValues.iconBackgroundColor"></app-statistic-card>
         </div>
 
+    </div> 
+    <!--------------------------------------------------------------------------->
+    <!-- Statistic Cards - Container - END-->
+    <!--------------------------------------------------------------------------->
+
+
+
+    <!--------------------------------------------------------------------------->
+    <!-- Main Statistic Cards - Container -->
+    <!--------------------------------------------------------------------------->
+    <div class="main-statistic-cards-container">
+
+        <div class="recent-reservations-container">
+            <app-recent-reservations></app-recent-reservations>
+        </div>
+        
+
+
     </div>
+    <!--------------------------------------------------------------------------->
+    <!-- Main Statistic Cards - Container - END -->
+    <!--------------------------------------------------------------------------->
 
 </div>

@@ -1,0 +1,62 @@
+.main-container {
+    background-color: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 0px 20px 20px 20px;
+    
+}
+
+.main-container-item {
+    overflow: hidden;
+}
+
+.main-container-tittle {
+    margin: 0px 0px 20px 0px;
+    font-size: 18px;
+    
+}
+
+/* ------------------------------------------ */
+/* Reservation - Table */
+/* ------------------------------------------ */
+.main-container-table {
+    width: 100%;
+    display: table;
+    border-collapse: collapse;
+}
+
+.main-container-table-headers {
+    display: table-header-group;
+    vertical-align: middle;
+}
+
+.main-container-table-body {
+    display: table-row-group;
+}
+
+.main-container-table-headers tr, .main-container-table-body tr {
+    display: table-row;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+}
+
+.main-container-table-headers > tr > th {
+    text-align: left;
+    
+    padding: 1rem 1rem;
+    background-color: #f9fafb;
+    color: #374151;
+    transition: box-shadow 0.2s;
+    
+}
+
+tr:hover {
+    cursor: pointer;   
+}
+
+.main-container-table-body > tr > td {
+    padding: 1rem 1rem;
+    text-align: left;
+}
+/* ------------------------------------------ */

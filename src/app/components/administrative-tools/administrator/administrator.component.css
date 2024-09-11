@@ -23,8 +23,11 @@
 @media (max-width: 800px) {
 
     .main-container {
+        
+    }
+
+    .middle-panel {
         margin: 20px;
-        width: 100%;
     }
 
     .left-panel {
