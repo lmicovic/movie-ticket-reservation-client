@@ -1,4 +1,10 @@
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .main-container {
     /* background-color: red; */
     float: left;
@@ -46,7 +52,7 @@ a {
     color: inherit;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1300px) {
 
     .main-container {
         width: 100%;

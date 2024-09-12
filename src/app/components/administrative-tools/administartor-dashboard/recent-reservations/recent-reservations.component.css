@@ -3,7 +3,7 @@
     border: 1px solid #dfe7ef;
     border-radius: 20px;
     padding: 30px;
-    margin: 0px 20px 20px 20px;
+    margin: 0px 20px 0px 20px;
     
 }
 
@@ -51,7 +51,7 @@
     
 }
 
-tr:hover {
+.main-container-table-body tr:hover {
     cursor: pointer;   
 }
 

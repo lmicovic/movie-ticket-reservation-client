@@ -20,7 +20,7 @@
         <div class="statistic-card-item">
             <app-statistic-card [tittle]="moviesCardValues.tittle" [value]="moviesCardValues.value" [lastWeekValue]="moviesCardValues.lastWeekValue" [lastWeekValueDesctription]="moviesCardValues.lastWeekValueDescription" [icon]="moviesCardValues.icon" [iconColor]="moviesCardValues.iconColor" [iconBackgroundColor]="moviesCardValues.iconBackgroundColor"></app-statistic-card>
         </div>
-
+        
     </div> 
     <!--------------------------------------------------------------------------->
     <!-- Statistic Cards - Container - END-->
@@ -33,11 +33,15 @@
     <!--------------------------------------------------------------------------->
     <div class="main-statistic-cards-container">
 
+        <!-- Recent Reservations - Table -->
         <div class="recent-reservations-container">
             <app-recent-reservations></app-recent-reservations>
         </div>
-        
 
+        <!-- Tickets Sales Overview - Graph -->
+        <div class="ticket-sales-graph-container">
+            <app-ticket-sales-graph></app-ticket-sales-graph>
+        </div>
 
     </div>
     <!--------------------------------------------------------------------------->

@@ -11,6 +11,7 @@
     /* background-color: blue; */
     padding: 0px;
     margin: 0px;
+    
 }
 /* --------------------------------------- */
 
@@ -22,7 +23,8 @@
 .statistic-card-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;    
+    flex-wrap: wrap; 
+    
 }
 
 .statistic-card-item {
@@ -36,14 +38,17 @@
 /* Statistic Cards - Container             */
 /* --------------------------------------- */
 .main-statistic-cards-container {
-    /* display: flex;
+    display: flex;
     flex-direction: row;
-    flex-wrap: wrap;    */
+    flex-wrap: wrap;
+    margin-top: 10px;
     /* background-color: red; */
 }
 /* --------------------------------------- */
 
-
+.recent-reservations-container, .ticket-sales-graph-container {
+    width: 50%;
+}
 
 @media (max-width: 1620px) {
 
@@ -53,10 +58,28 @@
 
 }
 
+@media (max-width: 1300px) {
+
+    .main-statistic-cards-container {
+        /* background-color: red; */
+    }
+
+    .ticket-sales-graph-container {
+        margin-top: 30px;
+        width: 99.5%;
+        
+    }
+
+    .recent-reservations-container {
+        width: 100%;
+    }    
+
+}
+
 @media (max-width: 1000px) {
 
     .main-container {
-        background-color: red;
+        /* background-color: red; */
     }
 
     .statistic-card-container{
