@@ -17,6 +17,7 @@ import { AdministratorReservationsComponent } from './components/administrative-
 import { AdministratorRoomsComponent } from './components/administrative-tools/administrator-rooms/administrator-rooms.component';
 import { AdministratorUsersComponent } from './components/administrative-tools/administrator-users/administrator-users.component';
 import { AdministratorSettingsComponent } from './components/administrative-tools/administrator-settings/administrator-settings.component';
+import { MostVievedMoviesComponent } from './components/administrative-tools/administartor-dashboard/most-vieved-movies/most-vieved-movies.component';
 
 
 
@@ -44,12 +45,9 @@ const routes: Routes = [
     { path: "reservations", component: AdministratorReservationsComponent },
     { path: "rooms", component: AdministratorRoomsComponent },
     { path: "users", component: AdministratorUsersComponent },
-    { path: "settings", component: AdministratorSettingsComponent },
-    
+    { path: "settings", component: AdministratorSettingsComponent },{ path: "test", component: MostVievedMoviesComponent}
 
-  ] }
-
-  
+  ] },  
   
 ];
 

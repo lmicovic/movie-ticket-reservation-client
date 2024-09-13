@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { last } from 'rxjs';
 
 @Component({
   selector: 'app-ticket-sales-graph',

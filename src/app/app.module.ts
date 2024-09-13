@@ -58,8 +58,7 @@ import { AdministratorSettingsComponent } from './components/administrative-tool
 import { StatisticCardComponent } from './components/administrative-tools/administartor-dashboard/statistic-card/statistic-card.component';
 import { RecentReservationsComponent } from './components/administrative-tools/administartor-dashboard/recent-reservations/recent-reservations.component';
 import { TicketSalesGraphComponent } from './components/administrative-tools/administartor-dashboard/ticket-sales-graph/ticket-sales-graph.component';
-
-
+import { MostVievedMoviesComponent } from './components/administrative-tools/administartor-dashboard/most-vieved-movies/most-vieved-movies.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +108,8 @@ import { TicketSalesGraphComponent } from './components/administrative-tools/adm
     StatisticCardComponent,
     RecentReservationsComponent,
     TicketSalesGraphComponent,
+    MostVievedMoviesComponent,
+    
     
     
     
@@ -128,6 +129,7 @@ import { TicketSalesGraphComponent } from './components/administrative-tools/adm
     HttpClientModule,
     BrowserAnimationsModule,
     ChartModule,
+
     
     ToastrModule.forRoot({
       maxOpened: 1,

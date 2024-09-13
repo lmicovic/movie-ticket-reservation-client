@@ -50,6 +50,11 @@
     width: 50%;
 }
 
+.most-viewed-movies-container {
+    margin-top: 30px;
+    
+}
+
 @media (max-width: 1620px) {
 
     .statistic-card-item {
