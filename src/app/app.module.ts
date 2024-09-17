@@ -1,4 +1,5 @@
 import { ChartModule } from 'primeng/chart';
+import { PaginatorModule } from 'primeng/paginator';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -59,6 +60,8 @@ import { StatisticCardComponent } from './components/administrative-tools/admini
 import { RecentReservationsComponent } from './components/administrative-tools/administartor-dashboard/recent-reservations/recent-reservations.component';
 import { TicketSalesGraphComponent } from './components/administrative-tools/administartor-dashboard/ticket-sales-graph/ticket-sales-graph.component';
 import { MostVievedMoviesComponent } from './components/administrative-tools/administartor-dashboard/most-vieved-movies/most-vieved-movies.component';
+import { DashboardMessagesComponent } from './components/administrative-tools/administartor-dashboard/dashboard-messages/dashboard-messages.component';
+
 
 @NgModule({
   declarations: [
@@ -109,6 +112,8 @@ import { MostVievedMoviesComponent } from './components/administrative-tools/adm
     RecentReservationsComponent,
     TicketSalesGraphComponent,
     MostVievedMoviesComponent,
+    DashboardMessagesComponent,
+
     
     
     
@@ -129,6 +134,7 @@ import { MostVievedMoviesComponent } from './components/administrative-tools/adm
     HttpClientModule,
     BrowserAnimationsModule,
     ChartModule,
+    PaginatorModule,
 
     
     ToastrModule.forRoot({

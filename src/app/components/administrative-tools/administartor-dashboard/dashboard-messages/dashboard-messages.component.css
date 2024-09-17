@@ -7,19 +7,12 @@
     
 }
 
-.main-container-item {
-    
-}
-
 .main-container-tittle {
     margin: 0px 0px 20px 0px;
     font-size: 18px;
     
 }
 
-/* ------------------------------------------ */
-/* Reservation - Table */
-/* ------------------------------------------ */
 .main-container-table {
     width: 100%;
     display: table;
@@ -48,12 +41,20 @@
     background-color: #f9fafb;
     color: #374151;
     transition: box-shadow 0.2s;
-    
+
 }
 
-.main-container-table-body tr:hover {
-    cursor: pointer;   
+tbody > tr > td:last-child {
+    
+    width: 30%;
 }
+
+tbody tr:hover {
+    cursor: pointer;   
+    /* background-color: #f9fafb; */
+}
+
+
 
 .main-container-table-body > tr > td {
     padding: 1rem 1rem;
@@ -63,6 +64,11 @@
 img {
     width: 50px;
     height: auto;
+    border-radius: 100%;
+    border: 1px solid #999999;
 }
 
-/* ------------------------------------------ */
+.pagination-container {
+    /* background-color: red; */
+    margin: 10px 0px 0px 0px;
+}
