@@ -63,28 +63,52 @@
         <!-- New Moview - END -->
         <!-- ------------------------------------------------------------------------------------------------ -->
 
-        <!-- ------------------------------------------------------------------------------------------------ -->
-        <!-- Best Movie Chart -->
-        <!-- ------------------------------------------------------------------------------------------------ -->
-        <div class="best-movies-container">
+        
+        
+        <div class="statistic-container">
             
-            <div class="best-movies-container-title" >
-                <span>Trending Movies <fa-icon class="qustion-icon" [icon]="questionIcon" title="Top 4 movies by popularity"></fa-icon></span>
+
+            <!-- ------------------------------------------------------------------------------------------------ -->
+            <!-- Best Movie Chart -->
+            <!-- ------------------------------------------------------------------------------------------------ -->
+            <div class="best-movies-container">
+            
+                <div class="best-movies-container-title" >
+                    <span>Trending Movies <fa-icon class="qustion-icon" [icon]="questionIcon" title="Top 4 movies by popularity"></fa-icon></span>
+                </div>
+                
+                <div class="best-movies-graph">
+                    <p-chart type="bar" [data]="chartData" [options]="chartOptions" />
+                </div>
+    
+            </div>
+            <!-- ------------------------------------------------------------------------------------------------ -->
+            <!-- Best Movie Chart - END -->
+            <!-- ------------------------------------------------------------------------------------------------ -->
+
+            <!-- ------------------------------------------------------------------------------------------------ -->
+            <!-- Statistic Card -->
+            <!-- ------------------------------------------------------------------------------------------------ -->
+            <div class="statistic-card-container">
+
+                <div class="statistic-card-new-movies">
+                    <app-statistic-card [tittle]="newMoviesCardValues.tittle" [value]="newMoviesCardValues.value" [lastWeekValue]="newMoviesCardValues.lastWeekValue" [lastWeekValueDesctription]="newMoviesCardValues.lastWeekValueDescription" [icon]="newMoviesCardValues.icon" [iconColor]="newMoviesCardValues.iconColor" [iconBackgroundColor]="newMoviesCardValues.iconBackgroundColor"></app-statistic-card>
+                </div>
+
+                <div class="statistic-card-total-movies">
+                    <app-statistic-card [tittle]="totalMoviesCardValues.tittle" [value]="totalMoviesCardValues.value" [lastWeekValue]="totalMoviesCardValues.lastWeekValue" [lastWeekValueDesctription]="totalMoviesCardValues.lastWeekValueDescription" [icon]="totalMoviesCardValues.icon" [iconColor]="totalMoviesCardValues.iconColor" [iconBackgroundColor]="totalMoviesCardValues.iconBackgroundColor"></app-statistic-card>
+                </div>
+
             </div>
             
-            <div class="best-movies-graph">
-                <p-chart type="bar" [data]="chartData" [options]="chartOptions" />
-            </div>
+            <!-- ------------------------------------------------------------------------------------------------ -->
+            <!-- Statistic Card - END -->
+            <!-- ------------------------------------------------------------------------------------------------ -->
 
         </div>
-        <!-- ------------------------------------------------------------------------------------------------ -->
-        <!-- Best Movie Chart - END -->
-        <!-- ------------------------------------------------------------------------------------------------ -->
 
     </div>
 
-
-    
 
     <div class="administrator-movies-table-container">
         

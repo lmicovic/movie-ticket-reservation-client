@@ -1,7 +1,9 @@
+import { StatisticCardModel } from './../../../other/models/statistic-card-model/statistic-card-model.class';
+import { StatisticCardModelDTO } from './../../../other/models/statistic-card-model/statistic-card-model.interface';
 import { Component, OnInit } from '@angular/core';
 import { mainContentAnimation } from '../../../other/animations/sidebar.animation';
 import { expandCollapse } from '../../../other/animations/expandCollapse.animation';
-import { faArrowDown, faCircleQuestion, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown, faCircleQuestion, faClapperboard, faVideo, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -15,12 +17,17 @@ import { faArrowDown, faCircleQuestion, IconDefinition } from '@fortawesome/free
 })
 export class AdministratorMoviesComponent implements OnInit{
   
-
+  newMoviesCardValues: StatisticCardModelDTO = new StatisticCardModel("New Movies", "3", "+1", "since last week", faVideo, "#06b6d4", "#c3edf5");
+  totalMoviesCardValues: StatisticCardModelDTO = new StatisticCardModel("Total Movies", "252", "+3", "since last week", faClapperboard, "#a855f7", "#ead6fd");
   arrowDownIcon: IconDefinition = faArrowDown;
   questionIcon: IconDefinition = faCircleQuestion;
 
+
+
   chartData: any;
   chartOptions: any;
+
+
 
   constructor() {
 
@@ -91,7 +98,7 @@ export class AdministratorMoviesComponent implements OnInit{
   //----------------------------------------------------------------------------------------------------
   // Filter Panel
   //----------------------------------------------------------------------------------------------------
-  isFilterPanelToggled: boolean = true;
+  isFilterPanelToggled: boolean = false;
   onFilter() {
     this.isFilterPanelToggled = !this.isFilterPanelToggled;
   }

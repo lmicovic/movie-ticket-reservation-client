@@ -24,5 +24,5 @@ export class AdministartorDashboardComponent {
   constructor() {
 
   }
-
+  
 }

@@ -14,6 +14,20 @@ hr {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
+.statistic-container {
+    width: calc(50% - 20px);
+    /* background-color: red; */
+}
+
+.statistic-card-container {
+    display: flex; 
+    flex-direction: row;
+}
+
+.statistic-card-new-movies, .statistic-card-total-movies {
+    width: 100%;
+}
+
 /* ------------------------------------------------------------- */
 /* Best Movie Chart */
 /* ------------------------------------------------------------- */
@@ -21,9 +35,9 @@ hr {
     background-color: white;
     border: 1px solid #dfe7ef;
     border-radius: 20px;
-    width: calc(50% - 40px);
+    width: 100%;
     padding: 30px;
-    margin: 0px 20px 30px 20px;
+    margin: 0px 20px 30px 0px;
 }
 
 .best-movies-container-title {
@@ -324,6 +338,22 @@ thead tr, tbody tr {
     display: table-row;
     border-bottom: 1px solid #e5e7eb;
     color: #374151;
+}
+
+tbody tr td:first-child {
+    width: 5%;
+}
+
+tbody tr td {
+    
+}
+
+
+
+
+
+tbody tr td:nth-child(odd) {
+    /* background-color: red; */
 }
 
 thead > tr > th {
