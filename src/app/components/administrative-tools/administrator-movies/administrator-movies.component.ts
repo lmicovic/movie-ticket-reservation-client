@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { mainContentAnimation } from '../../../other/animations/sidebar.animation';
 import { expandCollapse } from '../../../other/animations/expandCollapse.animation';
+import { faArrowDown, faCircleQuestion, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-administrator-movies',
@@ -11,18 +13,85 @@ import { expandCollapse } from '../../../other/animations/expandCollapse.animati
     expandCollapse
   ]
 })
-export class AdministratorMoviesComponent {
-
+export class AdministratorMoviesComponent implements OnInit{
   
 
+  arrowDownIcon: IconDefinition = faArrowDown;
+  questionIcon: IconDefinition = faCircleQuestion;
+
+  chartData: any;
+  chartOptions: any;
+
   constructor() {
+
+  }
+
+  ngOnInit(): void {
+    
+    this.initGraph();
+
+  }
+
+  //----------------------------------------------------------------------------------------------------
+  // Initialize - Best Movies Chart Informations
+  //----------------------------------------------------------------------------------------------------
+  private initGraph() {
+
+    // let lastNMonths: string[] = Util.getLastNMonths(new Date(), 6).reverse();
+
+    this.chartData = {
+      labels: ["Movie 1", "Movie 2", "Movie 3" ,"Movie 4"],
+      datasets: [
+        {
+          label: "Views",
+          data: [1250, 1150, 525, 432],
+          backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+          borderColor: ['rgb(255, 159, 64)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)'],
+          borderWidth: 1
+        }
+      ]
+    }
+
+    this.chartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      aspectRatio: 1,
+      plugins: {
+          legend: {
+              labels: {
+                  color: "gray"
+              }
+          }
+      },
+      scales: {
+          y: {
+              beginAtZero: true,
+              ticks: {
+                  color: "gray"
+              },
+              grid: {
+                  color: "#e2e8f0",
+                  // display: false,
+              }
+          },
+          x: {
+              ticks: {
+                  color: "gray"
+              },
+              grid: {
+                  color: "#e2e8f0",
+                  // display: false,
+              }
+          }
+      }
+    };
 
   }
 
   //----------------------------------------------------------------------------------------------------
   // Filter Panel
   //----------------------------------------------------------------------------------------------------
-  isFilterPanelToggled: boolean = false;
+  isFilterPanelToggled: boolean = true;
   onFilter() {
     this.isFilterPanelToggled = !this.isFilterPanelToggled;
   }

@@ -1,6 +1,91 @@
 
 <div class="main-container">
     
+    <div class="first-row">
+
+        <!-- ------------------------------------------------------------------------------------------------ -->
+        <!-- New Moview -->
+        <!-- ------------------------------------------------------------------------------------------------ -->
+        <div class="new-movie-container">
+
+            <div class="new-movie-container-title">
+                <span>Create new movie <fa-icon class="arrow-icon" [icon]="arrowDownIcon"></fa-icon></span>
+            </div>
+
+            <div class="new-movie-form-container">
+
+                <form>
+                    
+                    <div class="form-item-container form-movie-title-container">
+                        <label for="movie-title">Title</label>
+                        <input type="text" name="movie-title" id="movie-title" placeholder="Title" />
+                    </div>
+                    
+                    <div class="form-item-container form-genre-container">
+                        <label for="movie-genre">Genre</label>
+                        <select name="movie-genre" id="movie-genre-create" required>
+                            <option value="" disabled selected hidden>Select genre</option>
+                            <option value="action">Action</option>
+                            <option value="comedy">Comedy</option>
+                            <option value="drama">Drama</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item-container form-duration-container">
+                        <label for="movie-duration">Duration</label>
+                        <input type="number" name="movie-duration" id="movie-duration" placeholder="Duration" />
+                    </div>
+
+                    <div class="form-item-container form-status-container">
+                        <label for="movie-status">Status</label>
+                        <select name="movie-status" id="movie-status-create" required>
+                            <option value="" disabled selected hidden>Select status</option>
+                            <option value="active">Active</option>
+                            <option value="all">Inactive</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <input type="file" name="image-input" id="image-input" accept="image/png, image/gif, image/jpeg" />
+                    </div>
+
+                </form>
+
+                <div class="create-movie-form-buttons-container">
+                    <button class="create-movie-button">Create</button>
+                    <button class="reset-button">Reset</button>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- ------------------------------------------------------------------------------------------------ -->
+        <!-- New Moview - END -->
+        <!-- ------------------------------------------------------------------------------------------------ -->
+
+        <!-- ------------------------------------------------------------------------------------------------ -->
+        <!-- Best Movie Chart -->
+        <!-- ------------------------------------------------------------------------------------------------ -->
+        <div class="best-movies-container">
+            
+            <div class="best-movies-container-title" >
+                <span>Trending Movies <fa-icon class="qustion-icon" [icon]="questionIcon" title="Top 4 movies by popularity"></fa-icon></span>
+            </div>
+            
+            <div class="best-movies-graph">
+                <p-chart type="bar" [data]="chartData" [options]="chartOptions" />
+            </div>
+
+        </div>
+        <!-- ------------------------------------------------------------------------------------------------ -->
+        <!-- Best Movie Chart - END -->
+        <!-- ------------------------------------------------------------------------------------------------ -->
+
+    </div>
+
+
+    
+
     <div class="administrator-movies-table-container">
         
         <div class="main-container-tittle">
@@ -12,9 +97,7 @@
         <!-- ------------------------------------------------------------------------------------------------ -->
         <div class="filter-container">
 
-            
-                <button class="filter-button" (click)="onFilter()">Filter</button>
-            
+            <button class="filter-button" (click)="onFilter()">Filter</button>
             
             <div class="main-filter-form-container" [@expandCollapse] = "isFilterPanelToggled === true ? 'expand' : 'collapse'">
 
@@ -31,8 +114,8 @@
                             
                             <div class="form-item-container form-genre-container">
                                 <label for="movie-genre">Genre</label>
-                                <select name="movie-genre" id="movie-genre">
-                                    <option value="any">Any</option>
+                                <select name="movie-genre" id="movie-genre" required>
+                                    <option value="any" selected>Any</option>
                                     <option value="action">Action</option>
                                     <option value="comedy">Comedy</option>
                                     <option value="drama">Drama</option>
@@ -46,29 +129,31 @@
     
                             <div class="form-item-container form-date-container">
                                 <label for="movie-date">Date added</label>
-                                <input type="date" name="movie-date" id="movie-date" />
+                                <input type="date" name="movie-date" id="movie-date" required />
                             </div>
     
                             <div class="form-item-container form-status-container">
                                 <label for="movie-status">Status</label>
-                                <select name="movie-status" id="movie-status">
-                                    <option value="all">All</option>
+                                <select name="movie-status" id="movie-status" required>
+                                    <option value="all" selected>All</option>
                                     <option value="active">Active</option>
                                     <option value="all">Inactive</option>
                                 </select>
                             </div>
-    
-                            <div class="form-item-container form-reservations-container" style="margin-top: 10px">
+                            
+                            <div></div>
+
+                            <div class="form-item-container form-reservations-container" style="margin-top: 0px">
                                 <label class="range-item" for="movie-reservations">Reservations</label>
-                                <span style="display: block;"><span>from </span><input class="range-item" type="number" name="movie-reservations" id="movie-reservations"> <span>to</span> <input class="range-item" type="number" name="movie-reservations" id="movie-reservations"></span>
+                                <span style="display: block;"><span>from </span><input class="range-item" type="number" name="movie-reservations" id="movie-reservations"> <span> to </span> <input class="range-item" type="number" name="movie-reservations" id="movie-reservations"></span>
                             </div>
     
-                            <div class="form-item-container form-tickets-container" style="margin-top: 10px">
+                            <div class="form-item-container form-tickets-container" style="margin-top: 0px">
                                 <label class="range-item" for="movie-tickets">Tickets</label>
                                 <span style="display: block;"><span>from </span><input class="range-item" type="number" name="movie-tickets" id="movie-tickets"> to <input class="range-item" type="number" name="movie-tickets" id="movie-tickets"></span>
                             </div>
     
-                            <div class="form-item-container form-profit-container" style="margin-top: 10px">
+                            <div class="form-item-container form-profit-container" style="margin-top: 0px">
                                 <label class="range-item" for="movie-profit">Profit</label>
                                 <span style="display: block;"><span>from </span><input class="range-item" type="number" name="movie-profit" id="movie-profit"> to <input class="range-item" type="number" name="movie-profit" id="movie-profit"></span>
                             </div>
@@ -93,6 +178,23 @@
         <!-- Movies Table -->
         <!-- ------------------------------------------------------------------------------------------------ -->
         <div class="table-container" [ngStyle]="{'marginTop': isFilterPanelToggled === true ? '30px' : ''}">
+            
+            <select name="sorting-options" id="sorting-options">
+                <option value="title-asc">Sort by Title Ascending</option>
+                <option value="title-desc">Sort by Title Descending</option>
+                <option value="genre-asc">Sort by Genre Ascending</option>
+                <option value="genre-desc">Sort by Genre Descending</option>
+                <option value="duration-asc">Sort by Duration Ascending</option>
+                <option value="duration-desc">Sort by Duration Descending</option>
+                <option value="date-asc">Sort by Date Ascending</option>
+                <option value="date-desc">Sort by Date Descending</option>
+                <option value="reservations-asc">Sort by Reservations Ascending</option>
+                <option value="reservations-desc">Sort by Reservations Descending</option>
+                <option value="tickets-asc">Sort by Tickets Ascending</option>
+                <option value="tickets-desc">Sort by Tickets Descending</option>
+                <option value="profit-asc">Sort by Profit Ascending</option>
+                <option value="profit-desc">Sort by Profit Descending</option>
+            </select>
 
             <table>
 
@@ -182,7 +284,6 @@
                 <p-paginator class="pagination-item" (onPageChange)="onPaginationChange($event)" [first]="first" [rows]="rows" [totalRecords]="120"></p-paginator>
             </div>
             <!-- -------------------------------------------------------------------------------- -->
-
 
         </div>
 

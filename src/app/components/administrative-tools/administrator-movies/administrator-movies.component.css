@@ -2,7 +2,142 @@
     /* background-color: red; */
 }
 
+.first-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
 
+hr {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+/* ------------------------------------------------------------- */
+/* Best Movie Chart */
+/* ------------------------------------------------------------- */
+.best-movies-container {
+    background-color: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 20px;
+    width: calc(50% - 40px);
+    padding: 30px;
+    margin: 0px 20px 30px 20px;
+}
+
+.best-movies-container-title {
+    margin: 0px 0px 20px 0px;
+    font-size: 18px;
+}
+
+.qustion-icon {
+    color: #4379F2;
+}
+
+.qustion-icon:hover {
+    cursor: pointer;
+}
+
+.best-movies-graph {
+    width: 90%;
+    margin: auto;
+    
+}
+
+/* ------------------------------------------------------------- */
+/* Best Movie Chart - END */
+/* ------------------------------------------------------------- */
+
+/* ------------------------------------------------------------- */
+/* Create New Movie */
+/* ------------------------------------------------------------- */
+.new-movie-container {
+    width: calc(50% - 40px);
+    background-color: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 20px;
+    margin: 0px 20px 30px 20px;
+}
+
+.new-movie-container-title {
+    /* margin: 0px 0px 20px 0px; */
+    font-size: 18px;
+    /* background-color: red; */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px 50px 20px 30px;
+    
+}
+
+.arrow-icon {
+    margin-left: 8px;
+    color: #4d4d4d;
+}
+
+.new-movie-form-container {
+    
+}
+
+.new-movie-form-container form {
+    /* display: grid; */
+    width: 100%;
+    /* grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+    grid-auto-flow: column; */
+    /* margin-left: 10px; */
+    padding: 0px 30px 30px 30px;
+    margin: 0px 20px 10px 6%;
+}
+
+.new-movie-form-container form input, .form-genre-container select {
+    width: calc((100% - 6%) - 50px);
+}
+
+.create-movie-form-buttons-container {
+    margin: 20px 18px 31px calc(6% + 30px);
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #a6a6a6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create-movie-button {
+    width: 110px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(59,130,246, 0.8);   
+    color: white;
+    /* margin: 0px 18px 25px 45px;  */
+    margin-right: 18px;
+    
+}
+
+.create-movie-button:active {
+    background-color: rgb(59,130,246, 1);
+}
+
+#image-input {
+    border: none;
+    margin: 30px 0px 0px 0px;
+    padding: 0px;
+}
+
+/* ------------------------------------------------------------- */
+/* Create New Movie - END */
+/* ------------------------------------------------------------- */
+
+
+
+/* ------------------------------------------------------------- */
+/* Filter Panel */
+/* ------------------------------------------------------------- */
 .administrator-movies-table-container {
     background-color: white;
     border: 1px solid #dfe7ef;
@@ -14,13 +149,7 @@
 .main-container-tittle {
     margin: 0px 0px 20px 0px;
     font-size: 18px;
-    
 }
-
-/* ------------------------------------------------------------- */
-/* Filter Panel */
-/* ------------------------------------------------------------- */
-
 
 
 .filter-form-container form {
@@ -40,7 +169,7 @@
     border-radius: 20px;
     background-color: rgb(59,130,246, 0.8);   
     color: white;
-    margin: 40px 18px 25px 15px; 
+    margin: 40px 18px 10px 15px; 
 }
 
 .ok-button:active {
@@ -74,33 +203,39 @@ label, input, select {
     height: 30px;
 }
 
+input[type="text"], input[type="number"], input[type="date"] {
+    border-color: #4d4d4d;
+}
+
 label {
-    
+    color: #404040;
 }
 
 input {
     padding-left: 10px;
 }
 
-input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus {
+/* input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus {
     background-color: #fafafa;
     outline: 1.8px solid #5f5f5f;
     border-bottom: none;
     border-radius: 5px;
     box-shadow: rgba(100, 100, 111, 0.15) 0px 7px 10px 0px;
-}
+} */
 
 input, #movie-genre, #movie-status {
     width: 60%;
-    border: none;
-    border-bottom: 1px solid #808080;
-    background-color: white;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;   
+}
+
+#movie-genre, #movie-status {
+    padding-left: 5px;
 }
 
 label {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .range-item {
@@ -110,6 +245,7 @@ label {
 
 select {
     width: 180px;
+    border: none;
 }
 
 .filter-button {
@@ -148,8 +284,31 @@ select {
     
 }
 
+#sorting-options {
+    position: relative;
+    float: right;
+    width: auto;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: none;
+    /* border-color: gray; */
+    border: none;
+    
+    background-color: #f9fafb;
+}
+
+#sorting-options option {
+    background-color: white;
+}
+
 table {
     width: 100%;
+}
+
+thead tr {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12);
 }
 
 thead {
@@ -187,7 +346,7 @@ tbody > tr > td {
 }
 
 img {
-    width: 100px;
+    width: 80px;
     height: auto;
 }
 
@@ -198,7 +357,23 @@ img {
 /* Movie Table - END*/
 /* ------------------------------------------------------------- */
 
+#movie-genre-create, #movie-status-create {
+    width: calc((100% - 6%) - 50px);
+    border: 1px solid #4d4d4d;
+    border-radius: 5px;
+}
 
+#movie-genre-create:invalid, #movie-status-create:invalid, #movie-status:invalid, #movie-genre:invalid, input[type="date"]:invalid  {
+    color: gray;
+}
+
+#movie-genre-create:invalid option, #movie-status-create:invalid option, #movie-status:invalid option, #movie-genre:invalid option {
+    color: black;
+}
+
+#movie-status, #movie-genre{
+    border: 1px solid #4d4d4d;
+}
 
 @media (max-width: 800px) {
 

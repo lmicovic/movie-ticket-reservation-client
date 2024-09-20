@@ -1,5 +1,9 @@
 import { ChartModule } from 'primeng/chart';
+import { TooltipModule } from 'primeng/tooltip';
 import { PaginatorModule } from 'primeng/paginator';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -135,7 +139,10 @@ import { DashboardMessagesComponent } from './components/administrative-tools/ad
     BrowserAnimationsModule,
     ChartModule,
     PaginatorModule,
-
+    TooltipModule,
+    ToastModule,
+    CommonModule,
+    FileUploadModule,
     
     ToastrModule.forRoot({
       maxOpened: 1,

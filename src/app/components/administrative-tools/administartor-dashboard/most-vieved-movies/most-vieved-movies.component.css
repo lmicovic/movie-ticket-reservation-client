@@ -23,6 +23,10 @@
     border-collapse: collapse;
 }
 
+thead tr {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12);
+}
+
 .main-container-table-headers {
     vertical-align: middle;
 }
