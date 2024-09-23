@@ -4,6 +4,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ToastModule } from 'primeng/toast';
 import { CommonModule } from '@angular/common';
+import { BadgeModule } from 'primeng/badge';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -143,7 +144,8 @@ import { DashboardMessagesComponent } from './components/administrative-tools/ad
     ToastModule,
     CommonModule,
     FileUploadModule,
-    
+    BadgeModule,
+
     ToastrModule.forRoot({
       maxOpened: 1,
       autoDismiss: true

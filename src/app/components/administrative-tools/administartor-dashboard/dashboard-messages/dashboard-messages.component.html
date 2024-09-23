@@ -2,7 +2,8 @@
 <div class="main-container">
 
     <div class="main-container-tittle">
-        <span>Messages</span>
+        <span>Messages </span>
+        <span class="notification-icon-container"><i class="pi pi-bell mr-4 p-text-secondary notification-icon" pBadge [value]="unreadMessages"></i></span>
     </div>
 
     <div class="main-container-table-container">
@@ -21,7 +22,7 @@
 
             <tbody class="main-container-table-body">
                 
-                <tr>
+                <tr class="unread-message" (click)="onMessageClick($event)">
                     <td><img src="../../../../../assets/images/user-profil-image-empty.png" alt=""></td>
                     <td>Pera Peric</td>
                     <td>Message</td>
@@ -29,7 +30,7 @@
                     <td> {{ 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' | movieDescriptionFormat: 4 }} </td>
                 </tr>
 
-                <tr>
+                <tr class="unread-message" (click)="onMessageClick($event)">
                     <td><img src="../../../../../assets/images/user-profil-image-empty.png" alt=""></td>
                     <td>Ana Peric</td>
                     <td>Message</td>
@@ -37,7 +38,7 @@
                     <td> {{ 'Arisus felis urna rhoncus ex tellus pretium. Sociosqu ad dictumst aliquam ipsum morbi urna. Viverra tortor aliquam penatibus pellentesque a et parturient. Diam inceptos phasellus lacus bibendum nam, facilisis aliquam. Litora consectetur hendrerit imperdiet aenean tempus. Torquent hac dui arcu non ac adipiscing fringilla donec ultrices. Aliquam sagittis ad bibendum justo consequat arcu eu facilisis. Cubilia mauris lacus posuere volutpat pulvinar lacinia. Venenatis tortor vitae odio ex erat platea. Sociosqu luctus orci primis; dui mollis dignissim.' | movieDescriptionFormat: 4 }} </td>
                 </tr>
 
-                <tr>
+                <tr class="unread-message" (click)="onMessageClick($event)">
                     <td><img src="../../../../../assets/images/user-profil-image-empty.png" alt=""></td>
                     <td>Ana Anic</td>
                     <td>Feedback</td>
@@ -45,7 +46,7 @@
                     <td> {{ 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' | movieDescriptionFormat: 4 }} </td>
                 </tr>
 
-                <tr>
+                <tr (click)="onMessageClick($event)">
                     <td><img src="../../../../../assets/images/user-profil-image-empty.png" alt=""></td>
                     <td>Mika Peric</td>
                     <td>Report</td>
@@ -53,7 +54,7 @@
                     <td> {{ 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' | movieDescriptionFormat: 4 }} </td>
                 </tr>
                 
-                <tr>
+                <tr (click)="onMessageClick($event)">
                     <td><img src="../../../../../assets/images/user-profil-image-empty.png" alt=""></td>
                     <td>Pera Peric</td>
                     <td>Message</td>

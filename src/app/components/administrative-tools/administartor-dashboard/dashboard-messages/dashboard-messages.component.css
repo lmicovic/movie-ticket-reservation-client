@@ -13,6 +13,20 @@
     
 }
 
+.notification-icon-container {
+    position: relative;
+    top: 3px;
+    left: 5.5px;
+}
+
+.notification-icon-container:hover {
+    cursor: pointer;
+}
+
+.notification-icon {
+    font-size: 1.5rem;
+}
+
 .main-container-table {
     width: 100%;
     display: table;
@@ -49,16 +63,16 @@ thead tr {
 }
 
 tbody > tr > td:last-child {
-    
     width: 30%;
 }
 
 tbody tr:hover {
-    cursor: pointer;   
-    /* background-color: #f9fafb; */
+    cursor: pointer;
 }
 
-
+.unread-message {
+    background-color: #f2f2f2;
+}
 
 .main-container-table-body > tr > td {
     padding: 1rem 1rem;
