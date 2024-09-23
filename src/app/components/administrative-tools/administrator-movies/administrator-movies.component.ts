@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { mainContentAnimation } from '../../../other/animations/sidebar.animation';
 import { expandCollapse } from '../../../other/animations/expandCollapse.animation';
 import { faArrowDown, faCircleQuestion, faClapperboard, faVideo, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { InputImageValidators } from '../../../validators/input-image.validators';
 
 
 @Component({
@@ -17,27 +19,75 @@ import { faArrowDown, faCircleQuestion, faClapperboard, faVideo, IconDefinition 
 })
 export class AdministratorMoviesComponent implements OnInit{
   
+  //----------------------------------------------------------------------------------------------------------------
+  // Movie Statistic Cards
+  //----------------------------------------------------------------------------------------------------------------
   newMoviesCardValues: StatisticCardModelDTO = new StatisticCardModel("New Movies", "3", "+1", "since last week", faVideo, "#06b6d4", "#c3edf5");
   totalMoviesCardValues: StatisticCardModelDTO = new StatisticCardModel("Total Movies", "252", "+3", "since last week", faClapperboard, "#a855f7", "#ead6fd");
   arrowDownIcon: IconDefinition = faArrowDown;
   questionIcon: IconDefinition = faCircleQuestion;
+  //----------------------------------------------------------------------------------------------------------------
 
+  //----------------------------------------------------------------------------------------------------------------
+  // Create New Movie - Form
+  //----------------------------------------------------------------------------------------------------------------
+  form: FormGroup = new FormGroup({
+    
+    movieTitle: new FormControl("", Validators.required),
+    movieGenre: new FormControl("", Validators.required),
+    movieDuration: new FormControl("", Validators.required),
+    movieStatus: new FormControl("", Validators.required),
+    movieImage: new FormControl(""),
 
+  });
+  //----------------------------------------------------------------------------------------------------------------
 
+  //----------------------------------------------------------------------------------------------------------------  
+  // Chart Data
+  //----------------------------------------------------------------------------------------------------------------
   chartData: any;
   chartOptions: any;
-
-
+  //----------------------------------------------------------------------------------------------------------------
 
   constructor() {
 
   }
 
   ngOnInit(): void {
-    
     this.initGraph();
+  }
+
+  //----------------------------------------------------------------------------------------------------
+  // Create New Movie - Submit
+  //----------------------------------------------------------------------------------------------------
+  invalidForm: boolean = false;
+  invalidMovieImage: boolean = false;
+  submitNewMovie() {
+
+    //---------------------------------------------
+    // Input Check - Validations
+    //---------------------------------------------
+    if(this.form.invalid === true) {
+      this.invalidForm = true;
+      this.invalidMovieImage = false;
+      return;
+    }
+
+    if(this.form.value.movieImage === "") {
+      this.invalidMovieImage = true;
+      this.invalidForm = false;
+      return;
+    }
+
+    this.invalidForm = false;
+    this.invalidMovieImage = false;
+    //---------------------------------------------
+
+    // Submit...
 
   }
+  //----------------------------------------------------------------------------------------------------
+
 
   //----------------------------------------------------------------------------------------------------
   // Initialize - Best Movies Chart Informations
@@ -125,3 +175,4 @@ export class AdministratorMoviesComponent implements OnInit{
   //----------------------------------------------------------------------------------------------------
 
 }
+

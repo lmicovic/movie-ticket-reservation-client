@@ -1,6 +1,5 @@
 import { AbstractControl, ValidationErrors } from "@angular/forms";
 
-
 export class PasswordValidators {
 
     static passwordMatch(control: AbstractControl): ValidationErrors | null {
@@ -13,7 +12,6 @@ export class PasswordValidators {
         }
         
         return null;
-
     }
-
+    
 }

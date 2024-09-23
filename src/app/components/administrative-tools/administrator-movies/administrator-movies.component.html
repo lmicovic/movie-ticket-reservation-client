@@ -14,45 +14,83 @@
 
             <div class="new-movie-form-container">
 
-                <form>
+                <form [formGroup]="form">
                     
                     <div class="form-item-container form-movie-title-container">
                         <label for="movie-title">Title</label>
-                        <input type="text" name="movie-title" id="movie-title" placeholder="Title" />
+                        <input type="text" name="movie-title" id="movie-title" formControlName="movieTitle" placeholder="Title" />
+                        <div class="alert" *ngIf="form.get('movieTitle')?.touched && form.get('movieTitle')?.invalid">
+                            <span *ngIf="form.get('movieTitle')?.getError('required')">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                                <span class="alert-description">Please enter movie title!</span>
+                            </span>
+                        </div>
                     </div>
                     
                     <div class="form-item-container form-genre-container">
                         <label for="movie-genre">Genre</label>
-                        <select name="movie-genre" id="movie-genre-create" required>
+                        <select name="movie-genre" id="movie-genre-create" formControlName="movieGenre" required>
                             <option value="" disabled selected hidden>Select genre</option>
                             <option value="action">Action</option>
                             <option value="comedy">Comedy</option>
                             <option value="drama">Drama</option>
                         </select>
+                        <div class="alert" *ngIf="form.get('movieGenre')?.touched && form.get('movieGenre')?.invalid">
+                            <span *ngIf="form.get('movieGenre')?.getError('required')">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                                <span class="alert-description">Please enter movie genre!</span>
+                            </span>
+                        </div>                        
                     </div>
 
                     <div class="form-item-container form-duration-container">
                         <label for="movie-duration">Duration</label>
-                        <input type="number" name="movie-duration" id="movie-duration" placeholder="Duration" />
+                        <input type="number" name="movie-duration" id="movie-duration" formControlName="movieDuration" placeholder="Duration" />
+                        <div class="alert" *ngIf="form.get('movieDuration')?.touched && form.get('movieDuration')?.invalid">
+                            <span *ngIf="form.get('movieDuration')?.getError('required')">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                                <span class="alert-description">Please enter movie duration!</span>
+                            </span>
+                        </div> 
                     </div>
 
                     <div class="form-item-container form-status-container">
                         <label for="movie-status">Status</label>
-                        <select name="movie-status" id="movie-status-create" required>
+                        <select name="movie-status" id="movie-status-create" formControlName="movieStatus" required>
                             <option value="" disabled selected hidden>Select status</option>
                             <option value="active">Active</option>
                             <option value="all">Inactive</option>
                         </select>
+                        <div class="alert" *ngIf="form.get('movieStatus')?.touched && form.get('movieStatus')?.invalid">
+                            <span *ngIf="form.get('movieStatus')?.getError('required')">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                                <span class="alert-description">Please enter movie status!</span>
+                            </span>
+                        </div> 
                     </div>
 
                     <div>
-                        <input type="file" name="image-input" id="image-input" accept="image/png, image/gif, image/jpeg" />
+                        <input type="file" name="image-input" id="image-input" formControlName="movieImage" accept="image/png, image/gif, image/jpeg" />
+                        <div class="alert" *ngIf="invalidMovieImage">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                                <span class="alert-description">Please enter movie duration!</span>
+                            </span>
+                        </div>
                     </div>
+
+                    <div class="alert" *ngIf="invalidForm" style="margin-top: 20px;">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 30 30"style="fill:#228BE6;"><path d="M15,3C8.373,3,3,8.373,3,15c0,6.627,5.373,12,12,12s12-5.373,12-12C27,8.373,21.627,3,15,3z M16,21h-2v-7h2V21z M15,11.5 c-0.828,0-1.5-0.672-1.5-1.5s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S15.828,11.5,15,11.5z"></path></svg>
+                            <span class="alert-description">Please insert required fileds!</span>
+                        </span>
+                    </div> 
+
 
                 </form>
 
                 <div class="create-movie-form-buttons-container">
-                    <button class="create-movie-button">Create</button>
+                    <button class="create-movie-button" (click)="submitNewMovie()">Create</button>
                     <button class="reset-button">Reset</button>
                 </div>
 
