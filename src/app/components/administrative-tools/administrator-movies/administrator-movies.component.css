@@ -342,9 +342,12 @@ thead tr, tbody tr {
 
 tbody tr td:first-child {
     width: 5%;
+    /* background-color: red; */
+    padding: 10px 20px;
+    
 }
 
-tbody tr td {
+tbody tr {
     
 }
 
