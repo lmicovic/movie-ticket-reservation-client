@@ -287,13 +287,18 @@ select {
 }
 
 .filter-button {
-    width: 180px;
-    height: 30px;
+    width: 60px;
+    height: 28px;
     border: none;
     border-radius: 20px;
     background-color: #3b82f6;
     color: white;
-    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
+.filter-icon {
+    font-size: 15px;
+    color: white;
 }
 
 .filter-button:active {

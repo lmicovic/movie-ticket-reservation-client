@@ -5,8 +5,6 @@ import { mainContentAnimation } from '../../../other/animations/sidebar.animatio
 import { expandCollapse } from '../../../other/animations/expandCollapse.animation';
 import { faArrowDown, faCircleQuestion, faClapperboard, faVideo, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { InputImageValidators } from '../../../validators/input-image.validators';
-
 
 @Component({
   selector: 'app-administrator-movies',
