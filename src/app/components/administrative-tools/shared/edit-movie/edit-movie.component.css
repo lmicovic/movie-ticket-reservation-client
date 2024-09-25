@@ -1,0 +1,208 @@
+.main-container {
+    /* background-color: red; */
+}
+
+.edit-movie-main-container {
+    float: left;
+    background-color: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 20px;
+    width: 60%;
+    padding: 30px;
+    margin: 0px 20px 30px 0px;
+}
+
+.edit-movie-main-container-title {
+    margin: 0px 0px 20px 0px;
+    font-size: 18px;
+}
+
+.edit-movie-container {
+    overflow: hidden;
+}
+
+.edit-movie-image-container {
+    float: left;
+    width: 30%;
+    /* background-color: red; */
+}
+
+.movie-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+.movie-image:hover {
+    cursor: pointer;
+    transform: scale(1.06);
+}
+
+/* ------------------------------------------------------------- */
+/* Form Panel */
+/* ------------------------------------------------------------- */
+.edit-movie-form-container {
+    float: left;
+    width: 70%;
+    /* background-color: blue; */
+}
+
+.edit-movie-form {
+    margin: 0px 30px 30px 40px;
+}
+
+form div {
+    margin-top: 20px;
+}
+
+form div:first-child {
+    margin-top: 15px;
+}
+
+form div:nth-child(5) {
+    margin-top: 35px;
+}
+
+label, input, select {
+    display: block;
+    height: 30px;
+}
+
+input, #movie-genre, #movie-status {
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;   
+}
+
+input[type="file"] {
+    border: none;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #a6a6a6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-button {
+    width: 110px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(59,130,246, 0.8);   
+    color: white;
+    margin: 30px 18px 10px 0;
+    transition: transform 0.1s ease-in-out;
+}
+
+.update-button:hover {
+    transform: scale(1.045);
+}
+
+.reset-button {
+    width: 110px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(141,141,141, 0.8) ;
+    transition: transform 0.1s ease-in-out;
+}
+
+.reset-button:hover {
+    transform: scale(1.045);
+}
+
+/* ------------------------------------------------------------- */
+/* Form Panel - END */
+/* ------------------------------------------------------------- */
+
+
+/* ------------------------------------------------------------- */
+/* Statistic Panel */
+/* ------------------------------------------------------------- */
+.statistic-panel-main-container {
+    float: left;
+    /* background-color: red; */
+    height: 100px;
+    width: calc(40% - 30px);
+}
+
+
+/* ------------------------------------------------------------- */
+/* Statistic Panel - END */
+/* ------------------------------------------------------------- */
+
+
+.statistic-container-responsive {
+    display: none;
+}
+
+
+
+@media (max-width: 1300px) {
+
+    .statistic-container-responsive {
+        display: block;
+    }
+
+    .statistic-panel-main-container {
+        display: none;
+    }
+
+    .edit-movie-main-container {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .edit-movie-image-container {
+        width: 100%;
+    }
+
+    .edit-movie-form-container {
+        width: 100%;
+    }
+
+    .edit-movie-form div {
+        
+    }
+
+    .edit-movie-form div label {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .edit-movie-form div input, .edit-movie-form div select {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-buttons {
+        display: flex;
+        flex-direction: column-reverse;
+        font-size: 18px;
+    }
+
+    .update-button {
+        display: block;
+        width: 100%;
+        height: 40px;
+        margin: 0;
+    }
+
+    .reset-button {
+        display: block;
+        width: 100%;
+        height: 40px;
+        margin-top: 70px;
+        margin-bottom: 15px;
+    }
+
+}

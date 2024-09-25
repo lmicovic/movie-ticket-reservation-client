@@ -1,1 +1,113 @@
-<p>edit-movie works!</p>
+<div class="main-container">
+    
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- Statistic Card Responsive -->
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <div class="statistic-container-responsive" @slideRight>
+
+        <div class="statistic-panel-movie-profit">
+            <app-statistic-card [tittle]="profitCardValues.tittle" [value]="profitCardValues.value" [lastWeekValue]="profitCardValues.lastWeekValue" [lastWeekValueDesctription]="profitCardValues.lastWeekValueDescription" [icon]="profitCardValues.icon" [iconColor]="profitCardValues.iconColor" [iconBackgroundColor]="profitCardValues.iconBackgroundColor"></app-statistic-card>
+        </div>
+
+        <div class="statistic-panel-movie-views">
+            <app-statistic-card [tittle]="viewsCardValues.tittle" [value]="viewsCardValues.value" [lastWeekValue]="viewsCardValues.lastWeekValue" [lastWeekValueDesctription]="viewsCardValues.lastWeekValueDescription" [icon]="viewsCardValues.icon" [iconBackgroundColor]="viewsCardValues.iconBackgroundColor"></app-statistic-card>
+        </div>
+
+        <div class="statistic-panel-movie-reservations">
+            <app-statistic-card [tittle]="reservationsCardValues.tittle" [value]="reservationsCardValues.value" [lastWeekValue]="reservationsCardValues.lastWeekValue" [lastWeekValueDesctription]="reservationsCardValues.lastWeekValueDescription" [icon]="reservationsCardValues.icon" [iconColor]="reservationsCardValues.iconColor" [iconBackgroundColor]="reservationsCardValues.iconBackgroundColor"></app-statistic-card>
+        </div>
+
+    </div>
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- Statistic Card Responsive - END -->
+    <!-- ------------------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- Update Movie Panel -->
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <div class="edit-movie-main-container">
+        
+        <div class="edit-movie-main-container-title">
+            <span>Create new movie</span>
+        </div>
+
+        <div class="edit-movie-container">
+
+            <div class="edit-movie-image-container">
+                <img class="movie-image" src="../../../../../assets/images/image-placeholder-1.jpg" alt="Movie Image" />
+            </div>
+
+            <div class="edit-movie-form-container">
+                
+                <form class="edit-movie-form">
+
+                    <div class="movie-title-container">
+                        <label for="movie-title">Title</label>
+                        <input type="text" name="movie-title" id="movie-title" />
+                    </div>
+
+                    <div class="movie-genre-container">
+                        <label for="movie-genre">Genre</label>
+                        <select name="movie-genre" id="movie-genre">
+                            <option value="action">Action</option>
+                            <option value="compedy">Comedy</option>
+                            <option value="drama">Drama</option>
+                        </select>
+                    </div>
+
+                    <div class="movie-duration-container">
+                        <label for="movie-duration">Duration</label>
+                        <input type="number" name="movie-duration" id="movie-duration" />
+                    </div>
+
+                    <div class="movie-status-container">
+                        <label for="movie-status">Status</label>
+                        <select name="movie-status" id="movie-status">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+
+                    <div class="movie-image-select-container">
+                        <input type="file" name="image-input" id="image-input" accept="image/png, image/gif, image/jpeg" />
+                    </div>
+
+                    <div class="form-buttons">
+                        <button class="update-button">Update</button>
+                        <button class="reset-button">Reset</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- Update Movie Panel - END -->
+    <!-- ------------------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- Statistic Panel -->
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <div class="statistic-panel-main-container" @slideDown>
+
+        <div class="statistic-panel-movie-profit">
+            <app-statistic-card [tittle]="profitCardValues.tittle" [value]="profitCardValues.value" [lastWeekValue]="profitCardValues.lastWeekValue" [lastWeekValueDesctription]="profitCardValues.lastWeekValueDescription" [icon]="profitCardValues.icon" [iconColor]="profitCardValues.iconColor" [iconBackgroundColor]="profitCardValues.iconBackgroundColor"></app-statistic-card>
+        </div>
+
+        <div class="statistic-panel-movie-views">
+            <app-statistic-card [tittle]="viewsCardValues.tittle" [value]="viewsCardValues.value" [lastWeekValue]="viewsCardValues.lastWeekValue" [lastWeekValueDesctription]="viewsCardValues.lastWeekValueDescription" [icon]="viewsCardValues.icon" [iconBackgroundColor]="viewsCardValues.iconBackgroundColor"></app-statistic-card>
+        </div>
+
+        <div class="statistic-panel-movie-reservations">
+            <app-statistic-card [tittle]="reservationsCardValues.tittle" [value]="reservationsCardValues.value" [lastWeekValue]="reservationsCardValues.lastWeekValue" [lastWeekValueDesctription]="reservationsCardValues.lastWeekValueDescription" [icon]="reservationsCardValues.icon" [iconColor]="reservationsCardValues.iconColor" [iconBackgroundColor]="reservationsCardValues.iconBackgroundColor"></app-statistic-card>
+        </div>
+
+    </div>
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- Statistic Panel - END-->
+    <!-- ------------------------------------------------------------------------------------------- -->
+
+</div>
