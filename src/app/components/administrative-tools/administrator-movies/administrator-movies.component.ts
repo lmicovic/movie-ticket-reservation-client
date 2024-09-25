@@ -1,6 +1,6 @@
 import { StatisticCardModel } from './../../../other/models/statistic-card-model/statistic-card-model.class';
 import { StatisticCardModelDTO } from './../../../other/models/statistic-card-model/statistic-card-model.interface';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { mainContentAnimation } from '../../../other/animations/sidebar.animation';
 import { expandCollapse } from '../../../other/animations/expandCollapse.animation';
 import { faArrowDown, faCircleQuestion, faClapperboard, faVideo, IconDefinition } from '@fortawesome/free-solid-svg-icons';
@@ -29,7 +29,7 @@ export class AdministratorMoviesComponent implements OnInit{
   //----------------------------------------------------------------------------------------------------------------
   // Create New Movie - Form
   //----------------------------------------------------------------------------------------------------------------
-  form: FormGroup = new FormGroup({
+  createMovieform: FormGroup = new FormGroup({
     
     movieTitle: new FormControl("", Validators.required),
     movieGenre: new FormControl("", Validators.required),
@@ -39,6 +39,28 @@ export class AdministratorMoviesComponent implements OnInit{
 
   });
   //----------------------------------------------------------------------------------------------------------------
+
+
+  //----------------------------------------------------------------------------------------------------------------
+  // Filter Movie - Form
+  //----------------------------------------------------------------------------------------------------------------
+  filterMovieForm: FormGroup = new FormGroup({
+
+    movieTitle: new FormControl(""),
+    movieGenre: new FormControl("any"),
+    movieDuration: new FormControl(""),
+    movieDateAdded: new FormControl(""),
+    movieStatus: new FormControl("all"),
+    movieReservationsFrom: new FormControl(""),
+    movieReservationsTo: new FormControl(""),
+    movieTicketsFrom: new FormControl(""),
+    movieTicketsTo: new FormControl(""),
+    movieProfitFrom: new FormControl(""),
+    movieProfitTo: new FormControl(""),
+
+  });
+  //----------------------------------------------------------------------------------------------------------------
+
 
   //----------------------------------------------------------------------------------------------------------------  
   // Chart Data
@@ -65,13 +87,13 @@ export class AdministratorMoviesComponent implements OnInit{
     //---------------------------------------------
     // Input Check - Validations
     //---------------------------------------------
-    if(this.form.invalid === true) {
+    if(this.createMovieform.invalid === true) {
       this.invalidForm = true;
       this.invalidMovieImage = false;
       return;
     }
 
-    if(this.form.value.movieImage === "") {
+    if(this.createMovieform.value.movieImage === "") {
       this.invalidMovieImage = true;
       this.invalidForm = false;
       return;
@@ -85,6 +107,21 @@ export class AdministratorMoviesComponent implements OnInit{
 
   }
   //----------------------------------------------------------------------------------------------------
+
+
+  //----------------------------------------------------------------------------------------------------
+  // Reset Create New Movie - Input Form
+  //----------------------------------------------------------------------------------------------------
+  resetCreateNewMovieForm() {
+
+    this.createMovieform.reset();
+    this.invalidForm = false;
+    (document.getElementById("movie-genre-create") as any).value = "";
+    (document.getElementById("movie-status-create") as any).value = "";
+        
+  }
+  //----------------------------------------------------------------------------------------------------
+  
 
 
   //----------------------------------------------------------------------------------------------------
@@ -150,6 +187,19 @@ export class AdministratorMoviesComponent implements OnInit{
   onFilter() {
     this.isFilterPanelToggled = !this.isFilterPanelToggled;
   }
+
+  //----------------------------------------------------------------------------------------------------
+  // Reset Create New Movie - Input Form
+  //----------------------------------------------------------------------------------------------------
+  resetFilterMovieForm() {
+
+    this.filterMovieForm.reset();
+    
+    (document.getElementById("movie-genre") as any).value = "any";
+    (document.getElementById("movie-status") as any).value = "all";
+        
+  }
+  //----------------------------------------------------------------------------------------------------
 
   //----------------------------------------------------------------------------------------------------
   // Pagination
