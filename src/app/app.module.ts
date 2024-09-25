@@ -66,6 +66,7 @@ import { RecentReservationsComponent } from './components/administrative-tools/a
 import { TicketSalesGraphComponent } from './components/administrative-tools/administartor-dashboard/ticket-sales-graph/ticket-sales-graph.component';
 import { MostVievedMoviesComponent } from './components/administrative-tools/administartor-dashboard/most-vieved-movies/most-vieved-movies.component';
 import { DashboardMessagesComponent } from './components/administrative-tools/administartor-dashboard/dashboard-messages/dashboard-messages.component';
+import { EditMovieComponent } from './components/administrative-tools/shared/edit-movie/edit-movie.component';
 
 
 @NgModule({
@@ -118,6 +119,7 @@ import { DashboardMessagesComponent } from './components/administrative-tools/ad
     TicketSalesGraphComponent,
     MostVievedMoviesComponent,
     DashboardMessagesComponent,
+    EditMovieComponent,
 
     
     

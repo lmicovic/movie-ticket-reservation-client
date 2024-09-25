@@ -18,6 +18,8 @@ import { AdministratorRoomsComponent } from './components/administrative-tools/a
 import { AdministratorUsersComponent } from './components/administrative-tools/administrator-users/administrator-users.component';
 import { AdministratorSettingsComponent } from './components/administrative-tools/administrator-settings/administrator-settings.component';
 import { MostVievedMoviesComponent } from './components/administrative-tools/administartor-dashboard/most-vieved-movies/most-vieved-movies.component';
+import { EditMovieComponent } from './components/administrative-tools/shared/edit-movie/edit-movie.component';
+import { AdministartorDashboardComponent } from './components/administrative-tools/administartor-dashboard/administartor-dashboard.component';
 
 
 
@@ -40,12 +42,14 @@ const routes: Routes = [
   ]},
   { path: "admin", component: AdministratorComponent, children: [
     
+    { path: "dashboard", component: AdministartorDashboardComponent },
     { path: "movies", component: AdministratorMoviesComponent },
     { path: "projections", component: AdministratorProjectionsComponent },
     { path: "reservations", component: AdministratorReservationsComponent },
     { path: "rooms", component: AdministratorRoomsComponent },
     { path: "users", component: AdministratorUsersComponent },
-    { path: "settings", component: AdministratorSettingsComponent },{ path: "test", component: MostVievedMoviesComponent}
+    { path: "settings", component: AdministratorSettingsComponent },
+    { path: "edit-movie/:movieId", component: EditMovieComponent }
 
   ] },  
   

@@ -260,6 +260,7 @@
 
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Image</th>
                         <th>Title</th>
                         <th>Genre</th>
@@ -274,7 +275,8 @@
 
                 <tbody>
 
-                    <tr>
+                    <tr [routerLink]="['/admin/edit-movie', 1]">
+                        <td>1</td>
                         <td><img src="../../../../assets/images/image-placeholder-1.jpg" alt=""></td>
                         <td>Movie Title 1</td>
                         <td>Action</td>
@@ -286,8 +288,21 @@
                         <td>$25.252</td>
                     </tr>
                     
-                    <tr>
-                        
+                    <tr [routerLink]="['/admin/edit-movie', 2]">
+                        <td>2</td>
+                        <td><img src="../../../../assets/images/image-placeholder-1.jpg" alt=""></td>
+                        <td>Movie Title 1</td>
+                        <td>Action</td>
+                        <td>120min</td>
+                        <td>23.5.2024</td>
+                        <td>Active</td>
+                        <td>25</td>
+                        <td>450</td>
+                        <td>$25.252</td>
+                    </tr >
+
+                    <tr [routerLink]="['/admin/edit-movie', 3]">
+                        <td>3</td>
                         <td><img src="../../../../assets/images/image-placeholder-1.jpg" alt=""></td>
                         <td>Movie Title 1</td>
                         <td>Action</td>
@@ -299,7 +314,8 @@
                         <td>$25.252</td>
                     </tr>
 
-                    <tr>
+                    <tr [routerLink]="['/admin/edit-movie', 1]">
+                        <td>1</td>
                         <td><img src="../../../../assets/images/image-placeholder-1.jpg" alt=""></td>
                         <td>Movie Title 1</td>
                         <td>Action</td>
@@ -311,19 +327,8 @@
                         <td>$25.252</td>
                     </tr>
 
-                    <tr>
-                        <td><img src="../../../../assets/images/image-placeholder-1.jpg" alt=""></td>
-                        <td>Movie Title 1</td>
-                        <td>Action</td>
-                        <td>120min</td>
-                        <td>23.5.2024</td>
-                        <td>Active</td>
-                        <td>25</td>
-                        <td>450</td>
-                        <td>$25.252</td>
-                    </tr>
-
-                    <tr>
+                    <tr [routerLink]="['/admin/edit-movie', 1]">
+                        <td>1</td>
                         <td><img src="../../../../assets/images/image-placeholder-1.jpg" alt=""></td>
                         <td>Movie Title 1</td>
                         <td>Action</td>

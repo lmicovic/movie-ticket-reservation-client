@@ -76,7 +76,7 @@ export class SidebarComponent implements AfterViewInit{
   private changeStyleOnCurrentURL(currentURL: string) {
 
     // Dashboard - Selected
-    if(currentURL === "/admin") {
+    if(currentURL === "/admin/dashboard") {
       this.changeListItemStyle(this.dashboardItem);
       if(this.lastChangedItem === undefined) {
         this.lastChangedItem = this.dashboardItem;

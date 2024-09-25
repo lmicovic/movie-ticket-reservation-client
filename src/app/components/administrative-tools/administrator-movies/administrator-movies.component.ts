@@ -1,10 +1,11 @@
 import { StatisticCardModel } from './../../../other/models/statistic-card-model/statistic-card-model.class';
 import { StatisticCardModelDTO } from './../../../other/models/statistic-card-model/statistic-card-model.interface';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, numberAttribute, OnInit, ViewChild } from '@angular/core';
 import { mainContentAnimation } from '../../../other/animations/sidebar.animation';
 import { expandCollapse } from '../../../other/animations/expandCollapse.animation';
 import { faArrowDown, faCircleQuestion, faClapperboard, faVideo, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-administrator-movies',
@@ -69,7 +70,7 @@ export class AdministratorMoviesComponent implements OnInit{
   chartOptions: any;
   //----------------------------------------------------------------------------------------------------------------
 
-  constructor() {
+  constructor(private router: Router) {
 
   }
 
