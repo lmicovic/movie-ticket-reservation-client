@@ -5,6 +5,9 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { ToastModule } from 'primeng/toast';
 import { CommonModule } from '@angular/common';
 import { BadgeModule } from 'primeng/badge';
+import { ImageModule } from 'primeng/image';
+import { ChipsModule } from 'primeng/chips';
+import { CalendarModule } from 'primeng/calendar';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -67,6 +70,7 @@ import { TicketSalesGraphComponent } from './components/administrative-tools/adm
 import { MostVievedMoviesComponent } from './components/administrative-tools/administartor-dashboard/most-vieved-movies/most-vieved-movies.component';
 import { DashboardMessagesComponent } from './components/administrative-tools/administartor-dashboard/dashboard-messages/dashboard-messages.component';
 import { EditMovieComponent } from './components/administrative-tools/shared/edit-movie/edit-movie.component';
+import { ChipsComponent } from './components/administrative-tools/shared/chips/chips.component';
 
 
 @NgModule({
@@ -120,6 +124,7 @@ import { EditMovieComponent } from './components/administrative-tools/shared/edi
     MostVievedMoviesComponent,
     DashboardMessagesComponent,
     EditMovieComponent,
+    ChipsComponent,
 
     
     
@@ -147,6 +152,9 @@ import { EditMovieComponent } from './components/administrative-tools/shared/edi
     CommonModule,
     FileUploadModule,
     BadgeModule,
+    ImageModule,
+    ChipsModule,
+    CalendarModule,
 
     ToastrModule.forRoot({
       maxOpened: 1,

@@ -20,7 +20,7 @@ import { fade } from '../../../other/animations/fade.animation';
 export class MoviewInformationComponent implements OnInit {
 
   @Input("movie")
-  movie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", -1, "", [], [], -1, "", -1, "");              // Movie related to this Component, movieId - passed from URL Parameter, and loaded from server by movieId().
+  movie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", true, -1, "", [], [], -1, "", -1, "");              // Movie related to this Component, movieId - passed from URL Parameter, and loaded from server by movieId().
 
   
 

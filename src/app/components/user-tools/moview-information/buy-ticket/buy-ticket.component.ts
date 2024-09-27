@@ -44,7 +44,7 @@ import { transition, trigger, useAnimation } from '@angular/animations';
 })
 export class BuyTicketComponent implements OnInit, OnChanges{
 
-  movie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", -1, "", [], [], -1, "", -1, "");                // Movie related to this Component - gets value from home.component.html;
+  movie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", true, -1, "", [], [], -1, "", -1, "");                // Movie related to this Component - gets value from home.component.html;
   movieProjection: ProjectionDTO | undefined;
 
   

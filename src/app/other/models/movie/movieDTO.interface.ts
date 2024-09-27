@@ -6,6 +6,7 @@ export interface MovieDTO {
     title: string,
     genre: MovieGenre,
     image: string | undefined,
+    active: boolean,
     rating: number,
     description: string,
     authors: string[],

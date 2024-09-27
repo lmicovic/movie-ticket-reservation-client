@@ -19,7 +19,7 @@ import { Router } from '@angular/router';
 export class UserCommentComponent implements OnInit{
   
   user: User = new User(-1, "", new UserInfo(-1, "", "", "", "", "", false), [], [], []);  
-  movie: Movie = new Movie(-1, "", MovieGenre.Action, "", -1, "", [], [], -1, "", -1, "");
+  movie: Movie = new Movie(-1, "", MovieGenre.Action, "", true, -1, "", [], [], -1, "", -1, "");
 
   @Input("comment")
   userComment: MovieCommentDTO = new MovieComment(-1, this.user, this.movie, new Date(), -1, "");

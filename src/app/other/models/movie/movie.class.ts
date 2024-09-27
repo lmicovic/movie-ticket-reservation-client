@@ -4,7 +4,7 @@ import { MovieDTO } from "./movieDTO.interface";
 
 export class Movie implements MovieDTO {
 
-    constructor(public id: number | undefined, public title: string, public genre: MovieGenre, public image: string | undefined, public rating: number, public description: string, public authors: string[], public actors: string[], public year: number, public country: string, public duration: number, public trailerUrl: string) {
+    constructor(public id: number | undefined, public title: string, public genre: MovieGenre, public image: string | undefined, public active: boolean, public rating: number, public description: string, public authors: string[], public actors: string[], public year: number, public country: string, public duration: number, public trailerUrl: string) {
 
     }
     

@@ -35,7 +35,7 @@ import { transition, trigger, useAnimation } from '@angular/animations';
 export class MovieScheduleTableComponent implements OnInit, OnChanges {
   
   @Input("movie")
-  movie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", -1, "", [], [], new Date().getFullYear(), "", -1, "");
+  movie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", true, -1, "", [], [], new Date().getFullYear(), "", -1, "");
 
   @Input("selectedDay")
   selectedDay: Day = Day.Monday;    // Get selected Day from MovieInformation.html

@@ -34,47 +34,116 @@
         <div class="edit-movie-container">
 
             <div class="edit-movie-image-container">
-                <img class="movie-image" src="../../../../../assets/images/image-placeholder-1.jpg" alt="Movie Image" />
+                <!-- <img class="movie-image" src="../../../../../assets/images/image-placeholder-1.jpg" alt="Movie Image" /> -->
+                <p-image class="movie-image" [src]="movie.image" alt="Movie Image" width="250" [preview]="true" />
             </div>
 
             <div class="edit-movie-form-container">
                 
                 <form class="edit-movie-form">
 
+                    <div class="movie-id-container">
+                        <label for="movie-id">Id</label>
+                        <input type="text" name="movie-id" id="movie-id" disabled [value]="movie.id" />
+                    </div>
+
                     <div class="movie-title-container">
                         <label for="movie-title">Title</label>
-                        <input type="text" name="movie-title" id="movie-title" />
+                        <input type="text" name="movie-title" id="movie-title" [value]="movie.title"/>
+                    </div>
+
+                    <div class="move-rating-container" [title]="movie.rating">
+                        <label for="movie-rating">Rating</label>
+                        <div class="movie-rating" name="movie-rating">
+
+                            <ng-container *ngFor="let i of [1,2,3,4,5]">
+                                
+                                <ng-container *ngIf="i <= getMovieRating">
+                                    <fa-icon class="star-icon" [icon]="starIcon" ></fa-icon>
+                                </ng-container>
+
+                                <ng-container *ngIf="i > getMovieRating">
+                                    <fa-icon class="star-icon-empty" [icon]="starIcon" ></fa-icon>
+                                </ng-container>
+
+                            </ng-container>
+
+                            <!-- <fa-icon class="star-icon" [icon]="starIcon" ></fa-icon>
+                            <fa-icon class="star-icon" [icon]="starIcon" ></fa-icon>
+                            <fa-icon class="star-icon" [icon]="starIcon" ></fa-icon>
+                            <fa-icon class="star-icon" [icon]="starIcon" ></fa-icon>
+                            <fa-icon class="star-icon" [icon]="starIcon" ></fa-icon> -->
+                        </div>
+                    </div>
+
+                    <div class="movie-year-container">
+                        <label for="movie-year">Year</label>
+                        <input type="text" name="movie-year" id="movie-year" [value]="movie.year" maxlength="4" />
+                    </div>
+
+                    <div class="movie-country-container">
+                        <label for="movie-country">Country</label>
+                        <input type="text" name="movie-country" id="movie-country" [value]="movie.country" />
                     </div>
 
                     <div class="movie-genre-container">
                         <label for="movie-genre">Genre</label>
                         <select name="movie-genre" id="movie-genre">
-                            <option value="action">Action</option>
-                            <option value="compedy">Comedy</option>
-                            <option value="drama">Drama</option>
+                            <ng-container *ngFor="let genre of genres; index as idx">
+                                <option [value]="genre" [selected]="movie.genre === idx"> {{ genre }} </option>
+                            </ng-container>
                         </select>
+                        
                     </div>
 
                     <div class="movie-duration-container">
                         <label for="movie-duration">Duration</label>
-                        <input type="number" name="movie-duration" id="movie-duration" />
+                        <input type="number" name="movie-duration" id="movie-duration" [value]="movie.duration" />
                     </div>
 
                     <div class="movie-status-container">
                         <label for="movie-status">Status</label>
                         <select name="movie-status" id="movie-status">
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
+                            <ng-container *ngFor="let status of movieStatusList">
+                                <option [value]="status" [selected]="(status === 'Active' && movie.active === true) || (status === 'Inactive' && movie.active === false)"> {{ status }} </option>
+                            </ng-container>
                         </select>
                     </div>
 
-                    <div class="movie-image-select-container">
-                        <input type="file" name="image-input" id="image-input" accept="image/png, image/gif, image/jpeg" />
+                    <div class="movie-description-container">
+                        <label for="movie-description">Description</label>
+                        <textarea name="movie-description" id="movie-description" [value]="movie.description"></textarea>
                     </div>
+
+                    <div class="movie-image-select-container">
+                        <input type="file" name="image-input" id="image-input" (change)="onImageChange($event)" accept="image/png, image/gif, image/jpeg" />
+                    </div>
+
+                    <hr>
+
+                    <div class="movie-authors-container">
+                        <label for="movie-authors">Authors</label>
+                        <app-chips [values]="this.movie.authors" (newValueEventEmmiter)="updatedAuthors($event)"></app-chips>
+                    </div>
+
+                    <hr>
+
+                    <div class="movie-authors-container">
+                        <label for="movie-authors">Actors</label>
+                        <app-chips [values]="this.movie.actors" (newValueEventEmmiter)="updatedActors($event)" [addButtonTop]="'0px'"></app-chips>
+                    </div>
+
+                    <hr>
+
+                    <div class="movie-trailer-container" title="Add Movie Trailer URL">
+                        <label for="movie-trailer">Trailer</label>
+                        <input type="text" name="movie-trailer" id="movie-trailer" [value]="movie.trailerUrl" />
+                    </div>
+
 
                     <div class="form-buttons">
                         <button class="update-button">Update</button>
-                        <button class="reset-button">Reset</button>
+                        <button class="reset-button" (click)="resetForm()">Reset</button>
                     </div>
 
                 </form>

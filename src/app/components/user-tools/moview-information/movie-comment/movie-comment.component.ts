@@ -31,7 +31,7 @@ export class MovieCommentComponent implements OnChanges {
 
 
   @Input("movie")
-  movie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", -1, "", [], [], -1, "", -1, "");
+  movie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", true, -1, "", [], [], -1, "", -1, "");
 
   movieComments: MovieCommentDTO[] = [];     // All Comments fot the Movie
   

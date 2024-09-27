@@ -65,7 +65,7 @@ export class TestMovieComponent implements OnInit{
 
   saveMovie() {
 
-    let movie: MovieDTO = new Movie(-1, "Test1", MovieGenre.Action, undefined, 0, "Test123", ["Pera Peric", "Ana Anic"], ["Pera Peric", "Ana Anic"], 2014, "USA", 120, "");
+    let movie: MovieDTO = new Movie(-1, "Test1", MovieGenre.Action, undefined, true, 0, "Test123", ["Pera Peric", "Ana Anic"], ["Pera Peric", "Ana Anic"], 2014, "USA", 120, "");
 
     this.movieService.save(movie).subscribe((savedMovie: MovieDTO) => {
 

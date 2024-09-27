@@ -35,7 +35,7 @@ import { slideRightAnimation } from '../../../other/animations/slide.animation';
 export class HomeComponent implements OnInit {
 
   movies: MovieDTO[] = [];                // All Loaded Movies - from Server
-  recommendedMovie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", -1, "", [], [], -1, "", -1, "");
+  recommendedMovie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", true, -1, "", [], [], -1, "", -1, "");
 
   constructor(private movieService: MovieService) {
     

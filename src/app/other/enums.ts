@@ -8,6 +8,14 @@ export enum Day {
     Saturday
 }
 
+
+export let movieStatus: string[] = ["Active", "Inactive"];
+export enum MovieStatus {
+    Active,
+    Inactive
+}
+
+export let movieGenres: string[] = ["Action", "Comedy", "Drama", "Thriller"];           // Add here where changed MovieGenre Enum
 export enum MovieGenre {
     Action,
     Comedy,
