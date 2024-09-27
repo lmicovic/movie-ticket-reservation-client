@@ -16,4 +16,6 @@ export interface MovieDTO {
     duration: number,
     trailerUrl: string
 
+    equal(other: MovieDTO): boolean;
+
 }

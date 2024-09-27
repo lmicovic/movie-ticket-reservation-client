@@ -8,6 +8,28 @@ export class Movie implements MovieDTO {
 
     }
     
+    public equal(other: MovieDTO): boolean {
+        
+        if( this.id === other.id &&
+            this.title === other.title &&
+            this.genre === other.genre &&
+            this.image === other.image &&
+            this.active === other.active &&
+            this.rating === other.rating &&
+            this.description == other.description &&
+            JSON.stringify(this.authors) == JSON.stringify(other.authors) &&
+            JSON.stringify(this.actors) == JSON.stringify(other.actors) &&
+            this.year === other.year &&
+            this.country === other.country &&
+            this.duration === other.duration &&
+            this.trailerUrl === other.trailerUrl
+        ) {
+            return true;
+        }
+
+        return false;
+    }
+
     // public static transformArray(movies: Movie[]): MovieDTO[] {
 
     //     let moviesDTO: MovieDTO[] = [];

@@ -22,7 +22,6 @@ export class EditMovieComponent implements OnInit{
 
 
   movie: MovieDTO = new Movie(1, "Movie 1", MovieGenre.Comedy, "../../../../../assets/images/image-placeholder-1.jpg", true, 3.7, "Morbi bibendum fermentum libero in porta. Donec velit arcu, mollis a vehicula eu, suscipit accumsan purus. Etiam ac metus egestas turpis porta pellentesque. Quisque volutpat ornare leo, sed cursus ex sollicitudin vitae. Aenean imperdiet ipsum justo, sit amet viverra nisi venenatis nec. Ut venenatis lorem in neque egestas lobortis. Praesent tempus sagittis augue vel tempus. In lorem arcu, pharetra id sem non, auctor rhoncus nunc. Ut ut arcu dignissim, rhoncus neque vel, consequat mi. Aenean ipsum risus, eleifend eu est a, porttitor vestibulum arcu. Aliquam porttitor eget tellus at pharetra. Vestibulum efficitur eros at felis imperdiet vestibulum.", ["Pera Peric", "Ana Anic", "Mika Anic"], ["Pera Peric", "Ana Anic", "Mika Anic"], 2024, "USA", 123, "");
-  
   movieOld!: MovieDTO;
 
   newMovieImage: String = "";
@@ -45,19 +44,36 @@ export class EditMovieComponent implements OnInit{
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
   // Update Movie Form
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  movieForm: FormGroup = new FormGroup({
+  // movieForm: FormGroup = new FormGroup({
 
-    movieId: new FormControl(this.movieId),
-    movieTitle: new FormControl(),
-    movieRating: new FormControl(),
-    movieGenre: new FormControl(),
-    movieDuration: new FormControl(),
-    movieStatus: new FormControl(),
-    movieDescription: new FormControl(),
-    movieImage: new FormControl(),
-
-  });
+  //   movieId: new FormControl(this.movie.id),
+  //   movieTitle: new FormControl(this.movie.title),
+  //   movieImage: new FormControl(this.movie.image),
+  //   movieRating: new FormControl(this.movie.rating),
+  //   movieStatus: new FormControl(this.movie.active),
+  //   movieYear: new FormControl(this.movie.year),
+  //   movieCountry: new FormControl(this.movie.country),
+  //   movieGenre: new FormControl(this.movie.genre),
+  //   movieDuration: new FormControl(this.movie.duration),
+  //   movieAuthors: new FormControl(this.movie.authors),
+  //   movieActors: new FormControl(this.movie.actors),
+  //   movieDescription: new FormControl(this.movie.description),
+  //   movieTrailer: new FormControl(this.movie.trailerUrl),
+    
+  // });
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  movieProjectionTableData: string[][] = [
+
+    ["1", "Movie 1", "Room 1", "24.5.2024", "$5"],
+    ["2", "Movie 2", "Room 2", "24.5.2024", "$7"],
+    ["3", "Movie 3", "Room 3", "24.5.2024", "$8"],
+    ["4", "Movie 4", "Room 4", "24.5.2024", "$9"],
+    ["5", "Movie 5", "Room 5", "24.5.2024", "$7"],
+    ["6", "Movie 6", "Room 6", "24.5.2024", "$5"]
+
+    
+  ];
 
   constructor(private activatedRoute: ActivatedRoute) {
 
@@ -65,7 +81,7 @@ export class EditMovieComponent implements OnInit{
 
   ngOnInit(): void {
 
-    this.movieOld = this.movie;
+    this.movieOld = structuredClone(this.movie);
 
     // Get MovieId from URL Variable Parameter
     this.movieId = +(this.activatedRoute.snapshot.paramMap.get("movieId") as String);
@@ -107,12 +123,37 @@ export class EditMovieComponent implements OnInit{
   // Reset Form - reset form to values before changing values
   //---------------------------------------------------------------------------------------
   resetForm() {
+
+   
     
   }
   //---------------------------------------------------------------------------------------
   
-  
+  //---------------------------------------------------------------------------------------
+  // Update Movie
+  //---------------------------------------------------------------------------------------
+  formNotChanged: boolean = false;
+  onUpdate() {
+    
+    // // If Movie Update Form is not changed, no need to update Movie
+    // if(this.movie.equal(this.movieOld)) {
+    //   this.formNotChanged = true;
+    //   return;
+    // }
 
+    this.formNotChanged = false;
+
+    this.extractFormValues();
+    
+  }
+
+  private extractFormValues() {
+    
+
+  }
+
+  //---------------------------------------------------------------------------------------
+  
   // Getter for MovieGenre Enum
   public get movieGenreEnum(): typeof MovieGenre {
     return MovieGenre;

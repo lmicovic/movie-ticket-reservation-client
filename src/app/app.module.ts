@@ -71,6 +71,8 @@ import { MostVievedMoviesComponent } from './components/administrative-tools/adm
 import { DashboardMessagesComponent } from './components/administrative-tools/administartor-dashboard/dashboard-messages/dashboard-messages.component';
 import { EditMovieComponent } from './components/administrative-tools/shared/edit-movie/edit-movie.component';
 import { ChipsComponent } from './components/administrative-tools/shared/chips/chips.component';
+import { EditableTableComponent } from './components/administrative-tools/shared/editable-table/editable-table.component';
+
 
 
 @NgModule({
@@ -125,6 +127,7 @@ import { ChipsComponent } from './components/administrative-tools/shared/chips/c
     DashboardMessagesComponent,
     EditMovieComponent,
     ChipsComponent,
+    EditableTableComponent,
 
     
     

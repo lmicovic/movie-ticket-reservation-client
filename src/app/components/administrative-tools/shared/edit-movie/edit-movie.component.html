@@ -44,7 +44,7 @@
 
                     <div class="movie-id-container">
                         <label for="movie-id">Id</label>
-                        <input type="text" name="movie-id" id="movie-id" disabled [value]="movie.id" />
+                        <input type="text" name="movie-id" id="movie-id" disabled [(value)]="movie.id" />
                     </div>
 
                     <div class="movie-title-container">
@@ -142,7 +142,7 @@
 
 
                     <div class="form-buttons">
-                        <button class="update-button">Update</button>
+                        <button class="update-button" (click)="onUpdate()">Update</button>
                         <button class="reset-button" (click)="resetForm()">Reset</button>
                     </div>
 
@@ -179,4 +179,17 @@
     <!-- Statistic Panel - END-->
     <!-- ------------------------------------------------------------------------------------------- -->
 
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- Projections Table -->
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <div class="projections-container clearfix">
+        <app-editable-table [tableTitle]="'Movie Projections'" [tableMarginTop]="'25px'" [expandable]="true" [headers]="['Id', 'Movie', 'Room', 'Date', 'Price']" [tableData]="movieProjectionTableData"></app-editable-table>
+    </div>
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- Projections Table - END-->
+    <!-- ------------------------------------------------------------------------------------------- -->
+
+
+
 </div>
+
