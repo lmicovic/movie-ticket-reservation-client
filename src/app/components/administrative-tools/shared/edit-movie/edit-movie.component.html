@@ -183,13 +183,21 @@
     <!-- Projections Table -->
     <!-- ------------------------------------------------------------------------------------------- -->
     <div class="projections-container clearfix">
-        <app-editable-table [tableTitle]="'Movie Projections'" [tableMarginTop]="'25px'" [expandable]="true" [headers]="['Id', 'Movie', 'Room', 'Date', 'Price']" [tableData]="movieProjectionTableData"></app-editable-table>
+        <app-editable-table [tableTitle]="'Movie Projections'" [tableMarginTop]="'25px'" [expandable]="true" [headers]="movieProjectionTableHeaders" [tableData]="movieProjectionTableData"></app-editable-table>
     </div>
     <!-- ------------------------------------------------------------------------------------------- -->
     <!-- Projections Table - END-->
     <!-- ------------------------------------------------------------------------------------------- -->
 
-
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- Projections Table  -->
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <div class="reservations-container clearfix">
+        <app-editable-table [tableTitle]="'Movie Reservations'" [tableMarginTop]="'25px'" [expandable]="true" [headers]="movieReservationsHeaders" [tableData]="movieReservationTableData"></app-editable-table>
+    </div>
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- Projections Table - END -->
+    <!-- ------------------------------------------------------------------------------------------- -->
 
 </div>
 

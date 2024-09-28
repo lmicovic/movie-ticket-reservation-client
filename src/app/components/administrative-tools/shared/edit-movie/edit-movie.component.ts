@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { StatisticCardModelDTO } from '../../../../other/models/statistic-card-model/statistic-card-model.interface';
-import { StatisticCardModel } from '../../../../other/models/statistic-card-model/statistic-card-model.class';
-import { faMoneyBill, faStar, faTag, faUsersViewfinder, IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { slideDown, slideRight } from '../../../../other/animations/slide.animation';
-import { FormControl, FormGroup } from '@angular/forms';
-import { MovieDTO } from '../../../../other/models/movie/movieDTO.interface';
-import { Movie } from '../../../../other/models/movie/movie.class';
-import { MovieGenre, movieGenres, movieStatus, MovieStatus } from '../../../../other/enums';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { StatisticCardModelDTO } from "../../../../other/models/statistic-card-model/statistic-card-model.interface";
+import { StatisticCardModel } from "../../../../other/models/statistic-card-model/statistic-card-model.class";
+import { faMoneyBill, faStar, faTag, faUsersViewfinder, IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import { slideDown, slideRight } from "../../../../other/animations/slide.animation";
+import { FormControl, FormGroup } from "@angular/forms";
+import { MovieDTO } from "../../../../other/models/movie/movieDTO.interface";
+import { Movie } from "../../../../other/models/movie/movie.class";
+import { MovieGenre, movieGenres, movieStatus, MovieStatus } from "../../../../other/enums";
 
 
 @Component({
-  selector: 'app-edit-movie',
-  templateUrl: './edit-movie.component.html',
-  styleUrl: './edit-movie.component.css',
+  selector: "app-edit-movie",
+  templateUrl: "./edit-movie.component.html",
+  styleUrl: "./edit-movie.component.css",
   animations: [
     slideDown, slideRight
   ]
@@ -63,6 +63,11 @@ export class EditMovieComponent implements OnInit{
   // });
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  // Movie Projections Table - Data
+  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  movieProjectionTableHeaders: string[] = ["Id", "Movie", "Room", "Date", "Price"];
   movieProjectionTableData: string[][] = [
 
     ["1", "Movie 1", "Room 1", "24.5.2024", "$5"],
@@ -72,8 +77,24 @@ export class EditMovieComponent implements OnInit{
     ["5", "Movie 5", "Room 5", "24.5.2024", "$7"],
     ["6", "Movie 6", "Room 6", "24.5.2024", "$5"]
 
-    
   ];
+  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  // Movie Projections Table - Data
+  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  movieReservationsHeaders: string[] = ["Id", "User", "Tickets", "Reserved Seats", "Date", "Price"];
+  movieReservationTableData: string[][] = [
+
+    ["1", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+    ["2", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+    ["3", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+    ["4", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+    ["5", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+    ["6", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+
+  ];
+  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   constructor(private activatedRoute: ActivatedRoute) {
 
