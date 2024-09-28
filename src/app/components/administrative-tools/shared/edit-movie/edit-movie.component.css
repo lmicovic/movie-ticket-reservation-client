@@ -33,6 +33,11 @@
     /* background-color: red; */
 }
 
+img{
+    width: 100%;
+    height: auto;
+}
+
 hr {
     margin: 30px 0px;
 }

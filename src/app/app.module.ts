@@ -8,6 +8,7 @@ import { BadgeModule } from 'primeng/badge';
 import { ImageModule } from 'primeng/image';
 import { ChipsModule } from 'primeng/chips';
 import { CalendarModule } from 'primeng/calendar';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -72,6 +73,7 @@ import { DashboardMessagesComponent } from './components/administrative-tools/ad
 import { EditMovieComponent } from './components/administrative-tools/shared/edit-movie/edit-movie.component';
 import { ChipsComponent } from './components/administrative-tools/shared/chips/chips.component';
 import { EditableTableComponent } from './components/administrative-tools/shared/editable-table/editable-table.component';
+import { ModalComponent } from './components/administrative-tools/shared/modal/modal.component';
 
 
 
@@ -128,6 +130,7 @@ import { EditableTableComponent } from './components/administrative-tools/shared
     EditMovieComponent,
     ChipsComponent,
     EditableTableComponent,
+    ModalComponent,
 
     
     
@@ -158,6 +161,7 @@ import { EditableTableComponent } from './components/administrative-tools/shared
     ImageModule,
     ChipsModule,
     CalendarModule,
+    ConfirmDialogModule,
 
     ToastrModule.forRoot({
       maxOpened: 1,
