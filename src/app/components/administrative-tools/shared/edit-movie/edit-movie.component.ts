@@ -8,7 +8,6 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { MovieDTO } from "../../../../other/models/movie/movieDTO.interface";
 import { Movie } from "../../../../other/models/movie/movie.class";
 import { MovieGenre, movieGenres, movieStatus, MovieStatus } from "../../../../other/enums";
-import { TableDataDTO } from "../../../../other/models/editable-table/tableDataDTO.interface";
 
 
 @Component({
@@ -42,37 +41,59 @@ export class EditMovieComponent implements OnInit{
   reservationsCardValues: StatisticCardModelDTO = new StatisticCardModel("Reservations", "256", "+10", "since last week", faTag, "#a855f7", "#ead6fd");
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  
+  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  // Update Movie Form
+  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  // movieForm: FormGroup = new FormGroup({
+
+  //   movieId: new FormControl(this.movie.id),
+  //   movieTitle: new FormControl(this.movie.title),
+  //   movieImage: new FormControl(this.movie.image),
+  //   movieRating: new FormControl(this.movie.rating),
+  //   movieStatus: new FormControl(this.movie.active),
+  //   movieYear: new FormControl(this.movie.year),
+  //   movieCountry: new FormControl(this.movie.country),
+  //   movieGenre: new FormControl(this.movie.genre),
+  //   movieDuration: new FormControl(this.movie.duration),
+  //   movieAuthors: new FormControl(this.movie.authors),
+  //   movieActors: new FormControl(this.movie.actors),
+  //   movieDescription: new FormControl(this.movie.description),
+  //   movieTrailer: new FormControl(this.movie.trailerUrl),
+    
+  // });
+  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
   // Movie Projections Table - Data
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  movieProjectionTableData: TableDataDTO = {
-    headers: ["Id", "Movie", "Room", "Date", "Price"],
-    data: [
-      ["1", "Movie 1", "Room 1", "24.5.2024", "$5"],
-      ["2", "Movie 2", "Room 2", "24.5.2024", "$7"],
-      ["3", "Movie 3", "Room 3", "24.5.2024", "$8"],
-      ["4", "Movie 4", "Room 4", "24.5.2024", "$9"],
-      ["5", "Movie 5", "Room 5", "24.5.2024", "$7"],
-      ["6", "Movie 6", "Room 6", "24.5.2024", "$5"]
-    ]
-  }
+  movieProjectionTableHeaders: string[] = ["Id", "Movie", "Room", "Date", "Price"];
+  movieProjectionTableData: string[][] = [
+
+    ["1", "Movie 1", "Room 1", "24.5.2024", "$5"],
+    ["2", "Movie 2", "Room 2", "24.5.2024", "$7"],
+    ["3", "Movie 3", "Room 3", "24.5.2024", "$8"],
+    ["4", "Movie 4", "Room 4", "24.5.2024", "$9"],
+    ["5", "Movie 5", "Room 5", "24.5.2024", "$7"],
+    ["6", "Movie 6", "Room 6", "24.5.2024", "$5"]
+
+  ];
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
   // Movie Projections Table - Data
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  movieReservationTableData: TableDataDTO = {
-    headers: ["Id", "User", "Tickets", "Reserved Seats", "Date", "Price"],
-    data: [
-      ["1", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
-      ["2", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
-      ["3", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
-      ["4", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
-      ["5", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
-      ["6", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"]
-    ]
-  }
+  movieReservationsHeaders: string[] = ["Id", "User", "Tickets", "Reserved Seats", "Date", "Price"];
+  movieReservationTableData: string[][] = [
+
+    ["1", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+    ["2", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+    ["3", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+    ["4", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+    ["5", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+    ["6", "Pera Peric", "4", "9, 10, 11, 12", "24.5.2024", "$45"],
+
+  ];
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
   constructor(private activatedRoute: ActivatedRoute) {

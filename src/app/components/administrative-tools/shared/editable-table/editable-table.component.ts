@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { faArrowDown, faArrowUp, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { expandCollapse } from '../../../../other/animations/expandCollapse.animation';
-import { TableDataDTO } from '../../../../other/models/editable-table/tableDataDTO.interface';
 
 @Component({
   selector: 'app-editable-table',
@@ -16,9 +15,6 @@ export class EditableTableComponent {
   @Input("expandable")
   expandable: boolean = false;
 
-  @Input("pagination")
-  pagination: boolean = false;
-
   @Input("paginationMaringTop")
   paginationMaringTop: string = "";
 
@@ -28,16 +24,14 @@ export class EditableTableComponent {
   @Input("tableTitle")
   tableTitle: string = "No Title";
 
-  // @Input("headers")
-  // headers: string[] = ["Header 1", "Header 2", "Header 3"];
+  @Input("headers")
+  headers: string[] = ["Header 1", "Header 2", "Header 3"];
 
-  // @Input("tableData")
-  // tableData: string[][] = [
-
-  // ];
-  
   @Input("tableData")
-  tableData: TableDataDTO | undefined;
+  tableData: string[][] = [
+
+  ];
+  
 
   arrowDownIcon: IconDefinition = faArrowDown;
   arrowUpIcon: IconDefinition = faArrowUp;
