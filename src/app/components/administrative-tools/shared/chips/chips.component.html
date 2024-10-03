@@ -1,15 +1,15 @@
 <div class="main-container" [ngStyle]="{'widht': width}">
 
-    <div class="input-container">
-        <input #textInput type="text" name="input-text" id="input-text" [ngStyle]="{'width': inputFieldWidth}">
-        <button class="add-button" (click)="addValue(textInput)" [ngStyle]="{'width': addButtonWidth, 'top': addButtonTop }">Add</button>
-        <button class="cancel-button" id="cancel-button" (click)="resetInput(textInput)"><fa-icon class="cancel-icon" [icon]="cancelIcon" title="Cancel"></fa-icon></button>
+    <div class="input-container" [ngStyle]="{'display': disabled === false ? 'block' : 'none'}">
+        <input #textInput type="text" name="input-text" id="input-text" [disabled]="disabled" [ngStyle]="{'width': inputFieldWidth}">
+        <button class="add-button" (click)="addValue(textInput)"  [ngStyle]="{'width': addButtonWidth, 'top': addButtonTop }">Add</button>
+        <button class="cancel-button" id="cancel-button" (click)="resetInput(textInput)" ><fa-icon class="cancel-icon" [icon]="cancelIcon" title="Cancel"></fa-icon></button>
     </div>
 
     <div class="result-container" [ngStyle]="{'display': values.length === 0 ? 'none' : 'block', 'width': resultFieldWidth}">
 
         <ul class="result-list" *ngFor="let item of values; index as i">
-            <li [id]="'list-item-' + i">{{ item }} <button class="delete-button" id="delete-button" (click)="removeValue(i)"><fa-icon class="cancel-icon" [icon]="cancelIcon" title="delete"></fa-icon></button></li>
+            <li [id]="'list-item-' + i">{{ item }} <button class="delete-button" id="delete-button" (click)="removeValue(i)" [ngStyle]="{'display': disabled === false ? 'block' : 'none'}"><fa-icon class="cancel-icon" [icon]="cancelIcon" title="delete"></fa-icon></button></li>
         </ul>
 
     </div>

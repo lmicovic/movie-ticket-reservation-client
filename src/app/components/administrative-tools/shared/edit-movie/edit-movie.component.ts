@@ -1,13 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { interval as observableInterval } from "rxjs";
+import { takeWhile, scan, tap } from "rxjs/operators";
 import { StatisticCardModelDTO } from "../../../../other/models/statistic-card-model/statistic-card-model.interface";
 import { StatisticCardModel } from "../../../../other/models/statistic-card-model/statistic-card-model.class";
 import { faMoneyBill, faStar, faTag, faUsersViewfinder, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { slideDown, slideRight } from "../../../../other/animations/slide.animation";
-import { FormControl, FormGroup } from "@angular/forms";
 import { MovieDTO } from "../../../../other/models/movie/movieDTO.interface";
 import { Movie } from "../../../../other/models/movie/movie.class";
 import { MovieGenre, movieGenres, movieStatus, MovieStatus } from "../../../../other/enums";
+import { ToastrService } from "ngx-toastr";
 
 
 @Component({
@@ -96,7 +98,7 @@ export class EditMovieComponent implements OnInit{
   ];
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(public activatedRoute: ActivatedRoute, private router: Router, private toastr: ToastrService) {
 
   }
 
@@ -106,6 +108,9 @@ export class EditMovieComponent implements OnInit{
 
     // Get MovieId from URL Variable Parameter
     this.movieId = +(this.activatedRoute.snapshot.paramMap.get("movieId") as String);
+
+    // console.log(this.activatedRoute.snapshot.queryParamMap.get("returnUrl"));
+    
 
   }
   
@@ -143,9 +148,56 @@ export class EditMovieComponent implements OnInit{
   //---------------------------------------------------------------------------------------
   // Reset Form - reset form to values before changing values
   //---------------------------------------------------------------------------------------
-  resetForm() {
+  resetForm(form: any) {
 
-   
+    // MovieId
+    (document.getElementById("movie-id") as any).value = structuredClone(this.movieOld.id);
+    
+    // Movie Title
+    (document.getElementById("movie-title") as any).value = structuredClone(this.movieOld.title);
+    
+    // Rating
+    this.movie.rating = this.movieOld.rating;
+
+    // Year
+    (document.getElementById("movie-year") as any).value = structuredClone(this.movieOld.year);
+
+    // Country
+    (document.getElementById("movie-country") as any).value = structuredClone(this.movieOld.country);
+
+    // Genre
+    (document.getElementById("movie-genre") as any).value = movieGenres[this.movieOld.genre];
+    
+    // Duration
+    (document.getElementById("movie-duration") as any).value = this.movieOld.duration;
+
+    // Status
+    let active: boolean = this.movieOld.active;
+    if(active === true) {
+      (document.getElementById("movie-status") as any).value = movieStatus[MovieStatus.Active];
+    }
+    else if(active === false) {
+      (document.getElementById("movie-status") as any).value = movieStatus[MovieStatus.Inactive];
+    }
+
+    // Description
+    (document.getElementById("movie-description") as any).value = this.movieOld.description;
+    
+    // Image
+    (document.getElementById("image-input") as any).value = "";
+    
+
+    // Authors
+    this.movie.authors = structuredClone(this.movieOld.authors);
+  
+    // Actors
+    this.movie.actors = structuredClone(this.movieOld.authors);
+  
+    // Trailer
+    (document.getElementById("movie-trailer") as any).value = this.movieOld.trailerUrl;
+    
+    // Scroll to top of Form Component
+    form.scrollIntoView();
     
   }
   //---------------------------------------------------------------------------------------
@@ -156,24 +208,90 @@ export class EditMovieComponent implements OnInit{
   formNotChanged: boolean = false;
   onUpdate() {
     
-    // // If Movie Update Form is not changed, no need to update Movie
+    // If Movie Update Form is not changed, no need to update Movie
     // if(this.movie.equal(this.movieOld)) {
     //   this.formNotChanged = true;
     //   return;
     // }
 
+    
+
+    //-------------------------------------------------------------------------
+    // Extract values from HTML Form Objects
+    //-------------------------------------------------------------------------
+    let movieId: number = +(document.getElementById("movie-id") as any).value;
+    let movieTitle: string = (document.getElementById("movie-title") as any).value;
+    let movieGenre: MovieGenre = movieGenres.indexOf((document.getElementById("movie-genre") as any).value);
+    let movieImage: string = (document.getElementById("image-input") as any).value === "" ? this.movieOld.image : (document.getElementById("image-input") as any).value;;
+    let movieActive: boolean = movieStatus.indexOf((document.getElementById("movie-status") as any).value) === 0 ? true : false;
+    let movieRating: number = this.movieOld.rating;
+    let movieDescription: string = (document.getElementById("movie-description") as any).value;
+    let movieAuthors: string[] = this.movie.authors;
+    let movieActors: string[] = this.movie.actors;
+    let movieYear: number = +(document.getElementById("movie-year") as any).value;
+    let movieCountry: string = (document.getElementById("movie-country") as any).value;
+    let movieDuration: number = +(document.getElementById("movie-duration") as any).value;
+    let movieTrailer: string = (document.getElementById("movie-trailer") as any).value;
+    //-------------------------------------------------------------------------
+
+    let updateMovie: MovieDTO = new Movie(movieId, movieTitle, movieGenre, movieImage, movieActive, movieRating, movieDescription, movieAuthors, movieActors, movieYear, movieCountry, movieDuration, movieTrailer);
+
+    //-------------------------------------------------------------------------
+    // Check If Movie Information is changed - if not do not update Movie
+    //-------------------------------------------------------------------------
+    if(updateMovie.equal(this.movieOld) === true) {
+      this.formNotChanged = true;
+      this.toastr.warning("You have not changed any field in Update Movie Form.", "Update Movie:", {
+        positionClass: "toast-top-left",
+      });
+      return;
+    }
     this.formNotChanged = false;
+    //---------------------------------------------
 
-    this.extractFormValues();
+    //-------------------------------------------------------------------------
+    // Update Movie Informations
+    //-------------------------------------------------------------------------
+    if(updateMovie.image !== this.movieOld.image) {
+      // movieService.updateMovieImage();   // Updates Movie Image
+    }
+    // movieSErvice.updateMovie();      // updates all Movie informations except movie Image, to updat movie image it is requred to call separate function: movieService.updateMovieImage(image);
     
+    // ...
+    
+    this.toastr.success("Movie informations has been updated. ", "Update Movie:", {
+      positionClass: "toast-top-left",
+    });
+    
+    //-------------------------------------------------------------------------
   }
 
-  private extractFormValues() {
-    
-
-  }
 
   //---------------------------------------------------------------------------------------
+  // Enable Editing Movie Informations
+  //---------------------------------------------------------------------------------------
+  editMovie: boolean = false;
+  onEdit() {
+    this.editMovie = !this.editMovie;
+  }
+  //---------------------------------------------------------------------------------------
+
+  //---------------------------------------------------------------------------------------
+  // Open Delete Modal
+  //---------------------------------------------------------------------------------------
+  openedModal: boolean = false;
+  openModal() {
+    this.openedModal = !this.openedModal;
+    console.log(this.openedModal);
+
+    // this.router.navigateByUrl(this.activatedRoute.snapshot.queryParamMap.get("returnUrl") as string);
+
+  }
+  //---------------------------------------------------------------------------------------
+
+  openModalChanged(value: any) {
+    this.openedModal = value;
+  }
   
   // Getter for MovieGenre Enum
   public get movieGenreEnum(): typeof MovieGenre {

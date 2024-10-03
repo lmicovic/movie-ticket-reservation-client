@@ -1,5 +1,4 @@
 /* The Modal (background) */
-
 .clearfix {
     content: "";
     clear: both;
@@ -8,13 +7,13 @@
 
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    position: absolute;
+    top: 10px;
+    left: 10%;
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    width: 40%; /* Full width */
+    
     overflow: auto; /* Enable scroll if needed */
   }
   
@@ -59,16 +58,60 @@
     cursor: pointer;
   }
   
+  .modal-header h2 {
+    display: inline;
+    position: relative;
+    top: 9px;
+    
+    font-size: 22px;
+  }
+
   .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #e6e6e6;
+    color: black;
+  }
+  
+  .modal-body {
+    padding: 2px 16px;
+    margin-top: 10px;
+  }
+  
+  .button-container {
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-bottom: 15px;
+  }
+
+  .ok-button {
+    width: 70px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(59,130,246,0.8);
+    margin-right: 10px;
     color: white;
   }
   
-  .modal-body {padding: 2px 16px;}
-  
+  .cancel-button {
+    width: 70px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b3b3b3;
+    color: white;
+  }
+
   .modal-footer {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
+  }
+
+  @media (max-width: 1300px) {
+    
+    .modal {
+      top: 480px;
+      width: 100%;
+      left: 0;
+    }
+
   }

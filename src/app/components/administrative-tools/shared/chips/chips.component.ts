@@ -34,6 +34,8 @@ export class ChipsComponent {
   @Input("values")
   values: string[] = [];
 
+  @Input("disabled")
+  disabled: boolean = false;
 
   @Output("newValueEventEmmiter")
   newValueEventEmmiter = new EventEmitter();

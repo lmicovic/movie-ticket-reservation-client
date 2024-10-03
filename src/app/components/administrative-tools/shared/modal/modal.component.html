@@ -1,21 +1,21 @@
-<!-- Trigger/Open The Modal -->
-<button id="myBtn" (click)="openModal()">Open Modal</button>
+<!-- Trigger/Open The Modal
+<button id="myBtn" (click)="openModal()">Open Modal</button> -->
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="myModal" class="modal" [ngStyle]="{'display' : openModal === true ? 'inline-block' : 'none'}">
 
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header clearfix">
-      <h2>Modal Header</h2>
-      <div class="close" (click)="closeModal()">&times;</div>
+      <h2>{{ modalHeader }}</h2>
+      <span class="close" (click)="closeModal()">&times;</span>
     </div>
     <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
-    </div>
-    <div class="modal-footer">
-      <h3>Modal Footer</h3>
+      <p>{{ modalText }}</p>
+      <div class="button-container">
+        <button class="ok-button" (click)="onButtonOk()">Ok</button>
+        <button class="cancel-button" (click)="closeModal()">Cancel</button>
+      </div>
     </div>
   </div>
 

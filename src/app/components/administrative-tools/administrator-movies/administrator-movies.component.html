@@ -276,7 +276,7 @@
 
                 <tbody>
 
-                    <tr [routerLink]="['/admin/edit-movie', 1]">
+                    <tr [routerLink]="['/admin/edit-movie', 1]" [queryParams]="{ returnUrl: router.url}">
                         <td>1</td>
                         <td><img src="../../../../assets/images/image-placeholder-1.jpg" alt=""></td>
                         <td>5</td>

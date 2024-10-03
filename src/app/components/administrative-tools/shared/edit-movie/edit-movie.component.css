@@ -33,9 +33,43 @@
     /* background-color: red; */
 }
 
+.edit-movie-image-container:hover {
+    cursor: pointer;
+}
+
 img{
     width: 100%;
     height: auto;
+}
+
+.button-container {
+    width: 80%;
+    margin: 5px auto;
+}
+
+.delete-button {
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.delete-button:hover {
+    background-color: #e6e6e6;
+}
+
+.edit-button {
+    width: 100%;
+    border: 1px solid #4f8ef7;
+    background-color: #629bf8;   
+}
+
+.edit-button:hover {
+    background-color: rgb(98, 155, 248, 0.9);
+}
+
+.edit-button:active {
+    background-color: #629bf8;   
 }
 
 hr {
@@ -213,7 +247,7 @@ input[type="file"]::file-selector-button {
         width: 100%;
     }
 
-    .projections-container {
+    .projections-container, .reservations-containerdelete-button-container, .edit-button {
         width: 100%;
     }
 
@@ -223,6 +257,18 @@ input[type="file"]::file-selector-button {
 
     .edit-movie-image-container {
         width: 100%;
+    }
+
+    .movie-authors-container label {
+        margin: 0;
+    }
+
+    .delete-button {
+        margin-bottom: 20px;
+    }
+    
+    .delete-button, .edit-button {
+        height: 35px;
     }
 
     .edit-movie-form-container {
@@ -252,6 +298,12 @@ input[type="file"]::file-selector-button {
 
     #image-input {
         margin-top: 20px;
+    }
+
+    .movie-rating {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .form-buttons {

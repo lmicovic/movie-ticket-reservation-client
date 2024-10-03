@@ -70,8 +70,8 @@ export class AdministratorMoviesComponent implements OnInit{
   chartOptions: any;
   //----------------------------------------------------------------------------------------------------------------
 
-  constructor(private router: Router) {
-
+  constructor(public router: Router) {
+    
   }
 
   ngOnInit(): void {
