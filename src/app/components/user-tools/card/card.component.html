@@ -1,13 +1,12 @@
-<div class="card-container">
+<div [ngClass]="cardType === 0 ? 'card-container' : cardType === 1 ? 'recommended-movie-card-container' : ''">
 
-    <h2 class="card-title">{{ cardTitle }}</h2>
+    <h2 [ngClass]="cardType === 0 ? 'card-title' : cardType === 1 ?'recommended-movie-card-title' : ''">{{ cardTitle }}</h2>
+    <hr *ngIf="cardType === 1" class="titleLine">
 
     <!-- Card Content -->
-    <div class="card-content-container">
+    <div [ngClass]="cardType === 0 ? 'card-content-container' : cardType === 1 ? 'recommended-movie-card-content-container' : ''">
 
         <ng-content select=".card-content">
-
-            
 
         </ng-content>
 

@@ -7,8 +7,6 @@ import { ToastrService } from 'ngx-toastr';
 import { MovieDTO } from '../../../other/models/movie/movieDTO.interface';
 import { slideDown, slideRight } from '../../../other/animations/slide.animation';
 import { fade } from '../../../other/animations/fade.animation';
-
-
 @Component({
   selector: 'app-moview-information',
   templateUrl: './moview-information.component.html',
@@ -22,8 +20,6 @@ export class MoviewInformationComponent implements OnInit {
   @Input("movie")
   movie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", true, -1, "", [], [], -1, "", -1, "");              // Movie related to this Component, movieId - passed from URL Parameter, and loaded from server by movieId().
 
-  
-
   // Enum for Panel - Selected Day
   selectedDay: Day = Day.Monday;
 
@@ -33,12 +29,8 @@ export class MoviewInformationComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
     // Load Selected Movie
     this.loadMovie();
-    
-    
-    
 
     //--------------------------------------------------------------------------------------------------------------------------------
     // Panel Component - Initialized Selected Day - Style

@@ -76,6 +76,7 @@ import { EditableTableComponent } from './components/administrative-tools/shared
 import { ModalComponent } from './components/administrative-tools/shared/modal/modal.component';
 import { PaginationComponent } from './components/user-tools/pagination/pagination.component';
 import { CardComponent } from './components/user-tools/card/card.component';
+import { RecommendedMoviesComponent } from './components/user-tools/recommended-movies/recommended-movies.component';
 
 
 
@@ -135,6 +136,7 @@ import { CardComponent } from './components/user-tools/card/card.component';
     ModalComponent,
     PaginationComponent,
     CardComponent,
+    RecommendedMoviesComponent,
 
     
     

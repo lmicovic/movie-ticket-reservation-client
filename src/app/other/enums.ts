@@ -8,7 +8,6 @@ export enum Day {
     Saturday
 }
 
-
 export let movieStatus: string[] = ["Active", "Inactive"];
 export enum MovieStatus {
     Active,
@@ -21,4 +20,9 @@ export enum MovieGenre {
     Comedy,
     Drama,
     Thriller
+}
+
+export enum CardType {
+    Basic,
+    RecommendedMovie
 }

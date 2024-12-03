@@ -17,24 +17,15 @@
 }
 
 .recomended-movies-image-rating-container {
-
-    
     position: absolute;
     top: 0;
-
-    
     padding: 5px 10px 5px 10px;
-
     width: auto;
-
     border-bottom-right-radius: 10px;
-
     color: white;
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0.5);
-
     transition: opacity 0.5s linear;
-
 }
 
 .movie-rating-desctiption {
@@ -54,18 +45,13 @@
 }
 
 .bookmark-container {
-
     position: absolute;
     top: 14px;
     right: 25px;
-
     width: 30px;
     height: 30px;
-
     border-radius: 100%;
-
     transition: opacity 0.5s linear;
-
 }
 
 .bookmark-container:hover {
@@ -77,19 +63,13 @@
 }
 
 .bookmark-container-bookmarked {
-
     position: absolute;
     top: 14px;
     right: 25px;
-
     width: 30px;
     height: 30px;
-
     border-radius: 100%;
-
     transition: opacity 0.5s linear;
-
-
 }
 
 .bookmark-container-bookmarked:hover {
@@ -100,14 +80,11 @@
     background-color: rgba(0, 0, 0, 0.0);
 }
 
-
 .bookmark-icon {
     position: absolute;
     left: 4.8px;
     top: 4px;
 }
-
-
 
 .bookmark-not-visible {
     opacity: 0;
@@ -118,28 +95,19 @@
 }
 
 .moview-preview-description {
-
     position: absolute;
     bottom: 0px;
-
     width: 100%;
     padding: 15px;
-
     background-color: rgba(0, 0, 0, 0.5);
-
     font-size: 16px;
     font-weight: 600;
-
     color: #DDD;
 }
 
 .moview-preview-description:hover {
     cursor: pointer;
 }
-
-
-
-
 
 .zoom {
     transition: transform .2s;
