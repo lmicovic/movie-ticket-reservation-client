@@ -1,5 +1,5 @@
 import { Movie } from '../../../other/models/movie/movie.class';
-import { Component, OnInit, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Day, MovieGenre } from '../../../other/enums';
 import { MovieService } from '../../../services/movie/movie.service';
@@ -182,21 +182,10 @@ export class MoviewInformationComponent implements OnInit {
     
   }
 
-  getTrailer():void {
-    
-    if(this.movie.trailerUrl === null) {
-      // alert("This movie does not have trailer.");
-      this.toastr.warning("", "Movie does not have trailer.", {
-        positionClass: "toast-top-left",
-      });
-    }
-
-  }
-
   onMovieChange(movie: MovieDTO) {
 
     this.movie.rating = movie.rating;
-    
+ 
   }
 
   resetScrollToTop(): void {
@@ -206,7 +195,43 @@ export class MoviewInformationComponent implements OnInit {
 
   }
   
+  getTrailer():void {
+
+    if(this.movie.trailerUrl === null || this.movie.trailerUrl === undefined) {
+      // alert("This movie does not have trailer.");
+      this.toastr.warning("", "Movie does not have trailer.", {
+        positionClass: "toast-top-left",
+      });
+    }
+
+    // If movie has trailer
+    else {
+
+      // ...
+
+    }
+
+  }
+
+  @ViewChild("movieScheduleContentContainer")
+  movieScheduleDiv!: ElementRef;
   onBuyTicket() {
+
+    this.toastr.info("", "Select date from Movie Schedule.", {
+      positionClass: "toast-top-left",
+    });
+
+    // let element = this.movieScheduleDiv.nativeElement;
+    // let offset = 100;
+    // let elementPosition = element.getBoundingClientRect().top;
+    // let offsetPosition = elementPosition + window.scrollY - offset;
+
+    // window.scrollTo({
+    //   top: offsetPosition,
+    //   behavior: "smooth"
+    // });
+
+    this.movieScheduleDiv.nativeElement.scrollIntoView({behaviour: "smooth"});
 
   }
 

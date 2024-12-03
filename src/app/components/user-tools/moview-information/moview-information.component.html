@@ -82,7 +82,7 @@
         <!-- ------------------------------------------------------------------------------- -->
         <!-- Movie Schedule Card -->
         <!-- ------------------------------------------------------------------------------- -->
-        <section class="movie-schedule-container">
+        <section class="movie-schedule-container" #movieScheduleContentContainer>
 
             <card-item>
                 <h4 class="movie-schedule-title">Movie Schedule</h4>
@@ -98,8 +98,6 @@
                         <li class="movie-panel-item" id="saturday" (click)="onClick($event)">Saturday</li>
                         <li class="movie-panel-item" id="sunday" (click)="onClick($event)">Sunday</li>
                     </ul>
-
-                    
 
                 </div>
 

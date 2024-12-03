@@ -54,8 +54,6 @@ export class HomeComponent implements OnInit {
 
   }
 
-
-
   // Loads Recommended Movie for Logged User, based on his preferrence
   private loadRecommendedMovie(): void {
 

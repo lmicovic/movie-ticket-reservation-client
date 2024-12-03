@@ -59,14 +59,11 @@
 }
 
 .main-moview-item-container {
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
   margin: 0 0 0 0;
   padding: 20px 0 20px 5px;
-
 }
 
 .main-moview-item {
@@ -81,8 +78,7 @@
   margin: 12px 30px 15px 0px;
 }
 
-.pagination a,
-span {
+.pagination a, span {
   color: black;
   float: left;
   padding: 6px 8px;
@@ -91,10 +87,8 @@ span {
 }
 
 .pagination-link-active {
-
   background-color: #AAA;
   border-radius: 8px;
-
 }
 
 .pagination select {
@@ -108,14 +102,20 @@ span {
 /* Active Movies - END */
 /* *************************************************************************** */
 
+@media screen and (max-width: 1600px) {
+
+  .main-moview-item-container {
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
 @media screen and (max-width: 800px) {
 
-  .main-column-left,
-  .main-column-middle {
-
+  .main-column-left, .main-column-middle {
     width: 95%;
     margin: 0;
-
   }
 
   .main-column-left {
@@ -131,14 +131,11 @@ span {
   }
 
   .cinema-description {
-
     padding: 15px;
     width: 92%;
     margin: 30px auto 0 auto;
-
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 12px;
-
   }
 
   .cinema-description-title {
@@ -150,7 +147,6 @@ span {
   .main-movie-container {
     box-shadow: none;
     border: none;
-
   }
 
   .main-moview-item-container {
@@ -162,7 +158,6 @@ span {
     max-width: 100%;
     min-width: 300px;
     padding-right: 40px;
-
   }  
 
 }

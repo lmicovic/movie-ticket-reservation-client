@@ -1,7 +1,7 @@
 import { AuthService } from '.././../../../services/auth-service/auth-service.service';
 import { UserService } from '.././../../../services/user/user.service';
 import { Component, OnInit, ElementRef, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../../../../other/models/movie/movie.class';
 import { MovieService } from '../../../../services/movie/movie.service';
 import { combineLatest, Observable } from 'rxjs';
@@ -64,15 +64,15 @@ export class BuyTicketComponent implements OnInit, OnChanges{
 
   user: UserDTO | undefined = undefined;
 
-  constructor(private authService: AuthService, private movieService: MovieService, private projectionService: ProjectionService, private userService: UserService, private reservationService: ReservationService, private ref: ElementRef, private renderer: Renderer2, private router: ActivatedRoute, private toastr: ToastrService) {
+  constructor(private authService: AuthService, private movieService: MovieService, private projectionService: ProjectionService, private userService: UserService, private reservationService: ReservationService, private ref: ElementRef, private renderer: Renderer2, private router: Router, private route: ActivatedRoute, private toastr: ToastrService) {
 
   }
 
   ngOnInit(): void {
     
     
-    let movieIdTmp: string | Number | null = this.router.snapshot.paramMap.get("movieId");
-    let projectionIdTmp: string | Number | null = this.router.snapshot.queryParamMap.get("reservationId");
+    let movieIdTmp: string | Number | null = this.route.snapshot.paramMap.get("movieId");
+    let projectionIdTmp: string | Number | null = this.route.snapshot.queryParamMap.get("reservationId");
     
     let movieId: Number;
     let projectionId: Number;
@@ -396,8 +396,10 @@ export class BuyTicketComponent implements OnInit, OnChanges{
 
         setTimeout(() => {
 
+            // console.log("test");
+
             // Redirect to MovieInformation Component
-            window.location.href = "http://localhost:4200/movie/" + this.movie.id;
+            this.router.navigate(["/application/movie/" + this.movie.id]);
 
         }, 1000);
 

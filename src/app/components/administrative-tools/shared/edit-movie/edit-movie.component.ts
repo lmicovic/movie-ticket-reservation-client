@@ -22,14 +22,12 @@ import { ToastrService } from "ngx-toastr";
 })
 export class EditMovieComponent implements OnInit{
 
-
   movie: MovieDTO = new Movie(1, "Movie 1", MovieGenre.Comedy, "../../../../../assets/images/image-placeholder-1.jpg", true, 3.7, "Morbi bibendum fermentum libero in porta. Donec velit arcu, mollis a vehicula eu, suscipit accumsan purus. Etiam ac metus egestas turpis porta pellentesque. Quisque volutpat ornare leo, sed cursus ex sollicitudin vitae. Aenean imperdiet ipsum justo, sit amet viverra nisi venenatis nec. Ut venenatis lorem in neque egestas lobortis. Praesent tempus sagittis augue vel tempus. In lorem arcu, pharetra id sem non, auctor rhoncus nunc. Ut ut arcu dignissim, rhoncus neque vel, consequat mi. Aenean ipsum risus, eleifend eu est a, porttitor vestibulum arcu. Aliquam porttitor eget tellus at pharetra. Vestibulum efficitur eros at felis imperdiet vestibulum.", ["Pera Peric", "Ana Anic", "Mika Anic"], ["Pera Peric", "Ana Anic", "Mika Anic"], 2024, "USA", 123, "");
   movieOld!: MovieDTO;
 
   newMovieImage: String = "";
   genres: string[] = movieGenres;
   
-
   private movieId!: number;
   selectedMovie!: MovieDTO;
 
@@ -42,29 +40,6 @@ export class EditMovieComponent implements OnInit{
   viewsCardValues: StatisticCardModelDTO = new StatisticCardModel("Views", "152", "+24", "since last week", faUsersViewfinder, "#3b82f6", "#d0e1fd");
   reservationsCardValues: StatisticCardModelDTO = new StatisticCardModel("Reservations", "256", "+10", "since last week", faTag, "#a855f7", "#ead6fd");
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  // Update Movie Form
-  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  // movieForm: FormGroup = new FormGroup({
-
-  //   movieId: new FormControl(this.movie.id),
-  //   movieTitle: new FormControl(this.movie.title),
-  //   movieImage: new FormControl(this.movie.image),
-  //   movieRating: new FormControl(this.movie.rating),
-  //   movieStatus: new FormControl(this.movie.active),
-  //   movieYear: new FormControl(this.movie.year),
-  //   movieCountry: new FormControl(this.movie.country),
-  //   movieGenre: new FormControl(this.movie.genre),
-  //   movieDuration: new FormControl(this.movie.duration),
-  //   movieAuthors: new FormControl(this.movie.authors),
-  //   movieActors: new FormControl(this.movie.actors),
-  //   movieDescription: new FormControl(this.movie.description),
-  //   movieTrailer: new FormControl(this.movie.trailerUrl),
-    
-  // });
-  //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
   //-------------------------------------------------------------------------------------------------------------------------------------------------------------------
   // Movie Projections Table - Data
@@ -109,12 +84,8 @@ export class EditMovieComponent implements OnInit{
     // Get MovieId from URL Variable Parameter
     this.movieId = +(this.activatedRoute.snapshot.paramMap.get("movieId") as String);
 
-    // console.log(this.activatedRoute.snapshot.queryParamMap.get("returnUrl"));
-    
-
   }
   
-
   //---------------------------------------------------------------------------------------
   // Changed Movie Authors - In Chips Form Compononent
   //---------------------------------------------------------------------------------------
@@ -186,7 +157,6 @@ export class EditMovieComponent implements OnInit{
     // Image
     (document.getElementById("image-input") as any).value = "";
     
-
     // Authors
     this.movie.authors = structuredClone(this.movieOld.authors);
   
@@ -207,14 +177,6 @@ export class EditMovieComponent implements OnInit{
   //---------------------------------------------------------------------------------------
   formNotChanged: boolean = false;
   onUpdate() {
-    
-    // If Movie Update Form is not changed, no need to update Movie
-    // if(this.movie.equal(this.movieOld)) {
-    //   this.formNotChanged = true;
-    //   return;
-    // }
-
-    
 
     //-------------------------------------------------------------------------
     // Extract values from HTML Form Objects
