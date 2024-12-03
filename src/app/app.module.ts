@@ -74,6 +74,8 @@ import { EditMovieComponent } from './components/administrative-tools/shared/edi
 import { ChipsComponent } from './components/administrative-tools/shared/chips/chips.component';
 import { EditableTableComponent } from './components/administrative-tools/shared/editable-table/editable-table.component';
 import { ModalComponent } from './components/administrative-tools/shared/modal/modal.component';
+import { PaginationComponent } from './components/user-tools/pagination/pagination.component';
+import { CardComponent } from './components/user-tools/card/card.component';
 
 
 
@@ -131,6 +133,8 @@ import { ModalComponent } from './components/administrative-tools/shared/modal/m
     ChipsComponent,
     EditableTableComponent,
     ModalComponent,
+    PaginationComponent,
+    CardComponent,
 
     
     
