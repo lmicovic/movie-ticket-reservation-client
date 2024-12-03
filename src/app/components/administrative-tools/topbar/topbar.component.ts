@@ -1,6 +1,7 @@
 
 // import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { faBars} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
@@ -12,7 +13,7 @@ export class TopbarComponent {
 
   bars = faBars;
   
-  constructor() {
+  constructor(private router: Router) {
     
   }
 
@@ -30,6 +31,16 @@ export class TopbarComponent {
 
   }
   //----------------------------------------------------------------------------------------------------
+
+
+  //----------------------------------------------------------------------------------------------------
+  // Redirect to Administrator Dashboard
+  //----------------------------------------------------------------------------------------------------
+  goToAdministratorDashboard() {
+
+    this.router.navigate(["admin/dashboard"])
+
+  }
 
 
 }
