@@ -1,10 +1,10 @@
-
-
-
 <div class="main-container">
 
     <aside class="main-column-left">
 
+        <!-- ------------------------------------------------------------------------------- -->
+        <!-- Movie Information Panel -->
+        <!-- ------------------------------------------------------------------------------- -->
         <div class="card-item" @slideRight>
             <card-item [cardTitle]="movie.title" [titleSize]="'20px'" [boldTitle]="600" [borderRadiusBottomRight]="0" [borderRadiusBottomLeft]="0">
             
@@ -50,19 +50,22 @@
                 
             </card-item>
         
-        
             <div>
                 <button class="movie-information-button" id="trailer-button" (click)="getTrailer()">Trailer</button>
                 <a (click)="onBuyTicket()"><button class="movie-information-button" id="buy-ticket-button">Buy Ticket</button></a>
             </div>
         </div>
+        <!-- ------------------------------------------------------------------------------- -->
+        <!-- Movie Information Panel - END -->
+        <!-- ------------------------------------------------------------------------------- -->
+        
     </aside>
-
-
-
 
     <main class="main-column-middle">
 
+        <!-- ------------------------------------------------------------------------------- -->
+        <!-- Movie Description -->
+        <!-- ------------------------------------------------------------------------------- -->
         <article class="movie-description-container" @slideDown>
             <card-item [cardTitle]="'Description:'" [boldTitle]="600">
                 <div class="movie-description-content">
@@ -72,7 +75,13 @@
             </card-item>
             
         </article>    
+        <!-- ------------------------------------------------------------------------------- -->
+        <!-- Movie Description - END -->
+        <!-- ------------------------------------------------------------------------------- -->
 
+        <!-- ------------------------------------------------------------------------------- -->
+        <!-- Movie Schedule Card -->
+        <!-- ------------------------------------------------------------------------------- -->
         <section class="movie-schedule-container">
 
             <card-item>
@@ -101,9 +110,15 @@
             </card-item>
 
         </section>
+        <!-- ------------------------------------------------------------------------------- -->
+        <!-- Movie Schedule Card - END -->
+        <!-- ------------------------------------------------------------------------------- -->
 
         <hr style="margin: 30px 0;">
 
+        <!-- ------------------------------------------------------------------------------- -->
+        <!-- Movie Coments Panel -->
+        <!-- ------------------------------------------------------------------------------- -->
         <section>
 
             <card-item>
@@ -113,9 +128,9 @@
             </card-item>
 
         </section>
-
-
-
+        <!-- ------------------------------------------------------------------------------- -->
+        <!-- Movie Coments Panel - END -->
+        <!-- ------------------------------------------------------------------------------- -->
 
     </main>
 

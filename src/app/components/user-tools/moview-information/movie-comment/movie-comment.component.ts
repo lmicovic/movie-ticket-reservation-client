@@ -29,7 +29,6 @@ import { expandCollapse } from '../../../../other/animations/expandCollapse.anim
 })
 export class MovieCommentComponent implements OnChanges {
 
-
   @Input("movie")
   movie: MovieDTO = new Movie(-1, "", MovieGenre.Action, "", true, -1, "", [], [], -1, "", -1, "");
 
@@ -55,7 +54,6 @@ export class MovieCommentComponent implements OnChanges {
   addCommentMenu: boolean = false;
   addRating: boolean = false;
   ratingScore: number = 0;
-  
   
   constructor(private ref: ElementRef, public authService: AuthService, private userService: UserService, private commentService: CommentService, private movieService: MovieService, private toastr: ToastrService) {
 

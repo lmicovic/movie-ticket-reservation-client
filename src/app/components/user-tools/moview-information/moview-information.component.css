@@ -72,11 +72,9 @@ hr {
 .movie-information-button {
     width: 100%;
     height: 40px;
-
     border: none;
     color: white;
     font-weight: 600;
-    
 }
 
 #trailer-button {
@@ -120,40 +118,27 @@ hr {
 }
 
 .movie-panel-list {
-    
     list-style-type: none;
-    
     padding: 0;
     margin: 18px 0 0 0;
-    
-    
 }
 
 .movie-panel-item, .movie-panel-item-active {
-    
     display: inline;
     padding: 20px 4.5%;
-    
-    
     background-color: white;
     text-align: center;
-
 }
 
 .movie-panel-item:first-child, .movie-panel-item-active:first-child {
-    
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
-
 }
 
 .movie-panel-item:last-child, .movie-panel-item-active:last-child {
-    
     padding-right: 40px;
-
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
-
 }
 
 .movie-panel-item:hover {
@@ -188,7 +173,6 @@ hr {
 
     .movie-information-container table {
         margin: 10px 0 10px 30px;
-
     }
 
     .movie-information-container table tr th, .movie-information-container table tr td {

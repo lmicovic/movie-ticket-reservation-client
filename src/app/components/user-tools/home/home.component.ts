@@ -10,24 +10,7 @@ import { slideRightAnimation } from '../../../other/animations/slide.animation';
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
-  animations: [ 
-
-    trigger("slideRight", [
-
-      transition(":enter", [
-        useAnimation(slideRightAnimation)
-      ], {
-        params: {
-          duration: "0.5s",
-          delay: "0s",
-          easing: "ease-out"
-        }
-      })
-
-    ])
-
-  ]
+  styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
 
@@ -44,7 +27,6 @@ export class HomeComponent implements OnInit {
     this.loadRecommendedMovie();
 
   }
-
 
   // Load All Movies from Server
   private loadMovies(): void {

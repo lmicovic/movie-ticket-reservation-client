@@ -1,4 +1,4 @@
-<div [ngClass]="cardType === 0 ? 'card-container' : cardType === 1 ? 'recommended-movie-card-container' : ''">
+<div [ngClass]="cardType === 0 ? 'card-container' : cardType === 1 ? 'recommended-movie-card-container' : ''" [@slideRight] [@.disabled]="cardType !== 1">
 
     <h2 [ngClass]="cardType === 0 ? 'card-title' : cardType === 1 ?'recommended-movie-card-title' : ''">{{ cardTitle }}</h2>
     <hr *ngIf="cardType === 1" class="titleLine">

@@ -62,35 +62,6 @@ export class MoviewInformationComponent implements OnInit {
     // Panel Component - Initialized Selected Day - Style - END
     //--------------------------------------------------------------------------------------------------------------------------------
 
-
-    //--------------------------------------------------------------------------------------------------------------------------------
-    // Formatting Movie Desctription
-    //--------------------------------------------------------------------------------------------------------------------------------
-    // let movieDesctiptionFormat = this.movieDescriptionFormat();
-    // this.movie.description = movieDesctiptionFormat;
-
-    // let movieDescriptionArr = this.movie.description.split(". ");
-    // let min = 10;
-    // let max = 20;
-    // let count = Math.floor(Math.random() * (max - min + 1)) + min;
-    // for (let i = 0; i < movieDescriptionArr.length; i++) {
-      
-    //   if(count <= 0) {
-    //     this.ref.nativeElement.querySelector(".movie-description-content").innerHTML += "<br><br>";
-    //     count = Math.floor(Math.random() * (max - min + 1)) + min;
-    //   }
-
-      
-
-    //   this.ref.nativeElement.querySelector(".movie-description-content").innerHTML += movieDescriptionArr[i] + ". ";
-    //   count--;
-
-    // }
-    //--------------------------------------------------------------------------------------------------------------------------------
-    // Formatting Movie Desctription - END
-    //--------------------------------------------------------------------------------------------------------------------------------
-    
-    
   }
 
   private loadMovie(): void {
@@ -121,16 +92,11 @@ export class MoviewInformationComponent implements OnInit {
   
           this.movie.image = image;
 
-
         });
   
       });
 
     });
-
-
-
-
 
   }
 
@@ -168,11 +134,8 @@ export class MoviewInformationComponent implements OnInit {
 
   }
 
-
-
   // Get Movie Schedule
   onClick($event: any) {
-
 
     //--------------------------------------------------------------------------------------------------------------------------------
     // Panel - Style - onCLick
@@ -217,22 +180,6 @@ export class MoviewInformationComponent implements OnInit {
     // Panel - Style - onCLick - END
     //--------------------------------------------------------------------------------------------------------------------------------
     
-    //--------------------------------------------------------------------------------------------------------------------------------
-    // Panel - Change MovieSchedule Table - Based on Selected Date
-    //--------------------------------------------------------------------------------------------------------------------------------
-    
-
-
-    //--------------------------------------------------------------------------------------------------------------------------------
-    // Panel - Change MovieSchedule Table - Based on Selected Date - END
-    //--------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
   }
 
   getTrailer():void {
@@ -246,7 +193,6 @@ export class MoviewInformationComponent implements OnInit {
 
   }
 
-
   onMovieChange(movie: MovieDTO) {
 
     this.movie.rating = movie.rating;
@@ -259,10 +205,8 @@ export class MoviewInformationComponent implements OnInit {
       mainDiv.scrollTop = 0;
 
   }
-
+  
   onBuyTicket() {
-
-    
 
   }
 
