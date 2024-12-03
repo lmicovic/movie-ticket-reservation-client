@@ -16,13 +16,13 @@ import { Router } from '@angular/router';
 export class MenuComponent {
 
   // @media screen and (max-width: 800px)
-  widthLimit = 800;                           // Koristi se da bi prikazali ili sakrili Menu Item u zavistnosti od Sirine Ekrana. Koristi se u - menu.component.html.
-  window;                                     // Koristi se da bi mogli da pristupimo window Objektu u - menu.component.html
+  widthLimit = 800;                           
+  window;                                     
 
-  menuClosed = true;                          // menuClosed = true - navigation menu je zatvoren, menuClosed = false - navigation menu je otvoren.
+  menuClosed = true;                          // menuClosed = true - navigation menu is opened, menuClosed = false - navigation menu is closed.
   displayLoginPage = false;
 
-  userLoginProfileImage = "../../../assets/images/user-profil-image.png";             // Predstavlja default sliku za korisnika za loginPage.
+  userLoginProfileImage = "../../../assets/images/user-profil-image.png";             
 
   //----------------------------------------------------------------
   // LoginPage Form
@@ -39,7 +39,7 @@ export class MenuComponent {
 
   }
 
-  // Event - kada se resize window
+  // Event - when Screen is Resized
   onResize($event: Event) {
     
     // console.log($event);
@@ -47,7 +47,8 @@ export class MenuComponent {
     
   }
 
-  // Kada se klikne na Menu Button, treba da se prikazu sve opcije Menija, samo ako je sirina ekrana manja od 800px.
+  // This is used for Reponsive Menu Interface, when Screen size is less than 800px
+  // When user clicks on Menu Button, this will open all Menu Items
   onMenuClick(elements: HTMLElement[]) {
     
     for (let i = 0; i < elements.length; i++) {
@@ -122,9 +123,6 @@ export class MenuComponent {
         
         // Save Current User to Local Storage
         let savedCurrentUser: UserDTO = this.authService.saveCurrentUser(currentUser);
-        // console.log("Logged In");
-        // console.log("Current User:");
-        // console.log(savedCurrentUser);
         
         // If savedCurrentUser has inactive profile - userInfo.active === false
         if(savedCurrentUser.userInfo.active === false) {
@@ -143,13 +141,9 @@ export class MenuComponent {
         else if(savedCurrentUser.userInfo.active === true) {
 
           // Proceed with Login Process
-
           this.displayLoginPage = false;
           this.window.location.reload();
   
-          // let savedCurrentUser: UserDTO = this.saveCurrentUser(currentUser);
-          // console.log(savedCurrentUser);
-
         }
 
       }, (error: Response) => {
@@ -177,20 +171,22 @@ export class MenuComponent {
   //--------------------------------------------------------------------------------------------------------------------
 
   
-  // Otvara i zatvara Login Ekran.
+  // Opens and Closes Modal Login Page
   loginPageShow() {
     
+    // If user is already loggedIn then show his User Profile Page
     if(this.authService.isLoggedIn() === true) {
       // Redirect to User Profile Page
       this.router.navigate(["application/user/preview/" + this.authService.getCurrentUser()?.id]);
     }
+    // If user is not loggedIn then show Modal Login Page
     else if(this.authService.isLoggedIn() === false) {
       this.displayLoginPage = !this.displayLoginPage;
     }
 
   }
 
-  // Zatvara Login Ekran ako pritisnemo Escape
+  // Close Modal Login Panel when we press Escape button
   @HostListener("window: keydown.escape")
   onEscape() {
     
@@ -201,7 +197,7 @@ export class MenuComponent {
   }
 
 
-  // Zarvara Login Ekran ako pritisnemo misem bilo gde van Login Ekrana.
+  // Close Modal Login Panel when we click with Mouse anywhere outsize of Modal Panel
   @HostListener("document: mousedown", ["$event"])
   loginPageClose($event: any) {
     

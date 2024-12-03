@@ -19,10 +19,7 @@ export class AuthGuardService {
     // If User is Logged in
     if(this.authService.isLoggedIn() === true) {
       return true;
-    }
-    
-    console.log("aaaaaaaaaaaaaaaaaaaaaa");
-    
+    }    
 
     // If User is not Logged in redirect to Login Page
     this.router.navigate(["/application/login"], {queryParams: { returnUrl: state.url }});

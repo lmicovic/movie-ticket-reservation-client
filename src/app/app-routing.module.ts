@@ -22,10 +22,6 @@ import { EditMovieComponent } from './components/administrative-tools/shared/edi
 import { AdministartorDashboardComponent } from './components/administrative-tools/administartor-dashboard/administartor-dashboard.component';
 
 
-
-
-
-
 const routes: Routes = [
 
   { path: "application", component: UserToolsComponent, children: [
