@@ -63,16 +63,11 @@ export class SidebarComponent implements AfterViewInit{
       this.changeStyleOnCurrentURL(this.router.url);
     });
 
-    
-    
   }  
 
   //--------------------------------------------------
   // Changes Style of Selected Item in List
   //--------------------------------------------------
-  
-
-
   private changeStyleOnCurrentURL(currentURL: string) {
 
     // Dashboard - Selected

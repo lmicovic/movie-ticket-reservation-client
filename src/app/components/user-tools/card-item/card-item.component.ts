@@ -31,6 +31,9 @@ export class CardItemComponent {
   @Input("borderRadiusBottomLeft")
   borderRadiusBottomLeft: number = 16;      // CSS: border-radius-bottom-left
 
+  @Input("borderStyle")
+  borderStyle: string = "inherit";
+
   @Input("marginTop")
   marginTop: string = "0px";
 

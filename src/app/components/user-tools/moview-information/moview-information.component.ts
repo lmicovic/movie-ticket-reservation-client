@@ -7,13 +7,14 @@ import { ToastrService } from 'ngx-toastr';
 import { MovieDTO } from '../../../other/models/movie/movieDTO.interface';
 import { slideDown, slideRight } from '../../../other/animations/slide.animation';
 import { fade } from '../../../other/animations/fade.animation';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 @Component({
   selector: 'app-moview-information',
   templateUrl: './moview-information.component.html',
   styleUrl: './moview-information.component.css',
   animations: [
-    slideRight, slideDown
-  ]
+    slideRight, slideDown,
+  ],
 })
 export class MoviewInformationComponent implements OnInit {
 
@@ -215,23 +216,25 @@ export class MoviewInformationComponent implements OnInit {
 
   @ViewChild("movieScheduleContentContainer")
   movieScheduleDiv!: ElementRef;
+  
+  
   onBuyTicket() {
 
     this.toastr.info("", "Select date from Movie Schedule.", {
       positionClass: "toast-top-left",
     });
 
-    // let element = this.movieScheduleDiv.nativeElement;
-    // let offset = 100;
-    // let elementPosition = element.getBoundingClientRect().top;
-    // let offsetPosition = elementPosition + window.scrollY - offset;
+    let element = this.movieScheduleDiv.nativeElement;
+    let offset = 100;
+    let elementPosition = element.getBoundingClientRect().top;
+    let offsetPosition = elementPosition + window.scrollY - offset;
 
-    // window.scrollTo({
-    //   top: offsetPosition,
-    //   behavior: "smooth"
-    // });
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
 
-    this.movieScheduleDiv.nativeElement.scrollIntoView({behaviour: "smooth"});
+    // this.movieScheduleDiv.nativeElement.scrollIntoView({behaviour: "smooth"});
 
   }
 

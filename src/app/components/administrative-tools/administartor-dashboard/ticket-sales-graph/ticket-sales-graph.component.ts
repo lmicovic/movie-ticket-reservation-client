@@ -26,8 +26,6 @@ export class TicketSalesGraphComponent implements OnInit {
   //--------------------------------------------------------------------------------------------
   private initGraph() {
 
-    
-
     let lastNMonthsName: string[] = Util.getLastNMonths(new Date(), 6).reverse();
     
     // Initialize Graph Data
