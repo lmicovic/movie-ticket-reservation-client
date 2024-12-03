@@ -69,10 +69,6 @@
 
 }
 
-.main-movie-container-title {
-  margin: 25px 0 20px 30px;
-}
-
 .main-moview-item {
   max-width: 30%;
   min-width: 300px;
@@ -162,18 +158,11 @@ span {
     flex-wrap: nowrap;
   }
 
-  .main-movie-container-title {
-    font-size: 24px;
-    text-align: center;
-  }
-
   .main-moview-item {
     max-width: 100%;
     min-width: 300px;
     padding-right: 40px;
 
-  }
-
-  
+  }  
 
 }

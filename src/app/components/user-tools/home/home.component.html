@@ -5,44 +5,53 @@
     <aside class="main-column-left" >
 
             <div class="recommended-movie-contatiner" @slideRight>
-                <!-- Recommended Movie Banner -->
+                <!-- Recommended Movie Panel -->
                 <card-item [titleSize]="'24px'" cardTitle="Recommended Movie" class="card-item">
                     <div class="card-content">
                         <moview-preview [movie]="recommendedMovie" [bookmarkEffect]="true"></moview-preview>    
                     </div>
                 </card-item>
-                <!-- Recommended Movie Banner - END -->
+                <!-- Recommended Movie Panel - END -->
             </div>
 
     </aside>
 
     <section class="main-column-middle">
         
+        <!-- ----------------------------------------------------------------- -->
         <!-- Cinema Description -->
+        <!-- ----------------------------------------------------------------- -->
         <section class="cinema-description">
             <h2 class="cinema-description-title">The Cinema</h2>    
             <p class="cinema-description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
         </section>
+        <!-- ----------------------------------------------------------------- -->
         <!-- Cinema Description - END -->
-        
-        <!-- Movie Previews - Container -->
-        <main class="main-movie-container">
-            
-            <!-- Movies Previews -->
-            <h2 class="main-movie-container-title">Playing in the Cinema</h2>
-            <div class="main-moview-item-container">
+        <!-- ----------------------------------------------------------------- -->
 
-                <div class="main-moview-item" *ngFor="let movie of movies">
-                    <moview-preview [movie]="movie" [zoomEffect]="true" [ratingEffect]="true" [bookmarkEffect]="true" [componentFontSize]="16"></moview-preview>
+        <!-- ----------------------------------------------------------------- -->
+        <!-- Movie Previews Card -->
+        <!-- ----------------------------------------------------------------- -->
+        <app-card [cardTitle]="'Playing in the Cinema'">
+
+            <div class="card-content">
+                
+                <div class="main-moview-item-container">
+
+                    <div class="main-moview-item" *ngFor="let movie of movies">
+                        <moview-preview [movie]="movie" [zoomEffect]="true" [ratingEffect]="true" [bookmarkEffect]="true" [componentFontSize]="16"></moview-preview>
+                    </div>
+
                 </div>
 
+                <app-pagination></app-pagination>
+
             </div>
-            <!-- Movies Previews - END -->
 
-            <app-pagination></app-pagination>
-
-        </main>
-        <!-- Movie Previews Container - END -->
+        </app-card>
+        <!-- ----------------------------------------------------------------- -->
+        <!-- Movies Previews - END -->
+        <!-- ----------------------------------------------------------------- -->
 
     </section>
 
