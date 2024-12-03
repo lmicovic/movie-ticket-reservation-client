@@ -7,9 +7,6 @@ import { MovieDTO } from '../../../other/models/movie/movieDTO.interface';
 import { fade, fadeIn } from '../../../other/animations/fade.animation';
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { slideRightAnimation } from '../../../other/animations/slide.animation';
-
-
-
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
@@ -41,8 +38,6 @@ export class HomeComponent implements OnInit {
     
   }
 
-
-  
   ngOnInit(): void {
     
     this.loadMovies();
@@ -51,25 +46,19 @@ export class HomeComponent implements OnInit {
   }
 
 
-
-
+  // Load All Movies from Server
   private loadMovies(): void {
-
-    // Should Chain Observables - ERROR
     
     // Get All Movies
-    this.movieService.getAll().subscribe((response) => {
+    this.movieService.getAll().subscribe((response: MovieDTO[]) => {
 
       this.movies = response;
       
-      // Load All Movies Images
+      // Load All Movies Images from Server
       for(let i = 0; i < this.movies.length; i++) {
 
         this.movieService.getMovieImage((this.movies[i].id as number)).subscribe((response) => {
           
-          // console.log(response);
-          
-
           let image = URL.createObjectURL(response);
           if(image === undefined || image === null || image === "") {
             console.error("Image for Movie: " + this.movies[i] + " is not defined.");
@@ -85,10 +74,13 @@ export class HomeComponent implements OnInit {
 
 
 
-
+  // Loads Recommended Movie for Logged User, based on his preferrence
   private loadRecommendedMovie(): void {
 
-    this.movieService.getRecommendedMovie().subscribe((response) => {
+    //-------------------------------------------------------------------------------------
+    // Load Recomended Movie fomr Server
+    //-------------------------------------------------------------------------------------
+    this.movieService.getRecommendedMovie().subscribe((response: MovieDTO) => {
         
       this.recommendedMovie = response;
 
@@ -105,6 +97,14 @@ export class HomeComponent implements OnInit {
       
     });
 
+    //-------------------------------------------------------------------------------------
+
+    //-------------------------------------------------------------------------------------
+    // New Recommended Movie Interval
+    //-------------------------------------------------------------------------------------
+    // Set Recommended Movie Change Interval
+    // New Recommended MOvie will be Displayed 30 secounds
+    //-------------------------------------------------------------------------------------
     setInterval(() => {
 
       this.movieService.getRecommendedMovie().subscribe((response: MovieDTO) => {
@@ -127,8 +127,6 @@ export class HomeComponent implements OnInit {
     }, 30000);
 
   }
-
-  
 
 }
 
