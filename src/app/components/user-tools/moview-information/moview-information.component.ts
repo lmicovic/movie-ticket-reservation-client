@@ -216,9 +216,15 @@ export class MoviewInformationComponent implements OnInit {
 
   @ViewChild("movieScheduleContentContainer")
   movieScheduleDiv!: ElementRef;
-  
+  scheduleMovieCardBorderStyle: string = "inherit";
   
   onBuyTicket() {
+
+    this.scheduleMovieCardBorderStyle = "1px solid lightgray";
+
+    setTimeout(() => {
+      this.scheduleMovieCardBorderStyle = "inherit";
+    }, 6000);
 
     this.toastr.info("", "Select date from Movie Schedule.", {
       positionClass: "toast-top-left",
