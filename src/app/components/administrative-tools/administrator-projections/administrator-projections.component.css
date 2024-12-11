@@ -1,8 +1,365 @@
 .main-container {
     /* justify-content: flex-start; */
     /* justify-content: center; */
-    background-color: yellow;
+    /* background-color: yellow; */
 }
+
+.first-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* ------------------------------------------------------------------------ */
+/* New Projections Panel */
+/* ------------------------------------------------------------------------ */
+.new-projection-container {
+    width: calc(50% - 40px);
+    background-color: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 20px;
+    margin: 0px 20px 30px 20px;
+}
+
+.new-projection-container-title {
+    font-size: 18px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px 50px 20px 30px;
+}
+
+.arrow-icon {
+    margin-left: 8px;
+    color: #4d4d4d;
+}
+
+.new-projection-form-container {
+    
+}
+
+.new-projection-form-container form {
+    width: 100%;
+    padding: 0px 30px 30px 30px;
+    margin: 0px 20px 10px 6%;
+}
+
+input[type="text"], input[type="number"], input[type="date"] {
+    border-color: #4d4d4d;
+}
+
+label, input, select {
+    display: block;
+    height: 30px;
+}
+
+input, #select-movie, #select-room {
+    padding-left: 10px;
+}
+
+input, #projection-genre, #projection-status, #select-movie, #select-room {
+    width: 60%;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;   
+}
+
+label {
+    color: #404040;
+}
+
+.new-projection-form-container form input, .form-genre-container select {
+    width: calc((100% - 6%) - 50px);
+}
+
+.new-projection-form-container form input, .form-genre-container select {
+    width: calc((100% - 6%) - 50px);
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #a6a6a6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-item-container {
+    margin: 0px;
+    display: block;
+}
+
+.select-movie-container, .select-room-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.select-room-container, .form-projection-price-container, .form-projection-date-container  {
+    margin-top: 10px;
+}
+
+.qustion-icon {
+    color: #4379F2;
+    font-size: 18px;
+    margin-left: 6px;
+}
+
+.qustion-icon:hover {
+    cursor: pointer;
+}
+
+#select-movie, #select-room {
+    min-width: 40%;
+    max-width: calc((100% - 6%) - 50px);
+}
+
+.projection-price-input-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.projection-price-valute {
+    width: 26px;
+    border: 1px solid black;
+    border-radius: 20%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left: none;
+    background-color: lightgray;
+}
+
+#projection-price {
+    width: 20%;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: none;
+    outline: none;
+}
+
+.projection-date-input-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.projection-date-input-container-item {
+    width: 100%;
+}
+
+.create-projection-form-buttons-container {
+    margin: 20px 18px 31px calc(6% + 30px);
+}
+
+.create-projection-button {
+    width: 110px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(59,130,246, 0.8);   
+    color: white;
+    margin-right: 18px;
+}
+
+.create-projection-button:active {
+    background-color: rgb(59,130,246, 1);
+}
+
+.reset-button {
+    width: 110px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(141,141,141, 0.8) ;
+}
+
+.reset-button:active {
+    background-color: rgb(141,141,141, 1) ;
+}
+
+.alert {
+    width: calc((100% - 6%) - 50px);
+    padding: 10px;
+    background-color: rgba(54, 162, 235, 0.2);
+    border: 0.8px solid rgba(54, 162, 235, 0.8);
+    font-size: 14px;
+    color: #555;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.alert-description {
+    position: relative;
+    top: 1.5px;
+    margin-left: 6px;
+    color: rgb(21, 134, 210);    
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+/* ------------------------------------------------------------------------ */
+/* New Projections Panel - END */
+/* ------------------------------------------------------------------------ */
+
+
+/* ------------------------------------------------------------------------ */
+/* Statistic Panel */
+/* ------------------------------------------------------------------------ */
+.statistic-container {
+    width: calc(50% - 20px);
+    /* background-color: red; */
+}
+
+.statistic-card-container {
+    display: flex; 
+    flex-direction: row;
+}
+
+.statistic-card-total-projections {
+    width: 100%;
+}
+
+.best-projections-container {
+    background-color: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 20px;
+    width: 100%;
+    padding: 30px;
+    margin: 0px 20px 30px 0px;
+}
+
+#trending-projections-question-icon {
+    margin-left: 3px;
+}
+
+.best-projections-container-title {
+    margin: 0px 0px 20px 0px;
+    font-size: 18px;
+}
+/* ------------------------------------------------------------------------ */
+/* Statistic Panel - END */
+/* ------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------ */
+/* Projections Table Panel */
+/* ------------------------------------------------------------------------ */
+.administrator-projection-table-container {
+    background-color: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 0px 20px 0px 20px;
+    width: calc(100% - 50px);
+}
+
+.main-container-tittle {
+    margin: 0px 0px 20px 0px;
+    font-size: 18px;
+}
+
+.filter-button {
+    width: 60px;
+    height: 28px;
+    border: none;
+    border-radius: 20px;
+    background-color: #3b82f6;
+    color: white;
+    margin-left: 5px;
+}
+
+.main-filter-form-container {
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.ok-button {
+    width: 110px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(59,130,246, 0.8);   
+    color: white;
+    margin: 40px 18px 10px 15px; 
+}
+
+.table-container {
+
+}
+
+#sorting-options {
+    position: relative;
+    float: right;
+    width: auto;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: none;
+    /* border-color: gray; */
+    border: none;
+    
+    background-color: #f9fafb;
+}
+
+#sorting-options option {
+    background-color: white;
+}
+
+table {
+    width: 100%;
+}
+
+thead tr {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12);
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+}
+
+tbody {
+    display: table-row-group;
+}
+
+thead tr, tbody tr {
+    display: table-row;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+}
+
+thead > tr > th {
+    text-align: left;
+    
+    padding: 1rem 1rem;
+    background-color: #f9fafb;
+    color: #374151;
+    transition: box-shadow 0.2s;
+    
+}
+
+tbody tr:hover {
+    cursor: pointer;   
+}
+
+tbody > tr > td {
+    padding: 1rem 1rem;
+    text-align: left;
+}
+
+img {
+    width: 80px;
+    height: auto;
+}
+
+.pagination-container {
+    margin-top: 30px;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Projections Table Panel - END */
+/* ------------------------------------------------------------------------ */
+
 
 @media (max-width: 800px) {
 
