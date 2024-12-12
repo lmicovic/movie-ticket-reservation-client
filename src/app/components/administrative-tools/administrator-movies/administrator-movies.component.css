@@ -163,6 +163,10 @@ input[type="file"]::file-selector-button {
     border-top-right-radius: 0px;
 }
 
+.reserved-seats-alert {
+    width: 200px;
+}
+
 /* ------------------------------------------------------------- */
 /* Create New Movie - END */
 /* ------------------------------------------------------------- */

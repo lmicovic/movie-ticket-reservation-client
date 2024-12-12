@@ -1,8 +1,334 @@
 .main-container {
     /* justify-content: flex-start; */
     /* justify-content: center; */
-    background-color: red;
 }
+
+.first-row {
+    display: flex;
+    flex-direction: column;
+}
+
+hr {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+/* ----------------------------------------------------------------------------- */
+/* Recent Reservations Graph */
+/* ----------------------------------------------------------------------------- */
+.statistic-conainer {
+    /* display: flex;
+    flex-direction: row; */
+    /* background-color: red; */
+}
+
+.projection-statistic-graph-main-container {
+    float: left;
+    width: 60%;
+    background-color: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 20px;
+    margin: 0px 20px 30px 20px;
+}
+
+.projection-statistic-graph-container-title {
+    font-size: 18px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px 50px 20px 30px;
+    user-select: none;
+}
+
+.projection-statistic-graph-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 20px 30px 20px;
+    width: calc(100% - 40px);   
+}
+
+.statistic-card-container {
+    float: left;
+    width: calc(40% - 40px);
+}
+
+/* ----------------------------------------------------------------------------- */
+/* Recent Reservations Graph - END */
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* Statistic Card Panel */
+/* ----------------------------------------------------------------------------- */
+.statistic-card-total-reservation-container {
+    width: 100%;
+}
+/* ----------------------------------------------------------------------------- */
+/* Statistic Card Panel - END */
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* Recent Reservations Table */
+/* ----------------------------------------------------------------------------- */
+.recent-reservations-container {
+    width: calc(100% - 40px);
+    /* width: 60%; */
+    background-color: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 20px;
+    margin: 0px 20px 30px 20px;
+}
+
+.recent-reservations-container-title {
+    font-size: 18px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 20px 50px 20px 30px;
+    user-select: none;
+}
+
+.arrow-icon {
+    margin-left: 8px;
+    color: #4d4d4d;
+}
+
+.recent-reservation-table-container {
+    padding: 0px 30px 30px 30px;
+}
+
+table {
+    width: 100%;
+}
+
+thead tr {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.12);
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+}
+
+tbody {
+    display: table-row-group;
+}
+
+thead tr, tbody tr {
+    display: table-row;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+}
+
+thead > tr > th {
+    text-align: left;
+    
+    padding: 1rem 1rem;
+    background-color: #f9fafb;
+    color: #374151;
+    transition: box-shadow 0.2s;
+    
+}
+
+tbody tr:hover {
+    cursor: pointer;   
+}
+
+tbody > tr > td {
+    padding: 1rem 1rem;
+    text-align: left;
+}
+/* ----------------------------------------------------------------------------- */
+/* Recent Reservations Table - END */
+/* ----------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------- */
+/* All Reservations Table */
+/* ----------------------------------------------------------------------------- */
+.reservations-container {
+    background-color: white;
+    border: 1px solid #dfe7ef;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 0px 20px 0px 20px;
+    width: calc(100% - 40px);
+}
+
+.reservations-container-title {
+    margin: 0px 0px 20px 0px;
+    font-size: 18px;
+}
+
+.filter-form {
+
+}
+
+.filter-form {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 15px 60px;
+    grid-auto-flow: column;
+    margin-left: 10px;
+}
+
+#movie-title {
+    width: 100%;
+}
+
+#movie-room, #movie-ticket, #movie-time, #movie-date, #movie-reserved-seats {
+    width: 100%;
+}
+
+#movie-reservation-date, #movie-price {
+    width: calc(100% - 40px);
+}
+
+
+label, input, select {
+    display: block;
+    height: 30px;
+}
+
+input[type="text"], input[type="number"], input[type="date"] {
+    border-color: #4d4d4d;
+}
+
+label {
+    color: #404040;
+}
+
+input, select {
+    padding-left: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;   
+}
+
+.reservation-form-user-contianer, .reservation-form-time-contianer {
+    display: flex;
+    flex-direction: row;
+}
+
+.reservation-form-user-first-name-item {
+    margin-right: 50px;
+}
+
+.reservation-form-movie-date-item, .reservation-form-movie-time-item {
+    width: 50%;
+}
+
+.reservation-form-movie-time-item {
+    margin-right: 25px;
+}
+
+.reservation-form-reserved-seats-contianer span {
+    display: flex;
+    align-items: center;
+}
+
+#movie-reserved-seats {
+    margin-right: 8px;
+}
+
+.filter-button {
+    width: 60px;
+    height: 28px;
+    border: none;
+    border-radius: 20px;
+    background-color: #3b82f6;
+    color: white;
+    margin-left: 10px;
+}
+
+.filter-button:active {
+    background-color: rgb(59,130,246, 0.9);
+}
+
+.ok-button {
+    width: 110px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(59,130,246, 0.8);   
+    color: white;
+    margin: 40px 18px 10px 15px; 
+}
+
+.ok-button:active {
+    background-color: rgb(59,130,246, 1);
+}
+
+.reset-button {
+    width: 110px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(141,141,141, 0.8) ;
+}
+
+.reset-button:active {
+    background-color: rgb(141,141,141, 1) ;
+}
+
+#sorting-options {
+    position: relative;
+    float: right;
+    width: auto;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: none;
+    /* border-color: gray; */
+    border: none;
+    
+    background-color: #f9fafb;
+}
+
+#sorting-options option {
+    background-color: white;
+}
+
+/* ----------------------------------------------------------------------------- */
+/* All Reservations Table - END */
+/* ----------------------------------------------------------------------------- */
+
+.question-icon {
+    font-size: 20px;
+    color: #4379F2;
+}
+
+.question-icon:hover {
+    cursor: pointer;
+}
+
+.projection-statistic-graph-container-title:hover, .recent-reservations-container-title:hover  {
+    cursor: pointer;
+}
+
+.pagination-container {
+    margin-top: 30px;
+}
+
+.alert {
+    width: calc((100% - 6%) - 50px);;
+    padding: 10px;
+    background-color: rgba(54, 162, 235, 0.2);
+    border: 0.8px solid rgba(54, 162, 235, 0.8);
+    font-size: 14px;
+    color: #555;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.alert-description {
+    position: relative;
+    top: 1.5px;
+    margin-left: 6px;
+    color: rgb(21, 134, 210);    
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
 
 @media (max-width: 800px) {
 

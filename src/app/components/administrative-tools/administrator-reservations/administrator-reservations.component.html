@@ -1,6 +1,348 @@
 
 <div class="main-container">
-    <p>administrator-reservations works!</p>
+    
+    <div class="first-row">    
+
+            <div class="statistic-conainer">
+
+                <!-- ------------------------------------------------------------------------------------------------ -->
+                <!-- Reservation Graph Panel -->
+                <!-- ------------------------------------------------------------------------------------------------ -->
+                <div class="projection-statistic-graph-main-container">
+
+                    <div class="projection-statistic-graph-container-title">
+                        <span>Reservations Overview</span>
+                    </div>
+                    
+                    <div class="projection-statistic-graph-container">
+                        <p-chart type="line" [data]="chartData" [options]="chartOptions" class="chart"></p-chart>
+                    </div>
+    
+                </div>
+                <!-- ------------------------------------------------------------------------------------------------ -->
+                <!-- Reservation Graph Panel - END -->
+                <!-- ------------------------------------------------------------------------------------------------ -->
+
+                <div class="statistic-card-container">
+                    
+                    <div class="statistic-card-total-reservation-container">
+                        <app-statistic-card [tittle]="totalReservationsCardValue.tittle" [value]="totalReservationsCardValue.value" [lastWeekValue]="totalReservationsCardValue.lastWeekValue" [lastWeekValueDesctription]="totalReservationsCardValue.lastWeekValueDescription" [icon]="totalReservationsCardValue.icon" [iconColor]="totalReservationsCardValue.iconColor" [iconBackgroundColor]="totalReservationsCardValue.iconBackgroundColor"></app-statistic-card>
+                    </div>
+
+                    <div class="statistic-card-total-views-container">
+                        <app-statistic-card [tittle]="totalViewsCardValue.tittle" [value]="totalViewsCardValue.value" [lastWeekValue]="totalViewsCardValue.lastWeekValue" [lastWeekValueDesctription]="totalViewsCardValue.lastWeekValueDescription" [icon]="totalViewsCardValue.icon" [iconColor]="totalViewsCardValue.iconColor" [iconBackgroundColor]="totalViewsCardValue.iconBackgroundColor"></app-statistic-card>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ------------------------------------------------------------------------------------------------ -->
+            <!-- Recent Reservation Panel -->
+            <!-- ------------------------------------------------------------------------------------------------ -->
+            <div class="recent-reservations-container">
+
+                <div class="recent-reservations-container-title" (click)="toggleRecentReservation()">
+                    <span>Recent Reservations <fa-icon class="arrow-icon" [icon]="isRecentReservationToggled === true ? arrowDownIcon : arrowUpIcon"></fa-icon></span>
+                </div>
+
+                <div class="recent-reservation-table-container" [@expandCollapse]="isRecentReservationToggled === true ? 'expand' : 'collapse'">
+                    
+                    <table class="recent-reservation-table">
+
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>User</th>
+                                <th>Movie</th>
+                                <th>Room</th>
+                                <th>Time</th>
+                                <th>Tickets</th>
+                                <th>Reserved Seats</th>
+                                <th>Date</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Pera Peric</td>
+                                <td>Movie 1</td>
+                                <td>Room 1</td>
+                                <td>21.1.2024 11:30h</td>
+                                <td>3</td>
+                                <td>101, 102, 103</td>
+                                <td>20.1.2024</td>
+                                <td>30.25$</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>1</td>
+                                <td>Pera Peric</td>
+                                <td>Movie 1</td>
+                                <td>Room 1</td>
+                                <td>21.1.2024 11:30h</td>
+                                <td>3</td>
+                                <td>101, 102, 103</td>
+                                <td>20.1.2024</td>
+                                <td>30.25$</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>1</td>
+                                <td>Pera Peric</td>
+                                <td>Movie 1</td>
+                                <td>Room 1</td>
+                                <td>21.1.2024 11:30h</td>
+                                <td>3</td>
+                                <td>101, 102, 103</td>
+                                <td>20.1.2024</td>
+                                <td>30.25$</td>
+                            </tr>
+
+                            <tr>
+                                <td>1</td>
+                                <td>Pera Peric</td>
+                                <td>Movie 1</td>
+                                <td>Room 1</td>
+                                <td>21.1.2024 11:30h</td>
+                                <td>3</td>
+                                <td>101, 102, 103</td>
+                                <td>20.1.2024</td>
+                                <td>30.25$</td>
+                            </tr>
+                            
+                        </tbody>
+
+                    </table>
+
+                    <!-- ------------------------------------------------------------------------------------------------ -->
+                    <!-- Paggination  -->
+                    <!-- ------------------------------------------------------------------------------------------------ -->
+                    <div class="pagination-container">
+                        <p-paginator class="pagination-item" (onPageChange)="onPaginationChange($event)" [first]="first" [rows]="rows" [totalRecords]="120"></p-paginator>
+                    </div>
+                    <!-- ------------------------------------------------------------------------------------------------ -->
+                    <!-- Paggination - END  -->
+                    <!-- ------------------------------------------------------------------------------------------------ -->
+
+                </div>
+
+            </div>
+            <!-- ------------------------------------------------------------------------------------------------ -->
+            <!-- Recent Reservation Panel - END -->
+            <!-- ------------------------------------------------------------------------------------------------ -->
+
+            <div class="reservations-container">
+    
+                <div class="reservations-container-title">
+                    <span>Reservations<button class="filter-button" title="Filter" (click)="onFilter()"><i class="pi pi-filter filter-icon"></i></button></span>
+                </div>
+
+                <div class="main-filter-form-container" [@expandCollapse] = "isFilterPanelToggled === true ? 'expand' : 'collapse'">
+
+                    <hr>
+    
+                    <div class="filter-form-container">
+                        
+                        <form class="filter-form" [formGroup]="reservationFilterForm">
+
+                            <div class="filter-form-item reservation-form-user-contianer">
+                                
+                                    <div class="reservation-form-user-first-name-item">
+                                        <label for="user-first-name">First Name</label>
+                                        <input type="text" formControlName="firstname" name="user-first-name" id="user-first-name" />
+                                    </div>
+
+                                    <div class="reservation-form-user-last-name-item">
+                                        <label for="user-last-name">Last Name</label>
+                                        <input type="text" formControlName="lastname" name="user-last-name" id="user-last-name" />
+                                    </div>
+                                
+                            </div>
+
+                            <div class="filter-form-item reservation-form-movie-contianer">
+
+                                <label for="movie-title">Movie</label>
+                                <input type="text" formControlName="movie" name="movie-title" id="movie-title" />
+
+                            </div>
+
+                            <div class="filter-form-item reservation-form-room-contianer">
+
+                                <label for="movie-room">Room</label>
+                                <select formControlName="room" name="movie-room" id="movie-room">
+                                    <option value=""></option>
+                                    <option value="room-1">Room 1</option>
+                                    <option value="room-2">Room 2</option>
+                                    <option value="room-3">Room 3</option>
+                                    <option value="room-4">Room 4</option>
+                                    <option value="room-5">Room 5</option>
+                                </select>
+
+                            </div>
+
+                            <div class="filter-form-item reservation-form-time-contianer">
+
+                                <div class="reservation-form-movie-time-item">
+                                    <label for="movie-time">Time</label>
+                                    <input type="time" formControlName="time" name="movie-time" id="movie-time" />
+                                </div>
+
+                                <div class="reservation-form-movie-date-item">
+                                    <label for="movie-date">Date</label>
+                                    <input type="date" formControlName="date" name="movie-date" id="movie-date" />
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="filter-form-item reservation-form-ticket-contianer">
+
+                                <label for="movie-ticket">Tickets</label>
+                                <input type="number" formControlName="tickets" name="movie-ticket" id="movie-ticket" />
+
+                            </div>
+
+                            <div class="filter-form-item reservation-form-reserved-seats-contianer">
+
+                                <label for="movie-reserved-seats">Reserved Seats</label>
+                                <span >
+                                    <input type="text" formControlName="reservedSeats" name="movie-reserved-seats" id="movie-reserved-seats">
+                                    <fa-icon class="question-icon" [icon]="questionIcon" title="Divide seats with ,"></fa-icon>
+                                </span>
+                                
+
+                                
+                            </div>
+                            
+                            <div class="filter-form-item reservation-form-reservation-date-contianer">
+
+                                <label for="movie-reservation-date">Reservation Date</label>
+                                <input type="date" formControlName="reservationDate" name="movie-reservation-date" id="movie-reservation-date" />
+
+                            </div>
+
+                            <div class="filter-form-item reservation-form-price-contianer">
+
+                                <label for="movie-price">Price</label>
+                                <input type="number" formControlName="price" name="movie-price" id="movie-price" />
+
+                            </div>
+
+                        </form>
+
+                        <button class="ok-button" (click)="submitReservationFilter()">Ok</button>
+                        <button class="reset-button" (click)="resetReservationForm()">Reset</button>
+
+                    </div>
+    
+                    <hr>
+
+                </div>
+
+                <div class="all-reservaions-table-container" [ngStyle]="{'marginTop': isFilterPanelToggled === true ? '30px' : ''}">
+
+                    <select name="sorting-options" id="sorting-options">
+                        <option value="title-asc">Sort by Title Ascending</option>
+                        <option value="title-desc">Sort by Title Descending</option>
+                        <option value="genre-asc">Sort by Genre Ascending</option>
+                        <option value="genre-desc">Sort by Genre Descending</option>
+                        <option value="duration-asc">Sort by Duration Ascending</option>
+                        <option value="duration-desc">Sort by Duration Descending</option>
+                        <option value="date-asc">Sort by Date Ascending</option>
+                        <option value="date-desc">Sort by Date Descending</option>
+                        <option value="reservations-asc">Sort by Reservations Ascending</option>
+                        <option value="reservations-desc">Sort by Reservations Descending</option>
+                        <option value="tickets-asc">Sort by Tickets Ascending</option>
+                        <option value="tickets-desc">Sort by Tickets Descending</option>
+                        <option value="profit-asc">Sort by Profit Ascending</option>
+                        <option value="profit-desc">Sort by Profit Descending</option>
+                    </select>
+
+                    <table class="recent-reservation-table">
+
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>User</th>
+                                <th>Movie</th>
+                                <th>Room</th>
+                                <th>Time</th>
+                                <th>Tickets</th>
+                                <th>Reserved Seats</th>
+                                <th>Date</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Pera Peric</td>
+                                <td>Movie 1</td>
+                                <td>Room 1</td>
+                                <td>21.1.2024 11:30h</td>
+                                <td>3</td>
+                                <td>101, 102, 103</td>
+                                <td>20.1.2024</td>
+                                <td>30.25$</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>1</td>
+                                <td>Pera Peric</td>
+                                <td>Movie 1</td>
+                                <td>Room 1</td>
+                                <td>21.1.2024 11:30h</td>
+                                <td>3</td>
+                                <td>101, 102, 103</td>
+                                <td>20.1.2024</td>
+                                <td>30.25$</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>1</td>
+                                <td>Pera Peric</td>
+                                <td>Movie 1</td>
+                                <td>Room 1</td>
+                                <td>21.1.2024 11:30h</td>
+                                <td>3</td>
+                                <td>101, 102, 103</td>
+                                <td>20.1.2024</td>
+                                <td>30.25$</td>
+                            </tr>
+
+                            <tr>
+                                <td>1</td>
+                                <td>Pera Peric</td>
+                                <td>Movie 1</td>
+                                <td>Room 1</td>
+                                <td>21.1.2024 11:30h</td>
+                                <td>3</td>
+                                <td>101, 102, 103</td>
+                                <td>20.1.2024</td>
+                                <td>30.25$</td>
+                            </tr>
+                            
+                        </tbody>
+
+                    </table>
+
+                    <div class="pagination-container">
+                        <p-paginator class="pagination-item" (onPageChange)="onPaginationChange($event)" [first]="first" [rows]="rows" [totalRecords]="120"></p-paginator>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+    </div>
+    
+
 </div>
 
 
