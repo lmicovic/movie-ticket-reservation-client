@@ -1,7 +1,223 @@
-
-
 <div class="main-container">
-    <p>administrator-rooms works!</p>
+
+    <div class="first-row">
+
+        <div class="left-panel">
+
+            <div class="new-room-form-main-container">
+
+                <div class="new-room-container-title">
+                    <span>Create new Room</span>
+                </div>
+
+                <!-- ------------------------------------------------------ -->
+                <!-- New Room Panel -->
+                <!-- ------------------------------------------------------ -->
+                <div class="new-room-form-container">
+                    
+                    <form>
+                        
+                        <div class="form-item-container new-room-from-room-name">
+
+                            <label for="new-room-name">Room Name</label>
+                            <input type="text" name="new-room-name" id="new-room-name" />
+
+                        </div>
+
+                        <div class="form-item-container new-room-from-seats-row">
+
+                            <label for="new-room-seats-row">Seats in row</label>
+                            <span>
+                                <input type="number" name="new-room-seats-row" id="new-room-seats-row" />
+                                <fa-icon class="question-icon" [icon]="questionIcon" title="Number of seats in a row"></fa-icon>
+                            </span>
+                            
+                        </div>
+
+                        <div class="form-item-container new-room-from-seats-column">
+
+                            <label for="new-room-seats-column">Seats in column</label>
+                            <span>
+                                <input type="number" name="new-room-seats-column" id="new-room-seats-column" />
+                                <fa-icon class="question-icon" [icon]="questionIcon" title="Number of seats in a column"></fa-icon>
+                            </span>
+                            
+                        </div>
+                        
+                    </form>
+
+                    <div class="create-room-form-buttons-container">
+                        <button class="create-room-button">Create</button>
+                        <button class="reset-button">Reset</button>
+                    </div>
+
+                </div>
+                <!-- ------------------------------------------------------ -->
+                <!-- New Room Panel - END -->
+                <!-- ------------------------------------------------------ -->
+
+            </div>
+
+
+            <!-- ------------------------------------------------------ -->
+            <!-- New Room Panel -->
+            <!-- ------------------------------------------------------ -->
+            <div class="all-room-table-container">
+
+                <div class="all-room-table-container-title">
+                    <span>Room<button class="filter-button" title="Filter" (click)="onFilter()"><i class="pi pi-filter filter-icon"></i></button></span>
+                </div>
+                
+                <!-- ------------------------------------------------------------------------------------------------ -->
+                <!-- Filter Panel -->
+                <!-- ------------------------------------------------------------------------------------------------ -->
+                <div class="filter-container" [@expandCollapse]="isFilterPanelToggled === true ? 'expand' : 'collapse'">
+
+                    <hr>
+
+                    <div class="filter-form-container">
+
+                        <form [formGroup]="fitlerRoomForm">
+
+                            <div class="form-item-container form-room-name-control">
+                                <label for="room-name">Room Name</label>
+                                <input type="text" formControlName="roomName" name="room-name" id="room-name" />
+                            </div>
+
+                            <div class="form-item-container form-room-row-control">
+                                <label for="room-seats-row">Seats in Row</label>
+                                <input type="number" formControlName="seatsRow" name="room-seats-row" id="room-seats-row" />
+                            </div>
+
+                            <div class="form-item-container form-room-column-control">
+                                <label for="room-seats-column">Seats in Column</label>
+                                <input type="number" formControlName="seatsColumn" name="room-seats-column" id="room-seats-column" />
+                            </div>
+
+                        </form>
+
+                        <button class="ok-button">Ok</button>
+                        <button class="reset-button" (click)="resetFilterMovieForm()">Reset</button>
+
+                    </div>
+
+                    <hr>
+
+                </div>
+                <!-- ------------------------------------------------------------------------------------------------ -->
+                <!-- Filter Panel - END -->
+                <!-- ------------------------------------------------------------------------------------------------ -->
+
+                <div class="all-rooms-table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Rows</th>
+                                <th>Columns</th>
+                                <th>Seats Total</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Room 1</td>
+                                <td>10</td>
+                                <td>20</td>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Room 1</td>
+                                <td>10</td>
+                                <td>20</td>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Room 1</td>
+                                <td>10</td>
+                                <td>20</td>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Room 1</td>
+                                <td>10</td>
+                                <td>20</td>
+                                <td>200</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Room 1</td>
+                                <td>10</td>
+                                <td>20</td>
+                                <td>200</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                    <div class="pagination-container">
+                        <p-paginator class="pagination-item" (onPageChange)="onPaginationChange($event)" [first]="first" [rows]="rows" [totalRecords]="120"></p-paginator>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- ------------------------------------------------------ -->
+            <!-- New Room Panel - END -->
+            <!-- ------------------------------------------------------ -->
+
+
+        </div>
+
+        <div class="right-panel">
+
+            <!-- ------------------------------------------------------ -->
+            <!-- Statistic Graph Panel -->
+            <!-- ------------------------------------------------------ -->
+            <div class="statistic-graph-container">
+
+                <div class="statistic-graph-container-title">
+                    <span>Rooms Overview <fa-icon class="question-icon" id="trending-room-question-icon" [icon]="questionIcon" title="Top 4 most visited rooms"></fa-icon></span>
+                </div>
+
+                <div class="rooms-overview-graph">
+                    <p-chart type="bar" [data]="chartData" [options]="chartOptions" />
+                </div>
+
+            </div>
+            <!-- ------------------------------------------------------ -->
+            <!-- Statistic Graph Panel - END -->
+            <!-- ------------------------------------------------------ -->
+
+            <!-- ------------------------------------------------------ -->
+            <!-- Statistic Cards Panel -->
+            <!-- ------------------------------------------------------ -->
+            <div class="statistic-cards-container">
+
+                <div class="statistic-card-total-view">
+                    <app-statistic-card [tittle]="totalViewCardValues.tittle" [value]="totalViewCardValues.value" [lastWeekValue]="totalViewCardValues.lastWeekValue" [lastWeekValueDesctription]="totalViewCardValues.lastWeekValueDescription" [icon]="totalViewCardValues.icon" [iconColor]="totalViewCardValues.iconColor" [iconBackgroundColor]="totalViewCardValues.iconBackgroundColor"></app-statistic-card>
+                </div>
+
+                <div class="statistic-card-total-room">
+                    <app-statistic-card [tittle]="totalRoomCardValues.tittle" [value]="totalRoomCardValues.value" [lastWeekValue]="totalRoomCardValues.lastWeekValue" [lastWeekValueDesctription]="totalRoomCardValues.lastWeekValueDescription" [icon]="totalRoomCardValues.icon" [iconColor]="totalRoomCardValues.iconColor" [iconBackgroundColor]="totalRoomCardValues.iconBackgroundColor"></app-statistic-card>
+                </div>
+
+            </div>
+            <!-- ------------------------------------------------------ -->
+            <!-- Statistic Cards Panel - END -->
+            <!-- ------------------------------------------------------ -->
+
+        </div>
+
+    </div>
+
 </div>
 
 
