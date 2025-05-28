@@ -17,7 +17,7 @@ This project represents client application for [movie-ticket-reservation-backend
 - This project is frontend application that communicates with [movie-ticket-reservation-backend](https://github.com/lmicovic/movie-ticket-reservation-backend "movie-ticket-reservation-backend") application, which is responsible for deploying data.
 
 ## Application Setup
-*Note: In order Application to work, you must have installed Angular 17.x and Node.js 20.x versions.
+***Note:** In order Application to work, you must have installed Angular 17.x and Node.js 20.x versions.
 1. Clone this application from current repository.
 2.  Import project in to preffered code editor.
 3. Install Angular [node_modules](https://blog.stackademic.com/understanding-node-modules-folder-in-angular-3ff6870c4227 "node_modules") – in this folder are stored all dependencies packets that are required to run Angular application.
