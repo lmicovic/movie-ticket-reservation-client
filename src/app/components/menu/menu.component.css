@@ -1,55 +1,131 @@
 /* ************************************************ */
 /* Navigation bar */
 /* ************************************************ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  padding: 0 28px;
+  background: var(--ink-900);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Brand */
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+  color: #fff;
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.navbar-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--accent-gradient);
+  box-shadow: 0 6px 16px rgba(79, 110, 247, 0.45);
+}
+
+.navbar-brand-text {
+  background: linear-gradient(90deg, #ffffff, #cfd4ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Menu list */
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: #333;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1 1 auto;
 }
 
 nav ul li {
-  float: left;
-}
-
-nav ul li a {
   display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  margin-left: 20px;
 }
 
-.small-display-menu {
-  display: none;
-  border-bottom: 1px solid gray;
-}
-
+/* push the last item (login / user) to the far right */
 nav ul>li:last-of-type {
-  float: right;
-  margin-right: 3%;
+  margin-left: auto;
 }
 
 nav ul li a {
+  position: relative;
+  display: block;
+  color: var(--on-dark-muted);
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
   text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
 nav ul li a:hover {
-  background-color: #111;
+  background: rgba(255, 255, 255, 0.06);
   cursor: pointer;
-  color: white;
+  color: #fff;
 }
 
-.menu-icon-container {
-  padding-left: 20px;
+/* animated underline accent */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
 }
 
-.menu-icon {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 5px 0px;
+nav ul li a:hover::after,
+nav ul li a.nav-link-active::after {
+  transform: scaleX(1);
+}
+
+nav ul li a.nav-link-active {
+  color: #fff;
+}
+
+/* Login / current-user item -> pill button */
+nav ul>li:last-of-type a {
+  background: var(--accent-gradient);
+  color: #fff;
+  padding: 11px 22px;
+  box-shadow: 0 6px 16px rgba(79, 110, 247, 0.4);
+}
+
+nav ul>li:last-of-type a::after {
+  display: none;
+}
+
+nav ul>li:last-of-type a:hover {
+  background: var(--accent-gradient);
+  filter: brightness(1.08);
 }
 
 
@@ -260,19 +336,54 @@ span.psw {
 @media screen and (max-width: 800px) {
 
   /* Navigation Bar */
-  .small-display-menu {
-    display: block;
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    gap: 0;
   }
 
-  nav ul li,
-  nav ul>li:first-of-type,
-  nav ul>li:last-of-type {
-    float: none;
+  .navbar-brand {
+    padding: 14px 18px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  nav ul li {
     width: 100%;
   }
 
   nav ul li a {
-    margin-left: 0px;
+    text-align: left;
+    border-radius: 0;
+    padding: 14px 18px;
+  }
+
+  nav ul li a::after {
+    display: none;
+  }
+
+  nav ul>li:last-of-type {
+    margin-left: 0;
+  }
+
+  nav ul>li:last-of-type a {
+    background: none;
+    color: var(--on-dark-muted);
+    box-shadow: none;
+    padding: 14px 18px;
+  }
+
+  nav ul>li:last-of-type a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    filter: none;
   }
 
 

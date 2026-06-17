@@ -1,26 +1,80 @@
 <!--------------------------------------------------------->
-<!-- Main Banner -->
+<!-- Main Banner - featured "Now Showing" movies -->
 <!--------------------------------------------------------->
 <div class="main-banner-container" @bannerFade @slideDown>
     <div class="main-banner">
-        
-        <img *ngFor="let banner of bannerImages; index as i" [src]="banner" [alt]="'banner image' + (i+1)" [id]="'img' + (i+1)" />
-        
-        
-        
-        <!-- <img [src]="bannerImages[0]" alt="banner image 1" id="img1" />
-        <img [src]="bannerImages[1]" alt="banner image 2" id="img2" /> -->
-    </div>
-    <i class="arrow banner-left" (click)="changeSlidePrevious()"></i>
-    <i class="arrow banner-right" (click)="changeSlideNext()"></i>
-    <div class="main-banner-navigation-button-container">
-        
-        <span *ngFor="let banner of bannerImages; index as i" class="main-banner-navigation-button main-banner-navigation-button-dot" [class.main-banner-navigation-button-active]="i ===0" (click)="changeSlide(i, false, false, true)"></span>
 
-        <!-- <span class="main-banner-navigation-button main-banner-navigation-button-active main-banner-navigation-button-dot" onclick="changeSlide(0)"></span>
-        <span class="main-banner-navigation-button main-banner-navigation-button-dot" onclick="changeSlide(1)"></span> -->
+        <!-- One slide per featured movie -->
+        <div *ngFor="let movie of featuredMovies; index as i; trackBy: trackByMovie"
+             class="main-banner-slide"
+             [class.main-banner-slide-active]="i === currentImage">
+
+            <!-- Cinematic backdrop built from the movie poster (or a genre tint) -->
+            <div class="main-banner-backdrop" [ngClass]="genreClass(movie.genre)">
+                <div class="main-banner-backdrop-poster" [style.background-image]="backdropImage(movie)"></div>
+            </div>
+
+            <!-- Gradient scrim for depth + caption legibility -->
+            <div class="main-banner-scrim"></div>
+
+            <!-- Slide content: info on the left, poster on the right -->
+            <div class="main-banner-content">
+
+                <!-- Hero caption -->
+                <div class="main-banner-caption">
+                    <span class="main-banner-eyebrow">Now Showing</span>
+                    <h1 class="main-banner-title">{{ movie.title }}</h1>
+
+                    <div class="main-banner-meta">
+                        <span class="main-banner-meta-rating">
+                            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            {{ movie.rating | number: '1.0-1' }}
+                        </span>
+                        <span class="main-banner-meta-chip">{{ genreLabel(movie.genre) }}</span>
+                        <span class="main-banner-meta-dot" *ngIf="movie.year > 0">{{ movie.year }}</span>
+                        <span class="main-banner-meta-dot" *ngIf="movie.duration > 0">{{ movie.duration }} min</span>
+                    </div>
+
+                    <p class="main-banner-subtitle">{{ movie.description }}</p>
+
+                    <div class="main-banner-actions">
+                        <a class="main-banner-btn main-banner-btn-primary" [routerLink]="['/movie', movie.id]">
+                            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4V6a2 2 0 0 1 2-2zm10 3-1.5 0 0 2 1.5 0zm0 4-1.5 0 0 2 1.5 0zm0 4-1.5 0 0 2 1.5 0z"/></svg>
+                            Book Tickets
+                        </a>
+                        <a class="main-banner-btn main-banner-btn-ghost" [routerLink]="['/movie', movie.id]">
+                            More Info
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Poster artwork card (reuses the movie poster component) -->
+                <div class="main-banner-poster">
+                    <moview-preview [movie]="movie" [bookmarkEffect]="true" [ratingEffect]="true"></moview-preview>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Carousel controls -->
+    <button class="main-banner-arrow main-banner-arrow-left" (click)="changeSlidePrevious()" aria-label="Previous slide" *ngIf="featuredMovies.length > 1">
+        <span class="main-banner-arrow-icon"></span>
+    </button>
+    <button class="main-banner-arrow main-banner-arrow-right" (click)="changeSlideNext()" aria-label="Next slide" *ngIf="featuredMovies.length > 1">
+        <span class="main-banner-arrow-icon"></span>
+    </button>
+
+    <div class="main-banner-navigation-button-container">
+
+        <span *ngFor="let movie of featuredMovies; index as i"
+              class="main-banner-navigation-button main-banner-navigation-button-dot"
+              [class.main-banner-navigation-button-active]="i === currentImage"
+              (click)="goToSlide(i)"></span>
+
     </div>
 </div>
 <!--------------------------------------------------------->
-<!-- Main Banbner - END -->
+<!-- Main Banner - END -->
 <!--------------------------------------------------------->

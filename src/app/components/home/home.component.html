@@ -1,80 +1,88 @@
-<banner></banner>
+<banner [movies]="movies"></banner>
 
-<div class="main-container">
+<div class="home">
+    <div class="home-inner">
 
-    <aside class="main-column-left" >
+        <!-- Left Column -->
+        <aside class="main-column-left">
 
-            <div class="recommended-movie-contatiner" @slideRight>
-                <!-- Recommended Movie Banner -->
-                <card-item [titleSize]="'24px'" cardTitle="Recommended Movie" class="card-item">
-                    <div class="card-content">
-                        <moview-preview [movie]="recommendedMovie" [bookmarkEffect]="true"></moview-preview>    
+            <div class="recommended-movie-container" @slideRight>
+                <!-- Recommended Movie -->
+                <section class="recommended-card">
+                    <header class="recommended-card-header">
+                        <span class="recommended-card-badge">
+                            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </span>
+                        <div class="recommended-card-heading">
+                            <h3 class="recommended-card-title">Recommended Movie</h3>
+                            <span class="recommended-card-subtitle">This week's top pick</span>
+                        </div>
+                    </header>
+                    <div class="recommended-card-poster">
+                        <moview-preview [movie]="recommendedMovie" [bookmarkEffect]="true"></moview-preview>
                     </div>
-                </card-item>
-                <!-- Recommended Movie Banner - END -->
+                </section>
+                <!-- Recommended Movie - END -->
             </div>
 
+        </aside>
 
 
-    </aside>
+        <!-- Middle Column -->
+        <section class="main-column-middle">
+
+            <!-- Cinema Description -->
+            <section class="cinema-description">
+                <span class="cinema-description-eyebrow">Welcome to</span>
+                <h2 class="cinema-description-title">PopcornPass</h2>
+                <p class="cinema-description-text">Step into PopcornPass — your home for unforgettable movie nights. From the latest blockbusters to timeless classics, we bring every story to life on the big screen with crystal-clear picture, immersive sound and seriously comfortable seating. Browse what's playing, pick your perfect seats and book your tickets in just a few clicks. Grab the popcorn — the show is about to begin.</p>
+            </section>
+            <!-- Cinema Description - END -->
 
 
+            <!-- Movie Previews - Container -->
+            <main class="main-movie-container">
 
-    <section class="main-column-middle">
-        
-        <!-- Cinema Description -->
-        <section class="cinema-description">
-            <h2 class="cinema-description-title">The Cinema</h2>    
-            <p class="cinema-description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-        </section>
-        <!-- Cinema Description - END -->
-        
-        
-        <!-- Movie Previews - Container -->
-        <main class="main-movie-container">
-            
-            <!-- Movies Previews -->
-            <h2 class="main-movie-container-title">Playing in the Cinema</h2>
-            <div class="main-moview-item-container">
-
-                <div class="main-moview-item" *ngFor="let movie of movies">
-                    <moview-preview [movie]="movie" [zoomEffect]="true" [ratingEffect]="true" [bookmarkEffect]="true" [componentFontSize]="16"></moview-preview>
+                <!-- Section Header -->
+                <div class="main-movie-container-header">
+                    <h2 class="main-movie-container-title">Playing in the Cinema</h2>
+                    <span class="main-movie-container-subtitle">Browse what's on the big screen right now</span>
                 </div>
 
-            </div>
-            <!-- Movies Previews - END -->
+                <!-- Movies Previews -->
+                <div class="main-moview-item-container">
+
+                    <div class="main-moview-item" *ngFor="let movie of movies">
+                        <moview-preview [movie]="movie" [zoomEffect]="true" [ratingEffect]="true" [bookmarkEffect]="true" [componentFontSize]="16"></moview-preview>
+                    </div>
+
+                </div>
+                <!-- Movies Previews - END -->
 
 
-            <!-- Movie Pagination -->
-            <div class="pagination">
-                <a href="#">&laquo;</a>
-                <a href="#" class="pagination-link-active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <span>...</span>
-                <span>
-                    <select name="page-number" id="page-number">
+                <!-- Movie Pagination -->
+                <div class="movie-pagination">
+                    <a href="#" class="movie-pagination-arrow" aria-label="Previous page">&laquo;</a>
+                    <a href="#" class="movie-pagination-link movie-pagination-link-active">1</a>
+                    <a href="#" class="movie-pagination-link">2</a>
+                    <a href="#" class="movie-pagination-link">3</a>
+                    <a href="#" class="movie-pagination-link">4</a>
+                    <a href="#" class="movie-pagination-link">5</a>
+                    <a href="#" class="movie-pagination-link">6</a>
+                    <span class="movie-pagination-ellipsis">&hellip;</span>
+                    <select name="page-number" id="page-number" class="movie-pagination-select">
                         <option value=""></option>
                         <option value="7">7</option>
                         <option value="8">8</option>
                     </select>
-                </span>
-                <a href="#">&raquo;</a>
-            </div>
-            <!-- Movie Pagination - END -->
+                    <a href="#" class="movie-pagination-arrow" aria-label="Next page">&raquo;</a>
+                </div>
+                <!-- Movie Pagination - END -->
 
-        </main>
-        <!-- Movie Previews Container - END -->
+            </main>
+            <!-- Movie Previews Container - END -->
 
-    </section>
+        </section>
 
+    </div>
 </div>
-
-
-
-
-
-

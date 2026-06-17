@@ -1,38 +1,31 @@
 <!--------------------------------------------------------->
 <!-- Navigation Bar -->
 <!--------------------------------------------------------->
-<nav (window:resize)="onResize($event)">
+<nav>
+    <a class="navbar-brand" routerLink="">
+        <span class="navbar-brand-mark">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                <!-- popcorn kernels -->
+                <circle fill="currentColor" cx="8" cy="6" r="2.3"/>
+                <circle fill="currentColor" cx="12" cy="4.2" r="2.7"/>
+                <circle fill="currentColor" cx="16" cy="6" r="2.3"/>
+                <circle fill="currentColor" cx="10" cy="7" r="2.1"/>
+                <circle fill="currentColor" cx="14" cy="7" r="2.1"/>
+                <!-- striped popcorn box -->
+                <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M5 8.6H19l-1.4 12.4a1 1 0 0 1-1 .9H7.4a1 1 0 0 1-1-.9L5 8.6Zm4.3 1.8H10.4v8.2H9.3V10.4Zm4.3 0H14.7v8.2h-1.1V10.4Z"/>
+            </svg>
+        </span>
+        <span class="navbar-brand-text">PopcornPass</span>
+    </a>
     <ul>
-        <li class="small-display-menu" [style.backgroundColor]="!menuClosed ? '#111' : 'inherit'" (click)="onMenuClick([home, news, about, contact, login])">
-            <a style="display: flex; align-items: center; width: 100%; font-size: larger;">
-                <div class="menu-icon-container">
-                    <div class="menu-icon"></div>
-                    <div class="menu-icon"></div>
-                    <div class="menu-icon"></div>
-                </div>
-                <span class="menu-icon-menu" style="float: left; position: relative; margin: auto; left: -35px">Menu</span>
-            </a>
-
-        </li>
-        
-        <!-- <li><a href="#">Home</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li onclick="document.getElementById('login-modal').style.display='block'"><a href="#">Login</a></li> -->
-
-        <li #home [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a routerLink="">Home</a></li>
-        <li #news [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a>News</a></li>
-        <li #about [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a>About</a></li>
-        <li #contact [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'"><a>Contact</a></li>
-        <!-- <li #login [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'" onclick="document.getElementById('login-modal').style.display='block'"><a>Login</a></li> -->
-        <li #login [style.display]="window.innerWidth <= widthLimit ? 'none' : 'block'" (click)="loginPageShow()">
+        <li><a routerLink="" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+        <li><a>News</a></li>
+        <li><a>About</a></li>
+        <li><a>Contact</a></li>
+        <li (click)="loginPageShow()">
           <a *ngIf="authService.isLoggedIn() === false">Login</a>
           <a *ngIf="authService.isLoggedIn() === true"> {{ authService.getCurrentUser()?.userInfo?.firstname }} {{ authService.getCurrentUser()?.userInfo?.lastname }} </a>
         </li>
-        
-        
-
     </ul>
 </nav>
 <!--------------------------------------------------------->

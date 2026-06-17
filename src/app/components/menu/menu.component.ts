@@ -15,11 +15,8 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent {
 
-  // @media screen and (max-width: 800px)
-  widthLimit = 800;                           // Koristi se da bi prikazali ili sakrili Menu Item u zavistnosti od Sirine Ekrana. Koristi se u - menu.component.html.
-  window;                                     // Koristi se da bi mogli da pristupimo window Objektu u - menu.component.html
+  window;                                     // Koristi se da bi mogli da pristupimo window Objektu (npr. location.reload() posle logina).
 
-  menuClosed = true;                          // menuClosed = true - navigation menu je zatvoren, menuClosed = false - navigation menu je otvoren.
   displayLoginPage = false;
 
   userLoginProfileImage = "../../../assets/images/user-profil-image.png";             // Predstavlja default sliku za korisnika za loginPage.
@@ -37,32 +34,6 @@ export class MenuComponent {
 
     this.window = window;
 
-  }
-
-  // Event - kada se resize window
-  onResize($event: Event) {
-    
-    // console.log($event);
-    // console.log(window.innerWidth);
-    
-  }
-
-  // Kada se klikne na Menu Button, treba da se prikazu sve opcije Menija, samo ako je sirina ekrana manja od 800px.
-  onMenuClick(elements: HTMLElement[]) {
-    
-    for (let i = 0; i < elements.length; i++) {
-      
-      if(this.menuClosed) {
-        elements[i].style.display = "block";
-      }
-      else if(!this.menuClosed) {
-        elements[i].style.display = "none";
-      }
-      
-    }
-
-    this.menuClosed = !this.menuClosed;
-    
   }
 
   //-----------------------------------------------------------------------------------------------------

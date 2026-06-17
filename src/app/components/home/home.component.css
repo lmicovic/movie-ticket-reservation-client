@@ -1,181 +1,362 @@
-.main-container {
-  margin-top: 60px;
+/* *************************************************************************** */
+/* Home - Design Tokens */
+/* *************************************************************************** */
+:host {
+  --home-bg: #f6f7fb;
+  --home-surface: #ffffff;
+  --home-border: #e7e9f0;
+  --home-text: #1f2430;
+  --home-text-muted: #6b7280;
+  --home-accent-start: #4f6ef7;
+  --home-accent-end: #7b5cff;
+  --home-accent-gradient: linear-gradient(135deg, #4f6ef7 0%, #7b5cff 100%);
+  --home-shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.05);
+  --home-shadow-md: 0 8px 24px rgba(149, 157, 165, 0.20);
+  --home-shadow-lg: 0 18px 40px rgba(79, 110, 247, 0.18);
+
+  display: block;
+  background: var(--home-bg);
 }
 
-.main-movie-container::after {
-  content: "";
-  display: table;
-  clear: both;
+
+/* *************************************************************************** */
+/* Layout */
+/* *************************************************************************** */
+.home {
+  background: var(--home-bg);
+  padding-bottom: 40px;
 }
 
-.main-container::after {
-  content: "";
-  display: table;
-  clear: both;
+.home-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 56px 32px 0 32px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
 }
 
 .main-column-left {
+  flex: 0 0 290px;
+  position: sticky;
+  top: 24px;
+}
+
+.main-column-middle {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+
+/* *************************************************************************** */
+/* Recommended Movie Card */
+/* *************************************************************************** */
+.recommended-card {
   position: relative;
-  width: 23%;
-  margin: 0 30px 0 30px;
+  background: var(--home-surface);
+  border: 1px solid var(--home-border);
+  border-radius: 20px;
+  box-shadow: var(--home-shadow-md);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.main-column-middle {
-  width: 67%;
-  margin: 0 0 0 40px;
+.recommended-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--home-shadow-lg);
 }
 
-.main-column-left,
-.main-column-middle {
-  float: left;
+/* Header */
+.recommended-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 22px;
+  background: linear-gradient(135deg, rgba(79, 110, 247, 0.10) 0%, rgba(123, 92, 255, 0.10) 100%);
+  border-bottom: 1px solid var(--home-border);
 }
 
+.recommended-card-badge {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--home-accent-gradient);
+  box-shadow: 0 8px 18px rgba(79, 110, 247, 0.4);
+}
+
+.recommended-card-heading {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.recommended-card-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  color: var(--home-text);
+}
+
+.recommended-card-subtitle {
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--home-accent-start);
+}
+
+/* Poster frame */
+.recommended-card-poster {
+  margin: 18px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--home-shadow-sm);
+}
 
 
 /* *************************************************************************** */
 /* Cinema Description */
 /* *************************************************************************** */
-.cinema-description-title {
-  margin: 0 0 10px 0;
+.cinema-description {
+  background: var(--home-surface);
+  border: 1px solid var(--home-border);
+  border-radius: 20px;
+  box-shadow: var(--home-shadow-md);
+  padding: 32px 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Accent bar down the left edge */
+.cinema-description::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--home-accent-gradient);
+}
+
+.cinema-description-eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--home-accent-start);
+  margin-bottom: 6px;
 }
 
 .cinema-description-title {
-  font-size: 26px;
+  margin: 0 0 14px 0;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--home-text);
 }
 
-/* *************************************************************************** */
-/* Cinema Description - END */
-/* *************************************************************************** */
+.cinema-description-text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--home-text-muted);
+}
 
 
 /* *************************************************************************** */
 /* Active Movies */
 /* *************************************************************************** */
 .main-movie-container {
-  border: 1px solid #DFDFDF;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  margin: 65px 0 25px 0;
-  border-radius: 18px;
+  background: var(--home-surface);
+  border: 1px solid var(--home-border);
+  box-shadow: var(--home-shadow-md);
+  margin: 32px 0 25px 0;
+  border-radius: 20px;
   overflow: hidden;
 }
 
-
-.main-moview-item-container {
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  margin: 0 0 0 0;
-  padding: 20px 0 20px 5px;
-
+.main-movie-container-header {
+  padding: 26px 30px 4px 30px;
 }
 
 .main-movie-container-title {
-  margin: 25px 0 20px 30px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: var(--home-text);
+  position: relative;
+  padding-left: 16px;
+}
+
+/* Accent tick before the title */
+.main-movie-container-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 24px;
+  border-radius: 3px;
+  background: var(--home-accent-gradient);
+}
+
+.main-movie-container-subtitle {
+  display: block;
+  margin: 8px 0 0 16px;
+  font-size: 14px;
+  color: var(--home-text-muted);
+}
+
+.main-moview-item-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 24px;
+  padding: 24px 30px 28px 30px;
 }
 
 .main-moview-item {
-  max-width: 30%;
-  min-width: 300px;
-  padding: 0px 0px 15px 0px;
-  margin: 0 0 0 30px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--home-surface);
+  box-shadow: var(--home-shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.pagination {
-  float: right;
-  margin: 12px 30px 15px 0px;
+.main-moview-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--home-shadow-lg);
 }
 
-.pagination a,
-span {
-  color: black;
-  float: left;
-  padding: 6px 8px;
-  margin: 2px 6px;
+
+/* *************************************************************************** */
+/* Pagination */
+/* *************************************************************************** */
+.movie-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 4px 30px 26px 30px;
+}
+
+.movie-pagination-link,
+.movie-pagination-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 38px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid var(--home-border);
+  background: var(--home-surface);
+  color: var(--home-text);
+  font-size: 15px;
+  font-weight: 600;
   text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
 
-.pagination-link-active {
-
-  background-color: #AAA;
-  border-radius: 8px;
-
+.movie-pagination-link:hover,
+.movie-pagination-arrow:hover {
+  border-color: transparent;
+  background: rgba(79, 110, 247, 0.10);
+  color: var(--home-accent-start);
+  transform: translateY(-1px);
 }
 
-.pagination select {
-  width: 60px;
-  height: 25px;
+.movie-pagination-link-active,
+.movie-pagination-link-active:hover {
+  background: var(--home-accent-gradient);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 6px 14px rgba(79, 110, 247, 0.35);
 }
 
+.movie-pagination-ellipsis {
+  display: inline-flex;
+  align-items: flex-end;
+  height: 38px;
+  padding: 0 2px;
+  color: var(--home-text-muted);
+  font-weight: 700;
+}
+
+.movie-pagination-select {
+  height: 38px;
+  padding: 0 8px;
+  border-radius: 10px;
+  border: 1px solid var(--home-border);
+  background: var(--home-surface);
+  color: var(--home-text);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.movie-pagination-select:focus {
+  outline: none;
+  border-color: var(--home-accent-start);
+  box-shadow: 0 0 0 3px rgba(79, 110, 247, 0.18);
+}
 
 
 /* *************************************************************************** */
-/* Active Movies - END */
+/* Responsive */
 /* *************************************************************************** */
+@media screen and (max-width: 900px) {
 
-@media screen and (max-width: 800px) {
+  .home-inner {
+    flex-direction: column;
+    padding: 36px 20px 0 20px;
+    gap: 28px;
+  }
 
   .main-column-left,
   .main-column-middle {
-
-    width: 95%;
-    margin: 0;
-
+    width: 100%;
+    flex: 1 1 auto;
   }
 
   .main-column-left {
-    left: 50%;
-    transform: translate(-50%, 0);
+    position: static;
+    max-width: 420px;
+    margin: 0 auto;
   }
+}
 
-  .main-column-middle {
-
-    width: 100%;
-    /* padding: 30px; */
-
-  }
+@media screen and (max-width: 600px) {
 
   .cinema-description {
-
-    padding: 15px;
-    width: 92%;
-    margin: 30px auto 0 auto;
-
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border-radius: 12px;
-
+    padding: 26px 22px;
   }
 
   .cinema-description-title {
-    margin: 10px 0 15px 15px;
     font-size: 28px;
-
-  }
-
-  .main-movie-container {
-    box-shadow: none;
-    border: none;
-
   }
 
   .main-moview-item-container {
-    flex-direction: column;
-    flex-wrap: nowrap;
+    grid-template-columns: 1fr;
+    padding: 20px;
   }
 
-  .main-movie-container-title {
-    font-size: 24px;
-    text-align: center;
+  .main-movie-container-header {
+    padding: 22px 22px 4px 22px;
   }
 
-  .main-moview-item {
-    max-width: 100%;
-    min-width: 300px;
-    padding-right: 40px;
-
+  .movie-pagination {
+    justify-content: center;
+    padding: 4px 20px 24px 20px;
   }
-
-  
-
 }

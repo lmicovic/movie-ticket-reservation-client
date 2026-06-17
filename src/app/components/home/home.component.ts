@@ -55,30 +55,31 @@ export class HomeComponent implements OnInit {
 
   private loadMovies(): void {
 
-    // Should Chain Observables - ERROR
-    
-    // Get All Movies
-    this.movieService.getAll().subscribe((response) => {
+    // Get All Movies (falls back to fake movies if the backend is unavailable / empty)
+    this.movieService.getAll().subscribe({
 
-      this.movies = response;
-      
-      // Load All Movies Images
-      for(let i = 0; i < this.movies.length; i++) {
+      next: (response) => {
 
-        this.movieService.getMovieImage((this.movies[i].id as number)).subscribe((response) => {
-          
-          // console.log(response);
-          
+        if (!response || response.length === 0) {
+          this.movies = this.getFakeMovies();
+          return;
+        }
 
-          let image = URL.createObjectURL(response);
-          if(image === undefined || image === null || image === "") {
-            console.error("Image for Movie: " + this.movies[i] + " is not defined.");
-          }
+        this.movies = response;
 
-          this.movies[i].image = image;                    // Add Movie Image to Movie
+        // Load All Movies Images
+        for (let i = 0; i < this.movies.length; i++) {
 
-        });
+          this.movieService.getMovieImage((this.movies[i].id as number)).subscribe((blob) => {
+            this.movies[i].image = URL.createObjectURL(blob);
+          });
+        }
+      },
+
+      error: () => {
+        this.movies = this.getFakeMovies();
       }
+
     });
 
   }
@@ -88,47 +89,54 @@ export class HomeComponent implements OnInit {
 
   private loadRecommendedMovie(): void {
 
-    this.movieService.getRecommendedMovie().subscribe((response) => {
-        
-      this.recommendedMovie = response;
+    this.loadRecommendedMovieOnce();
 
-      this.movieService.getMovieImage((this.recommendedMovie.id as number)).subscribe((response2) => {
-       
-        let image = URL.createObjectURL(response2);
-        if(image === undefined || image === null || image === "") {
-          console.error("Image for Movie: " + this.recommendedMovie + " is not defined.");
-        }
-
-        this.recommendedMovie.image = image;
-
-      });
-      
-    });
-
+    // Refresh the recommendation periodically
     setInterval(() => {
-
-      this.movieService.getRecommendedMovie().subscribe((response: MovieDTO) => {
-        
-        this.recommendedMovie = response;
-
-        this.movieService.getMovieImage((this.recommendedMovie.id as number)).subscribe((response2) => {
-         
-          let image = URL.createObjectURL(response2);
-          if(image === undefined || image === null || image === "") {
-            console.error("Image for Movie: " + this.recommendedMovie + " is not defined.");
-          }
-
-          this.recommendedMovie.image = image;
-
-        });
-        
-      });
-
+      this.loadRecommendedMovieOnce();
     }, 30000);
 
   }
 
-  
+
+  private loadRecommendedMovieOnce(): void {
+
+    this.movieService.getRecommendedMovie().subscribe({
+
+      next: (response: MovieDTO) => {
+
+        this.recommendedMovie = response;
+
+        this.movieService.getMovieImage((this.recommendedMovie.id as number)).subscribe((blob) => {
+          this.recommendedMovie.image = URL.createObjectURL(blob);
+        });
+      },
+
+      error: () => {
+        // Fall back to a fake recommendation if the backend is unavailable
+        if (this.recommendedMovie.id === -1) {
+          this.recommendedMovie = this.getFakeMovies()[0];
+        }
+      }
+
+    });
+
+  }
+
+
+  // Fake movies used when the backend is unavailable (posters are generated from the title)
+  private getFakeMovies(): MovieDTO[] {
+    return [
+      new Movie(1, "Neon Horizon", MovieGenre.Action, "", 8.4, "A rogue pilot races across a dystopian skyline to outrun her past.", ["A. Vega"], ["L. Stone", "M. Cruz"], 2024, "USA", 128, ""),
+      new Movie(2, "The Last Letter", MovieGenre.Drama, "", 7.9, "Two strangers connect through a box of forgotten wartime letters.", ["R. Hale"], ["E. Park"], 2023, "UK", 112, ""),
+      new Movie(3, "Midnight Comedy Club", MovieGenre.Comedy, "", 7.2, "An aspiring comedian gets one shot at the city's toughest stage.", ["J. Romano"], ["D. Fox"], 2024, "USA", 98, ""),
+      new Movie(4, "Silent Frequency", MovieGenre.Thriller, "", 8.1, "A radio engineer intercepts a signal that should not exist.", ["S. Novak"], ["K. Reed"], 2022, "Germany", 121, ""),
+      new Movie(5, "Crimson Tide Rising", MovieGenre.Action, "", 7.6, "A coastal town fights back when the sea turns against them.", ["P. Ocean"], ["T. Wave"], 2023, "Australia", 135, ""),
+      new Movie(6, "Paper Moons", MovieGenre.Drama, "", 8.7, "A travelling puppeteer searches for the daughter he left behind.", ["I. Moon"], ["N. Star"], 2024, "France", 119, ""),
+      new Movie(7, "Office Heist", MovieGenre.Comedy, "", 6.9, "Four bored interns plan the world's most harmless robbery.", ["B. Klein"], ["C. Day"], 2023, "Canada", 102, ""),
+      new Movie(8, "Echoes in the Dark", MovieGenre.Thriller, "", 8.0, "A detective with insomnia chases a killer who only strikes at dawn.", ["V. Cole"], ["H. Frost"], 2022, "USA", 126, "")
+    ];
+  }
 
 }
 

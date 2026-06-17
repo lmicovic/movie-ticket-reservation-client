@@ -1,14 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "bootstrap/dist/css/bootstrap.css";
 
 
+/* *************************************************************************** */
+/* Global Design Tokens */
+/* *************************************************************************** */
+:root {
+    /* Brand accent */
+    --accent-start: #4f6ef7;
+    --accent-end: #7b5cff;
+    --accent-gradient: linear-gradient(135deg, #4f6ef7 0%, #7b5cff 100%);
+    --accent-soft: rgba(79, 110, 247, 0.12);
 
+    /* Dark "ink" surfaces (nav / footer) */
+    --ink-900: #12131c;
+    --ink-850: #161826;
+    --ink-800: #1b1e2e;
+    --ink-700: #242838;
+
+    /* Text on dark surfaces */
+    --on-dark: #eceefb;
+    --on-dark-muted: #9aa1b8;
+    --on-dark-faint: #6f7488;
+
+    /* Typography */
+    --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Roboto, Arial, sans-serif;
+}
 
 
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-sans);
     padding: 0;
     margin: 0;
 }
